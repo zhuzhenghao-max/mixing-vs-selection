@@ -143,13 +143,9 @@ python scripts/make_figures.py
 
 ## 7. Depositing the release
 
-1. Create the GitHub repository and push the contents of this folder.
-2. Create a Zenodo deposit, upload the large files from Section 5 (plus the
-   full seed arrays), and publish. Zenodo assigns the DOI.
-3. Replace the placeholders in `CITATION.cff` (`repository-code`, `doi`), the
-   data-availability sentence in `manuscript/draft.tex` (`[repository URL]`,
-   `[Zenodo DOI]`), and the two archive notes in `README.md`.
-4. Optionally tag the GitHub release as `v1.0.0` to match the version here.
+The release is available at https://github.com/zhuzhenghao-max/mixing-vs-selection
+and archived at https://doi.org/10.5281/zenodo.24223292. The GitHub tag is
+`v1.0.0`, matching the version in `CITATION.cff` and `.zenodo.json`.
 
 The archive license is set to CC BY 4.0 in `.zenodo.json` because the deposit
 is data-heavy; the code itself is MIT-licensed (see `LICENSE`).

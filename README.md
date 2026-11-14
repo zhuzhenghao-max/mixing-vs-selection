@@ -57,8 +57,9 @@ LICENSE, LICENSE_DATA code (MIT) and derived data/figures (CC BY 4.0)
 ```
 
 The largest per-target arrays (the GEARS predictions and the raw row caches)
-are archived on Zenodo. The Tier B arrays are included here so the headline
-audit runs offline. See `MANIFEST.md` for the file list and checksums.
+are archived on Zenodo at https://doi.org/10.5281/zenodo.24223292. The Tier B
+arrays are included here so the headline audit runs offline. See `MANIFEST.md`
+for the file list and checksums.
 
 ## Quick start
 
@@ -96,15 +97,15 @@ challenge test data were used. The H1 responses are the released training
 split.
 
 Derived data and per-target scores are released with this repository and at
-the Zenodo archive (DOI to be inserted after deposit). Code is released under
-the MIT license; derived data and figures are released under CC BY 4.0. Raw
-third-party data remain under their original licenses.
+the Zenodo archive (https://doi.org/10.5281/zenodo.24223292). Code is released
+under the MIT license; derived data and figures are released under CC BY 4.0.
+Raw third-party data remain under their original licenses.
 
 ## Citation
 
 If you use the benchmark, please cite the manuscript and the Zenodo archive.
-`CITATION.cff` contains the machine-readable record; add the repository URL
-and DOI after they are assigned.
+`CITATION.cff` contains the machine-readable record, including the repository
+URL and DOI.
 
 ## Contact
 

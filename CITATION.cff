@@ -24,6 +24,5 @@ keywords:
   - cross-cell-line transfer
   - benchmark
   - perturbation discrimination score
-# Fill in after the repository and archive are created:
-# repository-code: https://github.com/<account>/<repository>
-# doi: 10.5281/zenodo.<record>
+repository-code: https://github.com/zhuzhenghao-max/mixing-vs-selection
+doi: 10.5281/zenodo.24223292
