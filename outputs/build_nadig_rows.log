@@ -1,0 +1,6 @@
+gene cols 6546 -> mapped 6118
+k562: 1383 targets x 6118 genes, groups/target min 18 max 48
+rpe1: 1499 targets x 6118 genes, groups/target min 20 max 56
+hepg2: 1340 targets x 6118 genes, groups/target min 19 max 56
+jurkat: 1537 targets x 6118 genes, groups/target min 20 max 55
+saved outputs/nadig_rows.npz

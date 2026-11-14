@@ -1,0 +1,222 @@
+  k562     1383 rows (nadig)
+  rpe1     1499 rows (nadig)
+  hepg2    1340 rows (nadig)
+  jurkat   1537 rows (nadig)
+
+=== A:k562 | sources ['rpe1', 'hepg2', 'jurkat'] | covered by all 638 ===
+  equal-mix PDS: [0] +0.7248  [1] +0.7738  [2] +0.8182  [0-1] +0.7598  [0-2] +0.7911  [1-2] +0.8146  [0-1-2] +0.7950
+  split 0: eval 150 calib 488 comp 487
+  split 1: eval 150 calib 488 comp 487
+  split 2: eval 150 calib 488 comp 487
+  [0-1  ] k= 20 kmeans delta -0.0149 [-0.0444,+0.0149] pds +0.7441
+  [0-1  ] k= 20 random delta -0.0397 [-0.0649,-0.0141] pds +0.7192
+  [0-1  ] k= 50 kmeans delta +0.0052 [-0.0206,+0.0317] pds +0.7642
+  [0-1  ] k= 50 random delta -0.0019 [-0.0262,+0.0225] pds +0.7570
+  [0-1  ] k=100 kmeans delta +0.0078 [-0.0170,+0.0341] pds +0.7668
+  [0-1  ] k=100 random delta +0.0214 [-0.0001,+0.0434] pds +0.7804
+  [0-1  ] k=200 kmeans delta +0.0137 [-0.0114,+0.0388] pds +0.7726
+  [0-1  ] k=200 random delta +0.0346 [+0.0136,+0.0563] pds +0.7935
+  [0-2  ] k= 20 kmeans delta -0.0021 [-0.0264,+0.0232] pds +0.7833
+  [0-2  ] k= 20 random delta -0.0553 [-0.0781,-0.0326] pds +0.7301
+  [0-2  ] k= 50 kmeans delta +0.0047 [-0.0192,+0.0290] pds +0.7901
+  [0-2  ] k= 50 random delta +0.0069 [-0.0146,+0.0290] pds +0.7923
+  [0-2  ] k=100 kmeans delta +0.0028 [-0.0206,+0.0259] pds +0.7882
+  [0-2  ] k=100 random delta +0.0170 [-0.0046,+0.0383] pds +0.8024
+  [0-2  ] k=200 kmeans delta -0.0002 [-0.0210,+0.0206] pds +0.7852
+  [0-2  ] k=200 random delta +0.0275 [+0.0058,+0.0492] pds +0.8129
+  [1-2  ] k= 20 kmeans delta -0.0232 [-0.0477,+0.0020] pds +0.7864
+  [1-2  ] k= 20 random delta -0.0549 [-0.0771,-0.0334] pds +0.7547
+  [1-2  ] k= 50 kmeans delta -0.0283 [-0.0504,-0.0060] pds +0.7814
+  [1-2  ] k= 50 random delta -0.0266 [-0.0476,-0.0050] pds +0.7830
+  [1-2  ] k=100 kmeans delta -0.0441 [-0.0659,-0.0224] pds +0.7655
+  [1-2  ] k=100 random delta -0.0313 [-0.0518,-0.0112] pds +0.7783
+  [1-2  ] k=200 kmeans delta -0.0488 [-0.0708,-0.0273] pds +0.7608
+  [1-2  ] k=200 random delta -0.0250 [-0.0460,-0.0045] pds +0.7846
+  [0-1-2] k= 20 kmeans delta +0.0145 [-0.0130,+0.0423] pds +0.8034
+  [0-1-2] k= 20 random delta -0.0213 [-0.0471,+0.0056] pds +0.7677
+  [0-1-2] k= 50 kmeans delta +0.0342 [+0.0086,+0.0601] pds +0.8232
+  [0-1-2] k= 50 random delta +0.0197 [-0.0046,+0.0443] pds +0.8087
+  [0-1-2] k=100 kmeans delta +0.0302 [+0.0062,+0.0539] pds +0.8191
+  [0-1-2] k=100 random delta +0.0379 [+0.0137,+0.0622] pds +0.8268
+  [0-1-2] k=200 kmeans delta +0.0245 [+0.0019,+0.0461] pds +0.8135
+  [0-1-2] k=200 random delta +0.0617 [+0.0381,+0.0861] pds +0.8507
+  add hepg2  to [0    ] source gain +0.0350 [+0.0266,+0.0435]
+  add jurkat to [0    ] source gain +0.0663 [+0.0535,+0.0787]
+  add rpe1   to [1    ] source gain -0.0139 [-0.0261,-0.0017]
+  add jurkat to [1    ] source gain +0.0408 [+0.0308,+0.0511]
+  add rpe1   to [2    ] source gain -0.0271 [-0.0392,-0.0154]
+  add hepg2  to [2    ] source gain -0.0037 [-0.0130,+0.0057]
+  add jurkat to [0-1  ] source gain +0.0352 [+0.0267,+0.0436]
+  add hepg2  to [0-2  ] source gain +0.0039 [-0.0012,+0.0090]
+  add rpe1   to [1-2  ] source gain -0.0195 [-0.0286,-0.0104]
+
+=== A:rpe1 | sources ['k562', 'hepg2', 'jurkat'] | covered by all 638 ===
+  equal-mix PDS: [0] +0.8159  [1] +0.8063  [2] +0.8042  [0-1] +0.8295  [0-2] +0.8263  [1-2] +0.8282  [0-1-2] +0.8401
+  split 0: eval 150 calib 488 comp 487
+  split 1: eval 150 calib 488 comp 487
+  split 2: eval 150 calib 488 comp 487
+  [0-1  ] k= 20 kmeans delta -0.0641 [-0.0987,-0.0287] pds +0.7595
+  [0-1  ] k= 20 random delta -0.1424 [-0.1713,-0.1126] pds +0.6812
+  [0-1  ] k= 50 kmeans delta -0.0288 [-0.0640,+0.0068] pds +0.7947
+  [0-1  ] k= 50 random delta -0.0831 [-0.1125,-0.0533] pds +0.7404
+  [0-1  ] k=100 kmeans delta -0.0621 [-0.0965,-0.0271] pds +0.7615
+  [0-1  ] k=100 random delta -0.0241 [-0.0538,+0.0057] pds +0.7994
+  [0-1  ] k=200 kmeans delta -0.0970 [-0.1340,-0.0608] pds +0.7266
+  [0-1  ] k=200 random delta -0.0205 [-0.0471,+0.0056] pds +0.8030
+  [0-2  ] k= 20 kmeans delta -0.0410 [-0.0746,-0.0071] pds +0.7784
+  [0-2  ] k= 20 random delta -0.1057 [-0.1379,-0.0731] pds +0.7138
+  [0-2  ] k= 50 kmeans delta -0.0305 [-0.0618,+0.0008] pds +0.7890
+  [0-2  ] k= 50 random delta -0.0799 [-0.1099,-0.0499] pds +0.7396
+  [0-2  ] k=100 kmeans delta -0.0656 [-0.1026,-0.0298] pds +0.7539
+  [0-2  ] k=100 random delta -0.0594 [-0.0891,-0.0300] pds +0.7601
+  [0-2  ] k=200 kmeans delta -0.0943 [-0.1313,-0.0579] pds +0.7252
+  [0-2  ] k=200 random delta -0.0531 [-0.0844,-0.0223] pds +0.7664
+  [1-2  ] k= 20 kmeans delta -0.0411 [-0.0756,-0.0052] pds +0.7825
+  [1-2  ] k= 20 random delta -0.0784 [-0.1082,-0.0471] pds +0.7453
+  [1-2  ] k= 50 kmeans delta -0.0211 [-0.0554,+0.0144] pds +0.8026
+  [1-2  ] k= 50 random delta -0.0440 [-0.0758,-0.0125] pds +0.7797
+  [1-2  ] k=100 kmeans delta -0.0100 [-0.0447,+0.0256] pds +0.8136
+  [1-2  ] k=100 random delta -0.0113 [-0.0419,+0.0199] pds +0.8124
+  [1-2  ] k=200 kmeans delta -0.0732 [-0.1084,-0.0383] pds +0.7505
+  [1-2  ] k=200 random delta +0.0063 [-0.0243,+0.0368] pds +0.8299
+  [0-1-2] k= 20 kmeans delta -0.0670 [-0.1024,-0.0295] pds +0.7701
+  [0-1-2] k= 20 random delta -0.1115 [-0.1442,-0.0786] pds +0.7255
+  [0-1-2] k= 50 kmeans delta -0.0324 [-0.0666,+0.0037] pds +0.8046
+  [0-1-2] k= 50 random delta -0.0666 [-0.0987,-0.0340] pds +0.7705
+  [0-1-2] k=100 kmeans delta -0.0143 [-0.0482,+0.0192] pds +0.8228
+  [0-1-2] k=100 random delta -0.0266 [-0.0597,+0.0070] pds +0.8104
+  [0-1-2] k=200 kmeans delta -0.1508 [-0.1887,-0.1138] pds +0.6862
+  [0-1-2] k=200 random delta -0.0221 [-0.0554,+0.0113] pds +0.8150
+  add hepg2  to [0    ] source gain +0.0136 [-0.0015,+0.0286]
+  add jurkat to [0    ] source gain +0.0104 [-0.0030,+0.0241]
+  add k562   to [1    ] source gain +0.0231 [+0.0132,+0.0324]
+  add jurkat to [1    ] source gain +0.0219 [+0.0115,+0.0324]
+  add k562   to [2    ] source gain +0.0222 [+0.0130,+0.0315]
+  add hepg2  to [2    ] source gain +0.0240 [+0.0101,+0.0382]
+  add jurkat to [0-1  ] source gain +0.0106 [+0.0019,+0.0196]
+  add hepg2  to [0-2  ] source gain +0.0138 [+0.0031,+0.0246]
+  add k562   to [1-2  ] source gain +0.0119 [+0.0051,+0.0186]
+
+=== A:hepg2 | sources ['k562', 'rpe1', 'jurkat'] | covered by all 638 ===
+  equal-mix PDS: [0] +0.8227  [1] +0.7098  [2] +0.7899  [0-1] +0.7660  [0-2] +0.8191  [1-2] +0.7551  [0-1-2] +0.7826
+  split 0: eval 150 calib 488 comp 487
+  split 1: eval 150 calib 488 comp 487
+  split 2: eval 150 calib 488 comp 487
+  [0-1  ] k= 20 kmeans delta -0.0029 [-0.0290,+0.0245] pds +0.7606
+  [0-1  ] k= 20 random delta -0.0499 [-0.0746,-0.0244] pds +0.7136
+  [0-1  ] k= 50 kmeans delta +0.0069 [-0.0165,+0.0316] pds +0.7704
+  [0-1  ] k= 50 random delta -0.0244 [-0.0470,-0.0012] pds +0.7391
+  [0-1  ] k=100 kmeans delta +0.0171 [-0.0045,+0.0393] pds +0.7806
+  [0-1  ] k=100 random delta -0.0028 [-0.0241,+0.0191] pds +0.7606
+  [0-1  ] k=200 kmeans delta -0.0116 [-0.0311,+0.0078] pds +0.7518
+  [0-1  ] k=200 random delta +0.0104 [-0.0109,+0.0321] pds +0.7738
+  [0-2  ] k= 20 kmeans delta -0.0548 [-0.0836,-0.0269] pds +0.7640
+  [0-2  ] k= 20 random delta -0.1512 [-0.1757,-0.1267] pds +0.6676
+  [0-2  ] k= 50 kmeans delta -0.0926 [-0.1198,-0.0653] pds +0.7262
+  [0-2  ] k= 50 random delta -0.1049 [-0.1297,-0.0795] pds +0.7139
+  [0-2  ] k=100 kmeans delta -0.1026 [-0.1283,-0.0759] pds +0.7162
+  [0-2  ] k=100 random delta -0.0915 [-0.1173,-0.0664] pds +0.7272
+  [0-2  ] k=200 kmeans delta -0.1258 [-0.1531,-0.0987] pds +0.6930
+  [0-2  ] k=200 random delta -0.0976 [-0.1230,-0.0726] pds +0.7211
+  [1-2  ] k= 20 kmeans delta -0.0096 [-0.0379,+0.0197] pds +0.7466
+  [1-2  ] k= 20 random delta -0.0323 [-0.0575,-0.0067] pds +0.7238
+  [1-2  ] k= 50 kmeans delta +0.0212 [-0.0027,+0.0453] pds +0.7774
+  [1-2  ] k= 50 random delta +0.0009 [-0.0232,+0.0252] pds +0.7571
+  [1-2  ] k=100 kmeans delta +0.0310 [+0.0070,+0.0555] pds +0.7871
+  [1-2  ] k=100 random delta +0.0298 [+0.0067,+0.0537] pds +0.7859
+  [1-2  ] k=200 kmeans delta +0.0089 [-0.0134,+0.0307] pds +0.7650
+  [1-2  ] k=200 random delta +0.0401 [+0.0182,+0.0619] pds +0.7963
+  [0-1-2] k= 20 kmeans delta +0.0001 [-0.0301,+0.0309] pds +0.7820
+  [0-1-2] k= 20 random delta -0.0451 [-0.0741,-0.0138] pds +0.7368
+  [0-1-2] k= 50 kmeans delta +0.0326 [+0.0046,+0.0617] pds +0.8146
+  [0-1-2] k= 50 random delta +0.0283 [+0.0016,+0.0573] pds +0.8103
+  [0-1-2] k=100 kmeans delta +0.0562 [+0.0301,+0.0834] pds +0.8382
+  [0-1-2] k=100 random delta +0.0560 [+0.0303,+0.0833] pds +0.8380
+  [0-1-2] k=200 kmeans delta +0.0394 [+0.0133,+0.0651] pds +0.8214
+  [0-1-2] k=200 random delta +0.0742 [+0.0482,+0.1006] pds +0.8561
+  add rpe1   to [0    ] source gain -0.0567 [-0.0728,-0.0405]
+  add jurkat to [0    ] source gain -0.0036 [-0.0161,+0.0090]
+  add k562   to [1    ] source gain +0.0562 [+0.0469,+0.0655]
+  add jurkat to [1    ] source gain +0.0453 [+0.0351,+0.0553]
+  add k562   to [2    ] source gain +0.0293 [+0.0199,+0.0388]
+  add rpe1   to [2    ] source gain -0.0348 [-0.0498,-0.0205]
+  add jurkat to [0-1  ] source gain +0.0166 [+0.0093,+0.0241]
+  add rpe1   to [0-2  ] source gain -0.0366 [-0.0480,-0.0255]
+  add k562   to [1-2  ] source gain +0.0275 [+0.0219,+0.0331]
+
+=== A:jurkat | sources ['k562', 'rpe1', 'hepg2'] | covered by all 638 ===
+  equal-mix PDS: [0] +0.8630  [1] +0.7487  [2] +0.7832  [0-1] +0.8284  [0-2] +0.8484  [1-2] +0.7786  [0-1-2] +0.8261
+  split 0: eval 150 calib 488 comp 487
+  split 1: eval 150 calib 488 comp 487
+  split 2: eval 150 calib 488 comp 487
+  [0-1  ] k= 20 kmeans delta +0.0035 [-0.0198,+0.0285] pds +0.8399
+  [0-1  ] k= 20 random delta -0.0633 [-0.0861,-0.0396] pds +0.7731
+  [0-1  ] k= 50 kmeans delta +0.0119 [-0.0105,+0.0363] pds +0.8483
+  [0-1  ] k= 50 random delta -0.0184 [-0.0391,+0.0037] pds +0.8180
+  [0-1  ] k=100 kmeans delta +0.0144 [-0.0077,+0.0375] pds +0.8507
+  [0-1  ] k=100 random delta +0.0113 [-0.0086,+0.0329] pds +0.8477
+  [0-1  ] k=200 kmeans delta +0.0016 [-0.0192,+0.0242] pds +0.8379
+  [0-1  ] k=200 random delta +0.0328 [+0.0134,+0.0537] pds +0.8692
+  [0-2  ] k= 20 kmeans delta -0.0160 [-0.0428,+0.0106] pds +0.8372
+  [0-2  ] k= 20 random delta -0.0774 [-0.1011,-0.0533] pds +0.7759
+  [0-2  ] k= 50 kmeans delta -0.0260 [-0.0486,-0.0024] pds +0.8272
+  [0-2  ] k= 50 random delta -0.0620 [-0.0812,-0.0420] pds +0.7912
+  [0-2  ] k=100 kmeans delta -0.0473 [-0.0695,-0.0249] pds +0.8059
+  [0-2  ] k=100 random delta -0.0464 [-0.0666,-0.0244] pds +0.8068
+  [0-2  ] k=200 kmeans delta -0.0739 [-0.0964,-0.0516] pds +0.7793
+  [0-2  ] k=200 random delta -0.0541 [-0.0746,-0.0334] pds +0.7991
+  [1-2  ] k= 20 kmeans delta -0.0182 [-0.0472,+0.0116] pds +0.7647
+  [1-2  ] k= 20 random delta -0.0465 [-0.0717,-0.0208] pds +0.7365
+  [1-2  ] k= 50 kmeans delta +0.0195 [-0.0080,+0.0477] pds +0.8024
+  [1-2  ] k= 50 random delta +0.0032 [-0.0216,+0.0284] pds +0.7862
+  [1-2  ] k=100 kmeans delta +0.0450 [+0.0177,+0.0726] pds +0.8279
+  [1-2  ] k=100 random delta +0.0304 [+0.0074,+0.0542] pds +0.8133
+  [1-2  ] k=200 kmeans delta +0.0371 [+0.0097,+0.0649] pds +0.8201
+  [1-2  ] k=200 random delta +0.0451 [+0.0234,+0.0681] pds +0.8281
+  [0-1-2] k= 20 kmeans delta -0.0106 [-0.0371,+0.0167] pds +0.8209
+  [0-1-2] k= 20 random delta -0.0580 [-0.0835,-0.0321] pds +0.7735
+  [0-1-2] k= 50 kmeans delta +0.0173 [-0.0085,+0.0438] pds +0.8488
+  [0-1-2] k= 50 random delta +0.0050 [-0.0198,+0.0314] pds +0.8365
+  [0-1-2] k=100 kmeans delta +0.0385 [+0.0143,+0.0642] pds +0.8700
+  [0-1-2] k=100 random delta +0.0256 [+0.0016,+0.0510] pds +0.8571
+  [0-1-2] k=200 kmeans delta +0.0215 [-0.0022,+0.0462] pds +0.8530
+  [0-1-2] k=200 random delta +0.0489 [+0.0251,+0.0736] pds +0.8804
+  add rpe1   to [0    ] source gain -0.0346 [-0.0480,-0.0211]
+  add hepg2  to [0    ] source gain -0.0146 [-0.0253,-0.0037]
+  add k562   to [1    ] source gain +0.0797 [+0.0669,+0.0921]
+  add hepg2  to [1    ] source gain +0.0299 [+0.0212,+0.0385]
+  add k562   to [2    ] source gain +0.0652 [+0.0536,+0.0768]
+  add rpe1   to [2    ] source gain -0.0045 [-0.0172,+0.0082]
+  add hepg2  to [0-1  ] source gain -0.0023 [-0.0088,+0.0038]
+  add rpe1   to [0-2  ] source gain -0.0223 [-0.0326,-0.0122]
+  add k562   to [1-2  ] source gain +0.0474 [+0.0393,+0.0556]
+
+wrote outputs/phase2_source_budget_A.csv
+
+Exchange rate: k* calibration perturbations ~ one source line
+  k562     [0-1  ] best +jurkat gain +0.0352 | kmeans k* >200 | all [nan]
+  k562     [0-1  ] best +jurkat gain +0.0352 | random k* >200 | all [nan]
+  k562     [0-2  ] best +hepg2  gain +0.0039 | kmeans k* 46 | all [46.44011071459571]
+  k562     [0-2  ] best +hepg2  gain +0.0039 | random k* 49 | all [48.57044482411238]
+  k562     [1-2  ] best +rpe1   gain -0.0195 | kmeans k* 0 | all [0.0]
+  k562     [1-2  ] best +rpe1   gain -0.0195 | random k* 0 | all [0.0]
+  rpe1     [0-1  ] best +jurkat gain +0.0106 | kmeans k* >200 | all [nan]
+  rpe1     [0-1  ] best +jurkat gain +0.0106 | random k* >200 | all [nan]
+  rpe1     [0-2  ] best +hepg2  gain +0.0138 | kmeans k* >200 | all [nan]
+  rpe1     [0-2  ] best +hepg2  gain +0.0138 | random k* >200 | all [nan]
+  rpe1     [1-2  ] best +k562   gain +0.0119 | kmeans k* >200 | all [nan]
+  rpe1     [1-2  ] best +k562   gain +0.0119 | random k* >200 | all [nan]
+  hepg2    [0-1  ] best +jurkat gain +0.0166 | kmeans k* 97 | all [97.28358683787881]
+  hepg2    [0-1  ] best +jurkat gain +0.0166 | random k* >200 | all [nan]
+  hepg2    [0-2  ] best +rpe1   gain -0.0366 | kmeans k* 0 | all [0.0]
+  hepg2    [0-2  ] best +rpe1   gain -0.0366 | random k* 0 | all [0.0]
+  hepg2    [1-2  ] best +k562   gain +0.0275 | kmeans k* 82 | all [81.93178401616129]
+  hepg2    [1-2  ] best +k562   gain +0.0275 | random k* 96 | all [95.96771587320177]
+  jurkat   [0-1  ] best +hepg2  gain -0.0023 | kmeans k* 0 | all [0.0]
+  jurkat   [0-1  ] best +hepg2  gain -0.0023 | random k* 0 | all [0.0]
+  jurkat   [0-2  ] best +rpe1   gain -0.0223 | kmeans k* 0 | all [0.0]
+  jurkat   [0-2  ] best +rpe1   gain -0.0223 | random k* 0 | all [0.0]
+  jurkat   [1-2  ] best +k562   gain +0.0474 | kmeans k* >200 | all [nan]
+  jurkat   [1-2  ] best +k562   gain +0.0474 | random k* >200 | all [nan]
+
+done

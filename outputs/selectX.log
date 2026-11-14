@@ -1,0 +1,185 @@
+  A549         (1137, 10778)
+  A498         (1051, 10778)
+  HS-578T      (718, 10778)
+  HEC-1-A      (747, 10778)
+  J82          (663, 10778)
+  MIA_PaCa-2   (874, 10778)
+  SK-MEL-2     (810, 10778)
+common 648 -> active 648
+  A549 k= 20 kmeans      split0 -0.0906
+  A549 k= 20 random      split0 -0.0534
+  A549 k= 50 kmeans      split0 -0.0177
+  A549 k= 50 random      split0 -0.0287
+  A549 k=100 kmeans      split0 -0.0089
+  A549 k=100 random      split0 -0.0170
+  A549 k=200 kmeans      split0 -0.0110
+  A549 k=200 random      split0 -0.0125
+  A549 k= 20 kmeans      split1 -0.0527
+  A549 k= 20 random      split1 -0.0529
+  A549 k= 50 kmeans      split1 -0.0079
+  A549 k= 50 random      split1 -0.0173
+  A549 k=100 kmeans      split1 -0.0097
+  A549 k=100 random      split1 -0.0057
+  A549 k=200 kmeans      split1 +0.0007
+  A549 k=200 random      split1 -0.0030
+  A549 k= 20 kmeans      split2 -0.0378
+  A549 k= 20 random      split2 -0.0719
+  A549 k= 50 kmeans      split2 -0.0185
+  A549 k= 50 random      split2 -0.0285
+  A549 k=100 kmeans      split2 -0.0095
+  A549 k=100 random      split2 -0.0154
+  A549 k=200 kmeans      split2 -0.0072
+  A549 k=200 random      split2 -0.0123
+  A549 done
+  A498 k= 20 kmeans      split0 -0.0385
+  A498 k= 20 random      split0 -0.0403
+  A498 k= 50 kmeans      split0 -0.0168
+  A498 k= 50 random      split0 -0.0209
+  A498 k=100 kmeans      split0 -0.0129
+  A498 k=100 random      split0 -0.0141
+  A498 k=200 kmeans      split0 -0.0079
+  A498 k=200 random      split0 -0.0099
+  A498 k= 20 kmeans      split1 -0.0351
+  A498 k= 20 random      split1 -0.0452
+  A498 k= 50 kmeans      split1 -0.0191
+  A498 k= 50 random      split1 -0.0249
+  A498 k=100 kmeans      split1 -0.0118
+  A498 k=100 random      split1 -0.0157
+  A498 k=200 kmeans      split1 -0.0086
+  A498 k=200 random      split1 -0.0103
+  A498 k= 20 kmeans      split2 -0.0417
+  A498 k= 20 random      split2 -0.0467
+  A498 k= 50 kmeans      split2 -0.0219
+  A498 k= 50 random      split2 -0.0256
+  A498 k=100 kmeans      split2 -0.0155
+  A498 k=100 random      split2 -0.0178
+  A498 k=200 kmeans      split2 -0.0124
+  A498 k=200 random      split2 -0.0143
+  A498 done
+  HS-578T k= 20 kmeans      split0 -0.0305
+  HS-578T k= 20 random      split0 -0.0382
+  HS-578T k= 50 kmeans      split0 -0.0071
+  HS-578T k= 50 random      split0 -0.0130
+  HS-578T k=100 kmeans      split0 -0.0029
+  HS-578T k=100 random      split0 -0.0065
+  HS-578T k=200 kmeans      split0 -0.0016
+  HS-578T k=200 random      split0 -0.0021
+  HS-578T k= 20 kmeans      split1 -0.0272
+  HS-578T k= 20 random      split1 -0.0392
+  HS-578T k= 50 kmeans      split1 -0.0165
+  HS-578T k= 50 random      split1 -0.0221
+  HS-578T k=100 kmeans      split1 -0.0103
+  HS-578T k=100 random      split1 -0.0141
+  HS-578T k=200 kmeans      split1 -0.0095
+  HS-578T k=200 random      split1 -0.0106
+  HS-578T k= 20 kmeans      split2 -0.0221
+  HS-578T k= 20 random      split2 -0.0399
+  HS-578T k= 50 kmeans      split2 -0.0102
+  HS-578T k= 50 random      split2 -0.0201
+  HS-578T k=100 kmeans      split2 -0.0041
+  HS-578T k=100 random      split2 -0.0124
+  HS-578T k=200 kmeans      split2 -0.0070
+  HS-578T k=200 random      split2 -0.0070
+  HS-578T done
+  HEC-1-A k= 20 kmeans      split0 -0.0251
+  HEC-1-A k= 20 random      split0 -0.0406
+  HEC-1-A k= 50 kmeans      split0 -0.0118
+  HEC-1-A k= 50 random      split0 -0.0161
+  HEC-1-A k=100 kmeans      split0 -0.0090
+  HEC-1-A k=100 random      split0 -0.0128
+  HEC-1-A k=200 kmeans      split0 -0.0092
+  HEC-1-A k=200 random      split0 -0.0088
+  HEC-1-A k= 20 kmeans      split1 -0.0195
+  HEC-1-A k= 20 random      split1 -0.0375
+  HEC-1-A k= 50 kmeans      split1 -0.0111
+  HEC-1-A k= 50 random      split1 -0.0162
+  HEC-1-A k=100 kmeans      split1 -0.0078
+  HEC-1-A k=100 random      split1 -0.0102
+  HEC-1-A k=200 kmeans      split1 -0.0068
+  HEC-1-A k=200 random      split1 -0.0070
+  HEC-1-A k= 20 kmeans      split2 -0.0242
+  HEC-1-A k= 20 random      split2 -0.0382
+  HEC-1-A k= 50 kmeans      split2 -0.0117
+  HEC-1-A k= 50 random      split2 -0.0143
+  HEC-1-A k=100 kmeans      split2 -0.0078
+  HEC-1-A k=100 random      split2 -0.0096
+  HEC-1-A k=200 kmeans      split2 -0.0066
+  HEC-1-A k=200 random      split2 -0.0072
+  HEC-1-A done
+  J82 k= 20 kmeans      split0 -0.0219
+  J82 k= 20 random      split0 -0.0274
+  J82 k= 50 kmeans      split0 -0.0011
+  J82 k= 50 random      split0 -0.0011
+  J82 k=100 kmeans      split0 +0.0062
+  J82 k=100 random      split0 +0.0057
+  J82 k=200 kmeans      split0 +0.0097
+  J82 k=200 random      split0 +0.0096
+  J82 k= 20 kmeans      split1 -0.0152
+  J82 k= 20 random      split1 -0.0329
+  J82 k= 50 kmeans      split1 +0.0012
+  J82 k= 50 random      split1 -0.0082
+  J82 k=100 kmeans      split1 +0.0048
+  J82 k=100 random      split1 +0.0001
+  J82 k=200 kmeans      split1 +0.0063
+  J82 k=200 random      split1 +0.0048
+  J82 k= 20 kmeans      split2 -0.0178
+  J82 k= 20 random      split2 -0.0342
+  J82 k= 50 kmeans      split2 +0.0010
+  J82 k= 50 random      split2 -0.0048
+  J82 k=100 kmeans      split2 +0.0033
+  J82 k=100 random      split2 +0.0009
+  J82 k=200 kmeans      split2 +0.0076
+  J82 k=200 random      split2 +0.0053
+  J82 done
+  MIA_PaCa-2 k= 20 kmeans      split0 -0.0297
+  MIA_PaCa-2 k= 20 random      split0 -0.0499
+  MIA_PaCa-2 k= 50 kmeans      split0 -0.0212
+  MIA_PaCa-2 k= 50 random      split0 -0.0194
+  MIA_PaCa-2 k=100 kmeans      split0 -0.0088
+  MIA_PaCa-2 k=100 random      split0 -0.0150
+  MIA_PaCa-2 k=200 kmeans      split0 -0.0084
+  MIA_PaCa-2 k=200 random      split0 -0.0100
+  MIA_PaCa-2 k= 20 kmeans      split1 -0.0348
+  MIA_PaCa-2 k= 20 random      split1 -0.0445
+  MIA_PaCa-2 k= 50 kmeans      split1 -0.0148
+  MIA_PaCa-2 k= 50 random      split1 -0.0240
+  MIA_PaCa-2 k=100 kmeans      split1 -0.0119
+  MIA_PaCa-2 k=100 random      split1 -0.0144
+  MIA_PaCa-2 k=200 kmeans      split1 -0.0082
+  MIA_PaCa-2 k=200 random      split1 -0.0093
+  MIA_PaCa-2 k= 20 kmeans      split2 -0.0307
+  MIA_PaCa-2 k= 20 random      split2 -0.0376
+  MIA_PaCa-2 k= 50 kmeans      split2 -0.0168
+  MIA_PaCa-2 k= 50 random      split2 -0.0227
+  MIA_PaCa-2 k=100 kmeans      split2 -0.0116
+  MIA_PaCa-2 k=100 random      split2 -0.0147
+  MIA_PaCa-2 k=200 kmeans      split2 -0.0095
+  MIA_PaCa-2 k=200 random      split2 -0.0108
+  MIA_PaCa-2 done
+  SK-MEL-2 k= 20 kmeans      split0 -0.0275
+  SK-MEL-2 k= 20 random      split0 -0.0487
+  SK-MEL-2 k= 50 kmeans      split0 -0.0167
+  SK-MEL-2 k= 50 random      split0 -0.0215
+  SK-MEL-2 k=100 kmeans      split0 -0.0116
+  SK-MEL-2 k=100 random      split0 -0.0152
+  SK-MEL-2 k=200 kmeans      split0 -0.0096
+  SK-MEL-2 k=200 random      split0 -0.0114
+  SK-MEL-2 k= 20 kmeans      split1 -0.0294
+  SK-MEL-2 k= 20 random      split1 -0.0477
+  SK-MEL-2 k= 50 kmeans      split1 -0.0205
+  SK-MEL-2 k= 50 random      split1 -0.0228
+  SK-MEL-2 k=100 kmeans      split1 -0.0167
+  SK-MEL-2 k=100 random      split1 -0.0191
+  SK-MEL-2 k=200 kmeans      split1 -0.0125
+  SK-MEL-2 k=200 random      split1 -0.0152
+  SK-MEL-2 k= 20 kmeans      split2 -0.0385
+  SK-MEL-2 k= 20 random      split2 -0.0442
+  SK-MEL-2 k= 50 kmeans      split2 -0.0189
+  SK-MEL-2 k= 50 random      split2 -0.0224
+  SK-MEL-2 k=100 kmeans      split2 -0.0147
+  SK-MEL-2 k=100 random      split2 -0.0180
+  SK-MEL-2 k=200 kmeans      split2 -0.0140
+  SK-MEL-2 k=200 random      split2 -0.0157
+  SK-MEL-2 done
+wrote selectX.csv
+wrote srcX.csv

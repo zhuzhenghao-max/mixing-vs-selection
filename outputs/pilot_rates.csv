@@ -1,0 +1,16 @@
+regime,line,rate,error
+Tahoe,A549,0.99996,4.0000000000040004e-05
+Tahoe,A498,1.0,0.0
+Tahoe,HS-578T,0.99998,2.0000000000020002e-05
+Tahoe,HEC-1-A,1.0,0.0
+Tahoe,J82,0.99652,0.0034800000000000386
+Tahoe,MIA_PaCa-2,1.0,0.0
+Tahoe,SK-MEL-2,1.0,0.0
+Nadig-exclusion,k562,0.0,0.0
+Nadig-exclusion,rpe1,0.01106,0.01106
+Nadig-exclusion,hepg2,4e-05,4e-05
+Nadig-exclusion,jurkat,0.00058,0.00058
+Nadig-noexclusion,k562,0.00102,0.00102
+Nadig-noexclusion,rpe1,0.06136,0.06136
+Nadig-noexclusion,hepg2,0.00078,0.00078
+Nadig-noexclusion,jurkat,0.01276,0.01276

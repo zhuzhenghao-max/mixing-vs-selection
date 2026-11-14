@@ -1,0 +1,135 @@
+  k562     1383 rows (nadig)
+  rpe1     1499 rows (nadig)
+  hepg2    1340 rows (nadig)
+  jurkat   1537 rows (nadig)
+nadig eval positions 5952 / 10778
+
+=== hold-out k562: pool 1383, queries 1309, sources ['rpe1', 'hepg2', 'jurkat'] ===
+  sim rpe1:+0.99 hepg2:+nan jurkat:+nan
+  single_rpe1    n=1047 pds_raw 0.8424 (0.7396) pds_res 0.8633 (0.7776)
+  single_hepg2   n= 940 pds_raw 0.9071 (0.7944) pds_res 0.9588 (0.8774)
+  single_jurkat  n=1110 pds_raw 0.9262 (0.8156) pds_res 0.9664 (0.8933)
+  equal          n=1309 pds_raw 0.9176 (0.8072) pds_res 0.6450 (0.6125)
+  equal_raw      n=1309 pds_raw 0.9067 (0.7965) pds_res 0.9624 (0.8772)
+  equal_center   n=1309 pds_raw 0.9740 (0.8960) pds_res 0.6341 (0.6029)
+  gated_equal    n= 163 pds_raw 0.9190 (0.8306) pds_res 0.6464 (0.6233)
+  gated_selfw    n= 163 pds_raw 0.9205 (0.8300) pds_res 0.6450 (0.6234)
+  top2_selfw     n=1309 pds_raw 0.9262 (0.8125) pds_res 0.6486 (0.6167)
+  mean           n=1309 pds_raw 0.5004 (0.4997) pds_res 0.5098 (0.5074)
+  --- common_mix n=163 ---
+    equal          pds_raw 0.9074 [0.7795,0.8491]
+    equal_raw      pds_raw 0.8995 [0.7675,0.8381]
+    equal_center   pds_raw 0.9805 [0.8824,0.9281]
+    gated_equal    pds_raw 0.9190 [0.7968,0.8634]
+    gated_selfw    pds_raw 0.9205 [0.7963,0.8622]
+    top2_selfw     pds_raw 0.9140 [0.7786,0.8505]
+    mean           pds_raw 0.5192 [0.4565,0.5479]
+  --- common_all n=85 ---
+    single_rpe1    pds_raw 0.8185 [0.6663,0.7794]
+    single_hepg2   pds_raw 0.8865 [0.7155,0.8229]
+    single_jurkat  pds_raw 0.9255 [0.7921,0.8807]
+    equal          pds_raw 0.8952 [0.7505,0.8529]
+    equal_raw      pds_raw 0.8626 [0.7345,0.8368]
+    equal_center   pds_raw 0.9667 [0.8826,0.9389]
+    gated_equal    pds_raw 0.9082 [0.7901,0.8765]
+    gated_selfw    pds_raw 0.9082 [0.7876,0.8757]
+    top2_selfw     pds_raw 0.8915 [0.7526,0.8477]
+    mean           pds_raw 0.4801 [0.4146,0.5345]
+
+=== hold-out rpe1: pool 1499, queries 1433, sources ['k562', 'hepg2', 'jurkat'] ===
+  sim k562:+0.99 hepg2:+nan jurkat:+nan
+  single_k562    n=1047 pds_raw 0.9633 (0.8054) pds_res 0.6117 (0.6109)
+  single_hepg2   n=1045 pds_raw 0.9793 (0.8254) pds_res 0.8199 (0.7370)
+  single_jurkat  n=1183 pds_raw 0.9466 (0.7874) pds_res 0.7585 (0.6982)
+  equal          n=1433 pds_raw 0.9853 (0.8280) pds_res 0.5137 (0.5202)
+  equal_raw      n=1433 pds_raw 0.9833 (0.8243) pds_res 0.7332 (0.6920)
+  equal_center   n=1433 pds_raw 0.9626 (0.8610) pds_res 0.5123 (0.5205)
+  gated_equal    n= 197 pds_raw 0.9860 (0.7970) pds_res 0.5270 (0.5242)
+  gated_selfw    n= 197 pds_raw 0.9867 (0.7987) pds_res 0.5270 (0.5242)
+  top2_selfw     n=1433 pds_raw 0.9793 (0.8217) pds_res 0.5137 (0.5201)
+  mean           n=1433 pds_raw 0.5003 (0.4995) pds_res 0.5023 (0.5035)
+  --- common_mix n=197 ---
+    equal          pds_raw 0.9907 [0.7614,0.8456]
+    equal_raw      pds_raw 0.9893 [0.7559,0.8412]
+    equal_center   pds_raw 0.9887 [0.8532,0.9071]
+    gated_equal    pds_raw 0.9860 [0.7551,0.8373]
+    gated_selfw    pds_raw 0.9867 [0.7575,0.8385]
+    top2_selfw     pds_raw 0.9853 [0.7617,0.8432]
+    mean           pds_raw 0.4910 [0.4514,0.5340]
+  --- common_all n=89 ---
+    single_k562    pds_raw 0.9706 [0.7470,0.8651]
+    single_hepg2   pds_raw 0.9660 [0.7351,0.8549]
+    single_jurkat  pds_raw 0.9373 [0.7188,0.8456]
+    equal          pds_raw 0.9900 [0.7634,0.8869]
+    equal_raw      pds_raw 0.9887 [0.7587,0.8828]
+    equal_center   pds_raw 0.9780 [0.8124,0.9026]
+    gated_equal    pds_raw 0.9860 [0.7698,0.8846]
+    gated_selfw    pds_raw 0.9880 [0.7727,0.8849]
+    top2_selfw     pds_raw 0.9760 [0.7654,0.8745]
+    mean           pds_raw 0.5030 [0.4474,0.5598]
+
+=== hold-out hepg2: pool 1340, queries 1278, sources ['k562', 'rpe1', 'jurkat'] ===
+  sim k562:+nan rpe1:+nan jurkat:+nan
+  single_k562    n= 940 pds_raw 0.9522 (0.8425) pds_res 0.8414 (0.7506)
+  single_rpe1    n=1045 pds_raw 0.8276 (0.7228) pds_res 0.9142 (0.8107)
+  single_jurkat  n=1035 pds_raw 0.9112 (0.7924) pds_res 0.8873 (0.7853)
+  equal          n=1278 pds_raw 0.9239 (0.7940) pds_res 0.5328 (0.5326)
+  equal_raw      n=1278 pds_raw 0.9138 (0.7841) pds_res 0.9556 (0.8471)
+  equal_center   n=1278 pds_raw 0.9646 (0.8877) pds_res 0.5306 (0.5328)
+  gated_equal    n= 155 pds_raw 0.9478 (0.8188) pds_res 0.5149 (0.5166)
+  gated_selfw    n= 155 pds_raw 0.9478 (0.8192) pds_res 0.5134 (0.5167)
+  top2_selfw     n=1278 pds_raw 0.9302 (0.8015) pds_res 0.5317 (0.5322)
+  mean           n=1278 pds_raw 0.5037 (0.5023) pds_res 0.5045 (0.5026)
+  --- common_mix n=155 ---
+    equal          pds_raw 0.9507 [0.7839,0.8592]
+    equal_raw      pds_raw 0.9388 [0.7694,0.8470]
+    equal_center   pds_raw 0.9873 [0.8768,0.9242]
+    gated_equal    pds_raw 0.9478 [0.7794,0.8583]
+    gated_selfw    pds_raw 0.9478 [0.7794,0.8581]
+    top2_selfw     pds_raw 0.9448 [0.7958,0.8701]
+    mean           pds_raw 0.5142 [0.4790,0.5646]
+  --- common_all n=86 ---
+    single_k562    pds_raw 0.9493 [0.7790,0.8786]
+    single_rpe1    pds_raw 0.8470 [0.6593,0.7741]
+    single_jurkat  pds_raw 0.9216 [0.7168,0.8334]
+    equal          pds_raw 0.9160 [0.7147,0.8290]
+    equal_raw      pds_raw 0.8679 [0.6968,0.8143]
+    equal_center   pds_raw 0.9720 [0.8554,0.9230]
+    gated_equal    pds_raw 0.9328 [0.7156,0.8322]
+    gated_selfw    pds_raw 0.9351 [0.7147,0.8323]
+    top2_selfw     pds_raw 0.9142 [0.7362,0.8447]
+    mean           pds_raw 0.4690 [0.4247,0.5366]
+
+=== hold-out jurkat: pool 1537, queries 1466, sources ['k562', 'rpe1', 'hepg2'] ===
+  sim k562:+nan rpe1:+nan hepg2:+nan
+  single_k562    n=1110 pds_raw 0.9694 (0.8565) pds_res 0.9327 (0.8476)
+  single_rpe1    n=1183 pds_raw 0.8881 (0.7613) pds_res 0.9083 (0.7988)
+  single_hepg2   n=1035 pds_raw 0.9128 (0.7966) pds_res 0.9232 (0.8243)
+  equal          n=1466 pds_raw 0.9392 (0.8288) pds_res 0.5794 (0.5566)
+  equal_raw      n=1466 pds_raw 0.9291 (0.8151) pds_res 0.9460 (0.8532)
+  equal_center   n=1466 pds_raw 0.9681 (0.8775) pds_res 0.5709 (0.5511)
+  gated_equal    n= 159 pds_raw 0.9440 (0.8211) pds_res 0.5712 (0.5444)
+  gated_selfw    n= 159 pds_raw 0.9473 (0.8193) pds_res 0.5712 (0.5443)
+  top2_selfw     n=1466 pds_raw 0.9466 (0.8330) pds_res 0.5797 (0.5580)
+  mean           n=1466 pds_raw 0.5023 (0.5034) pds_res 0.5081 (0.5038)
+  --- common_mix n=159 ---
+    equal          pds_raw 0.9440 [0.7826,0.8589]
+    equal_raw      pds_raw 0.9401 [0.7719,0.8509]
+    equal_center   pds_raw 0.9707 [0.8354,0.8959]
+    gated_equal    pds_raw 0.9440 [0.7836,0.8586]
+    gated_selfw    pds_raw 0.9473 [0.7816,0.8564]
+    top2_selfw     pds_raw 0.9401 [0.7772,0.8530]
+    mean           pds_raw 0.5166 [0.4751,0.5651]
+  --- common_all n=80 ---
+    single_k562    pds_raw 0.9746 [0.8384,0.9262]
+    single_rpe1    pds_raw 0.9053 [0.6786,0.8093]
+    single_hepg2   pds_raw 0.9021 [0.7241,0.8376]
+    equal          pds_raw 0.9541 [0.7729,0.8847]
+    equal_raw      pds_raw 0.9522 [0.7543,0.8693]
+    equal_center   pds_raw 0.9756 [0.8404,0.9204]
+    gated_equal    pds_raw 0.9532 [0.7758,0.8824]
+    gated_selfw    pds_raw 0.9561 [0.7717,0.8801]
+    top2_selfw     pds_raw 0.9545 [0.7625,0.8685]
+    mean           pds_raw 0.5849 [0.4858,0.6184]
+
+saved outputs/bench_transfer_nadig_v2.csv / .npz

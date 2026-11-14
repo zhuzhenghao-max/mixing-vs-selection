@@ -1,0 +1,52 @@
+  A498         -A549         dsrc +0.0027  kmeans k*=nan  random k*=nan
+  A498         -HEC-1-A      dsrc +0.0006  kmeans k*=nan  random k*=nan
+  A498         -HS-578T      dsrc +0.0003  kmeans k*=nan  random k*=nan
+  A498         -J82          dsrc +0.0000  kmeans k*=nan  random k*=nan
+  A498         -MIA_PaCa-2   dsrc +0.0004  kmeans k*=nan  random k*=nan
+  A498         -SK-MEL-2     dsrc -0.0002  kmeans k*=0  random k*=0
+  A549         -A498         dsrc -0.0002  kmeans k*=0  random k*=0
+  A549         -HEC-1-A      dsrc -0.0004  kmeans k*=0  random k*=0
+  A549         -HS-578T      dsrc -0.0000  kmeans k*=0  random k*=0
+  A549         -J82          dsrc +0.0003  kmeans k*=nan  random k*=nan
+  A549         -MIA_PaCa-2   dsrc +0.0015  kmeans k*=nan  random k*=nan
+  A549         -SK-MEL-2     dsrc +0.0020  kmeans k*=nan  random k*=nan
+  HEC-1-A      -A498         dsrc -0.0003  kmeans k*=0  random k*=0
+  HEC-1-A      -A549         dsrc -0.0010  kmeans k*=0  random k*=0
+  HEC-1-A      -HS-578T      dsrc +0.0021  kmeans k*=nan  random k*=nan
+  HEC-1-A      -J82          dsrc +0.0028  kmeans k*=nan  random k*=nan
+  HEC-1-A      -MIA_PaCa-2   dsrc +0.0007  kmeans k*=nan  random k*=nan
+  HEC-1-A      -SK-MEL-2     dsrc +0.0013  kmeans k*=nan  random k*=nan
+  HS-578T      -A498         dsrc -0.0005  kmeans k*=0  random k*=0
+  HS-578T      -A549         dsrc -0.0007  kmeans k*=0  random k*=0
+  HS-578T      -HEC-1-A      dsrc +0.0027  kmeans k*=nan  random k*=nan
+  HS-578T      -J82          dsrc +0.0072  kmeans k*=nan  random k*=nan
+  HS-578T      -MIA_PaCa-2   dsrc -0.0013  kmeans k*=0  random k*=0
+  HS-578T      -SK-MEL-2     dsrc -0.0003  kmeans k*=0  random k*=0
+  J82          -A498         dsrc -0.0007  kmeans k*=0  random k*=0
+  J82          -A549         dsrc -0.0013  kmeans k*=0  random k*=0
+  J82          -HEC-1-A      dsrc +0.0035  kmeans k*=85  random k*=128
+  J82          -HS-578T      dsrc +0.0044  kmeans k*=96  random k*=151
+  J82          -MIA_PaCa-2   dsrc -0.0008  kmeans k*=0  random k*=0
+  J82          -SK-MEL-2     dsrc -0.0010  kmeans k*=0  random k*=0
+  MIA_PaCa-2   -A498         dsrc +0.0010  kmeans k*=nan  random k*=nan
+  MIA_PaCa-2   -A549         dsrc +0.0003  kmeans k*=nan  random k*=nan
+  MIA_PaCa-2   -HEC-1-A      dsrc +0.0009  kmeans k*=nan  random k*=nan
+  MIA_PaCa-2   -HS-578T      dsrc -0.0004  kmeans k*=0  random k*=0
+  MIA_PaCa-2   -J82          dsrc -0.0001  kmeans k*=0  random k*=0
+  MIA_PaCa-2   -SK-MEL-2     dsrc +0.0020  kmeans k*=nan  random k*=nan
+  SK-MEL-2     -A498         dsrc +0.0004  kmeans k*=nan  random k*=nan
+  SK-MEL-2     -A549         dsrc +0.0002  kmeans k*=nan  random k*=nan
+  SK-MEL-2     -HEC-1-A      dsrc +0.0020  kmeans k*=nan  random k*=nan
+  SK-MEL-2     -HS-578T      dsrc -0.0000  kmeans k*=0  random k*=0
+  SK-MEL-2     -J82          dsrc +0.0006  kmeans k*=nan  random k*=nan
+  SK-MEL-2     -MIA_PaCa-2   dsrc +0.0011  kmeans k*=nan  random k*=nan
+
+=== per-line medians ===
+A498         dsrc +0.0004  kmeans k* med nan  random k* med nan
+A549         dsrc +0.0001  kmeans k* med nan  random k* med nan
+HEC-1-A      dsrc +0.0010  kmeans k* med nan  random k* med nan
+HS-578T      dsrc -0.0004  kmeans k* med nan  random k* med nan
+J82          dsrc -0.0008  kmeans k* med 0  random k* med 0
+MIA_PaCa-2   dsrc +0.0006  kmeans k* med nan  random k* med nan
+SK-MEL-2     dsrc +0.0005  kmeans k* med nan  random k* med nan
+wrote exchX.csv

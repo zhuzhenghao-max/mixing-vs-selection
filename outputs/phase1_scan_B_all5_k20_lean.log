@@ -1,0 +1,95 @@
+  h1       285 rows
+  k562     9866 rows
+  rpe1     2393 rows
+  hct116   8987 rows
+  hek293t  4297 rows
+
+=== B:h1 | pool 285 queries 274 | k=20 splits=3 eval=137 ===
+  split 0: random -0.0880  kmeans -0.0452  shared -0.0515  magnitude -0.0395  diversity -0.1199  disagreement -0.1038
+  split 1: random -0.0919  kmeans -0.1042  shared -0.0465  magnitude -0.0883  diversity -0.1320  disagreement -0.1437
+  split 2: random -0.0562  kmeans +0.0184  shared -0.0273  magnitude -0.0276  diversity -0.0701  disagreement -0.0790
+  h1       285 rows
+  k562     9866 rows
+  rpe1     2393 rows
+  hct116   8987 rows
+  hek293t  4297 rows
+
+=== B:k562 | pool 9866 queries 5820 | k=20 splits=3 eval=200 ===
+  split 0: random -0.0697  kmeans -0.0683  shared -0.0520  magnitude -0.0880  diversity -0.1171  disagreement -0.1438
+  split 1: random -0.0720  kmeans -0.0592  shared -0.0199  magnitude -0.0672  diversity -0.0937  disagreement -0.0997
+  split 2: random -0.0933  kmeans -0.0270  shared +0.0132  magnitude -0.0347  diversity -0.0952  disagreement -0.1306
+  h1       285 rows
+  k562     9866 rows
+  rpe1     2393 rows
+  hct116   8987 rows
+  hek293t  4297 rows
+
+=== B:rpe1 | pool 2393 queries 2390 | k=20 splits=3 eval=200 ===
+  split 0: random -0.1339  kmeans -0.0968  shared -0.2595  magnitude -0.2884  diversity -0.2191  disagreement -0.2291
+  split 1: random -0.1586  kmeans -0.0852  shared -0.2753  magnitude -0.2795  diversity -0.2324  disagreement -0.2465
+  split 2: random -0.1176  kmeans -0.0556  shared -0.1362  magnitude -0.2443  diversity -0.2323  disagreement -0.2167
+  h1       285 rows
+  k562     9866 rows
+  rpe1     2393 rows
+  hct116   8987 rows
+  hek293t  4297 rows
+
+=== B:hct116 | pool 8987 queries 6671 | k=20 splits=3 eval=200 ===
+  split 0: random -0.1522  kmeans -0.1151  shared -0.1056  magnitude -0.1268  diversity -0.1458  disagreement -0.1051
+  split 1: random -0.1087  kmeans -0.0863  shared -0.0700  magnitude -0.1274  diversity -0.1228  disagreement -0.0892
+  split 2: random -0.0989  kmeans -0.0844  shared -0.0730  magnitude -0.1362  diversity -0.0891  disagreement -0.1325
+  h1       285 rows
+  k562     9866 rows
+  rpe1     2393 rows
+  hct116   8987 rows
+  hek293t  4297 rows
+
+=== B:hek293t | pool 4297 queries 3523 | k=20 splits=3 eval=200 ===
+  split 0: random -0.0607  kmeans -0.0608  shared -0.1002  magnitude -0.0753  diversity -0.0525  disagreement -0.1364
+  split 1: random -0.0739  kmeans -0.0107  shared -0.0235  magnitude -0.0455  diversity -0.0565  disagreement -0.1286
+  split 2: random -0.0266  kmeans -0.0217  shared -0.0844  magnitude -0.0627  diversity -0.0553  disagreement -0.1147
+
+Summary (delta PDS vs equal mixing)
+tier line     strategy        delta      sd   vs_rnd                 CI         p   win
+B    h1       random        -0.0787  0.0160  +0.0000 [+0.0000,+0.0000]         1  0.00
+B    h1       kmeans        -0.0437  0.0501  +0.0369 [+0.0063,+0.0660]    0.0064  0.59
+B    h1       shared        -0.0417  0.0104  +0.0418 [+0.0083,+0.0733]    0.0086  0.57
+B    h1       magnitude     -0.0518  0.0263  +0.0238 [-0.0086,+0.0563]     0.055  0.56
+B    h1       diversity     -0.1073  0.0268  -0.0286 [-0.0622,+0.0052]      0.16  0.45
+B    h1       disagreement  -0.1088  0.0267  -0.0331 [-0.0656,-0.0011]     0.082  0.46
+B    k562     random        -0.0783  0.0106  +0.0000 [+0.0000,+0.0000]         1  0.00
+B    k562     kmeans        -0.0515  0.0177  +0.0267 [+0.0060,+0.0461]    0.0036  0.56
+B    k562     shared        -0.0196  0.0266  +0.0590 [+0.0397,+0.0777]   1.6e-09  0.61
+B    k562     magnitude     -0.0633  0.0219  +0.0152 [-0.0036,+0.0341]     0.069  0.54
+B    k562     diversity     -0.1020  0.0107  -0.0220 [-0.0437,+0.0011]     0.094  0.49
+B    k562     disagreement  -0.1247  0.0185  -0.0460 [-0.0689,-0.0233]   0.00071  0.45
+B    rpe1     random        -0.1367  0.0169  +0.0000 [+0.0000,+0.0000]         1  0.00
+B    rpe1     kmeans        -0.0792  0.0173  +0.0576 [+0.0399,+0.0748]   7.3e-11  0.63
+B    rpe1     shared        -0.2237  0.0622  -0.0856 [-0.1177,-0.0550]   1.2e-06  0.42
+B    rpe1     magnitude     -0.2707  0.0191  -0.1338 [-0.1692,-0.0997]   1.9e-13  0.37
+B    rpe1     diversity     -0.2279  0.0063  -0.0870 [-0.1180,-0.0554]   2.7e-07  0.41
+B    rpe1     disagreement  -0.2307  0.0122  -0.0961 [-0.1251,-0.0659]   4.8e-10  0.39
+B    hct116   random        -0.1199  0.0232  +0.0000 [+0.0000,+0.0000]         1  0.00
+B    hct116   kmeans        -0.0953  0.0140  +0.0263 [+0.0034,+0.0496]     0.012  0.56
+B    hct116   shared        -0.0829  0.0161  +0.0370 [+0.0149,+0.0601]    0.0012  0.55
+B    hct116   magnitude     -0.1301  0.0043  -0.0100 [-0.0365,+0.0161]      0.51  0.47
+B    hct116   diversity     -0.1192  0.0233  +0.0025 [-0.0221,+0.0267]      0.68  0.51
+B    hct116   disagreement  -0.1089  0.0179  +0.0111 [-0.0121,+0.0349]       0.3  0.52
+B    hek293t  random        -0.0538  0.0200  +0.0000 [+0.0000,+0.0000]         1  0.00
+B    hek293t  kmeans        -0.0310  0.0215  +0.0241 [+0.0071,+0.0412]     0.002  0.55
+B    hek293t  shared        -0.0694  0.0331  -0.0152 [-0.0429,+0.0132]      0.51  0.49
+B    hek293t  magnitude     -0.0612  0.0122  -0.0086 [-0.0337,+0.0173]      0.88  0.54
+B    hek293t  diversity     -0.0548  0.0017  -0.0025 [-0.0285,+0.0241]      0.69  0.51
+B    hek293t  disagreement  -0.1265  0.0090  -0.0733 [-0.1078,-0.0376]   0.00011  0.43
+
+h1: spread +0.0671; best shared -0.0417; best-random +0.0370
+
+k562: spread +0.1051; best shared -0.0196; best-random +0.0587
+
+rpe1: spread +0.1915; best kmeans -0.0792; best-random +0.0574
+
+hct116: spread +0.0472; best shared -0.0829; best-random +0.0370
+
+hek293t: spread +0.0955; best kmeans -0.0310; best-random +0.0227
+
+wrote outputs/phase1_selection_pilot_B_k20_all5lean.csv

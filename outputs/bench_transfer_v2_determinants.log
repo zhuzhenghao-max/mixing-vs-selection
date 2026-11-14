@@ -1,0 +1,40 @@
+  h1       285 rows
+  k562     9866 rows
+  rpe1     2393 rows
+  hct116   8987 rows
+  hek293t  4297 rows
+triples 23932
+
+Spearman(PDS, x) per (holdout<-source), x = self_lfc / row_norm / expr
+  h1      <-hct116   n=  129  self_lfc -0.08  row_norm +0.00  expr +0.14
+  h1      <-k562     n=  266  self_lfc -0.02  row_norm +0.16  expr +0.19
+  h1      <-rpe1     n=   97  self_lfc +0.00  row_norm -0.20  expr -0.01
+  hct116  <-h1       n=  129  self_lfc -0.16  row_norm +0.32  expr +0.10
+  hct116  <-hek293t  n= 3277  self_lfc -0.07  row_norm +0.05  expr +0.06
+  hct116  <-k562     n= 3975  self_lfc -0.06  row_norm +0.13  expr +0.17
+  hct116  <-rpe1     n=  845  self_lfc -0.07  row_norm +0.18  expr +0.07
+  hek293t <-hct116   n= 3277  self_lfc -0.09  row_norm +0.06  expr +0.08
+  hek293t <-k562     n=  831  self_lfc -0.16  row_norm +0.07  expr +0.17
+  hek293t <-rpe1     n=  139  self_lfc -0.44  row_norm +0.15  expr +0.37
+  k562    <-h1       n=  266  self_lfc -0.15  row_norm +0.46  expr +0.08
+  k562    <-hct116   n= 3975  self_lfc -0.11  row_norm +0.08  expr +0.15
+  k562    <-hek293t  n=  831  self_lfc -0.14  row_norm +0.14  expr +0.16
+  k562    <-rpe1     n= 2390  self_lfc -0.06  row_norm -0.20  expr +0.04
+  rpe1    <-h1       n=   97  self_lfc -0.31  row_norm +0.31  expr -0.04
+  rpe1    <-hct116   n=  845  self_lfc -0.10  row_norm +0.07  expr +0.01
+  rpe1    <-hek293t  n=  139  self_lfc -0.30  row_norm +0.29  expr +0.27
+  rpe1    <-k562     n= 2390  self_lfc -0.06  row_norm +0.02  expr +0.05
+
+self-LFC bin -> median PDS (within-pair deciles, averaged)
+  bin 0: self_lfc ~ -20.00  pds 0.7923  (pairs 18)
+  bin 1: self_lfc ~ -10.88  pds 0.8165  (pairs 17)
+  bin 2: self_lfc ~ -10.75  pds 0.7358  (pairs 16)
+  bin 3: self_lfc ~ -7.40  pds 0.7513  (pairs 16)
+  bin 4: self_lfc ~ -6.93  pds 0.7206  (pairs 16)
+  bin 5: self_lfc ~ -7.22  pds 0.7233  (pairs 14)
+  bin 6: self_lfc ~ -5.92  pds 0.7511  (pairs 12)
+  bin 7: self_lfc ~ -1.73  pds 0.8064  (pairs 12)
+  bin 8: self_lfc ~ -1.21  pds 0.7566  (pairs 10)
+  bin 9: self_lfc ~ +0.01  pds 0.6385  (pairs 18)
+
+saved ['self_lfc -0.06', 'row_norm +0.02', 'expr +0.05']

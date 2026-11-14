@@ -1,0 +1,25 @@
+# Core Python stack for the released analysis and audits.
+# Versions are the ones used for the reported runs (Python 3.12).
+numpy==2.5.3
+pandas==3.0.6
+scipy==1.18.1
+scikit-learn==1.8.0
+matplotlib==3.11.2
+anndata==0.13.4
+scanpy==1.12.4
+h5py==3.16.0
+pyarrow==26.0.0
+torch==2.12.1
+torch-geometric==2.8.1
+requests==2.34.2
+
+# Optional, only for specific scripts or external baselines (not installed
+# by this file):
+#   GEARS checkout, pointed to by GEARS_PATH (default external/GEARS)
+#   scGPT (pip install scgpt) and the scGPT_human checkpoint under
+#     models/scgpt/scGPT_human
+#   scvi-tools, used to build the 18,080-gene axis cache
+#   cell-eval2==0.18.0, a convention reference only; the benchmark computes
+#     PDS directly and does not call it
+#   transformers and safetensors, used only by the exploratory gf_embed.py
+#   python-docx, used only by build_manuscript_docx.py

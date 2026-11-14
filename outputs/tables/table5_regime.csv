@@ -1,0 +1,3 @@
+Regime,Lines,Equal-mix mean PDS,Equal-mix median PDS,Unique-top (%),Saturation gain,Saturation span,kmeans dPDS k=50,Best kmeans dPDS,SSCV rho,Pilot error (%)
+Nadig,4,0.820-0.869,0.941-0.992,13-26,+0.025,1->3,+0.013,+0.028 at k=100,+0.790,1.90
+Tahoe,7,0.970-0.994,0.998-1.000,42-61,+0.023,1->6,-0.013,-0.006 at k=200,-0.031,0.05

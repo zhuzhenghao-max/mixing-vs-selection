@@ -1,0 +1,20 @@
+  k562     1383 rows (nadig)
+  rpe1     1499 rows (nadig)
+  hepg2    1340 rows (nadig)
+  jurkat   1537 rows (nadig)
+
+######## Tier A | knn_resid | ks [25] ########
+
+=== hold-out k562: pool 1383, queries 1309, sources ['rpe1', 'hepg2', 'jurkat'] ===
+  knn_resid_k25      mean 0.8526 (equal 0.8072) delta +0.0454 [+0.0373,+0.0531] p=1.3e-48 win=0.63
+
+=== hold-out rpe1: pool 1499, queries 1433, sources ['k562', 'hepg2', 'jurkat'] ===
+  knn_resid_k25      mean 0.7806 (equal 0.8280) delta -0.0474 [-0.0610,-0.0351] p=2.1e-19 win=0.33
+
+=== hold-out hepg2: pool 1340, queries 1278, sources ['k562', 'rpe1', 'jurkat'] ===
+  knn_resid_k25      mean 0.7938 (equal 0.7940) delta -0.0003 [-0.0090,+0.0083] p=0.054 win=0.49
+
+=== hold-out jurkat: pool 1537, queries 1466, sources ['k562', 'rpe1', 'hepg2'] ===
+  knn_resid_k25      mean 0.8465 (equal 0.8288) delta +0.0177 [+0.0071,+0.0280] p=4.4e-15 win=0.53
+
+saved outputs/bench_supervised_nadig_v2_knn_resid.csv / .npz

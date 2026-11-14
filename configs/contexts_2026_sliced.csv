@@ -1,0 +1,4 @@
+context,path
+A,outputs/ctrl_slices/ctrl_A.npz
+B,outputs/ctrl_slices/ctrl_B.npz
+C,outputs/ctrl_slices/ctrl_C.npz

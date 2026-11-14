@@ -1,0 +1,71 @@
+hct116: 8987 rows
+hek293t: 4297 rows
+rpe1: 2393 rows
+profile cosine:
+  k562     +0.88 +0.91 +0.99
+  hct116   +0.88 +0.91 +0.88
+  hek293t  +0.91 +0.91 +0.90
+  rpe1     +0.99 +0.88 +0.90
+
+eval positions: 10778
+
+=== hold-out k562: 1358 targets measured in >=2 profiled others (src=['hct116', 'hek293t', 'rpe1']) ===
+  single_hct116 pds 0.9620
+  single_hek293t pds 0.5000
+  single_rpe1 pds 0.5910
+  equal      pds 0.9565
+  simT0.02   pds 0.8747
+  simT0.05   pds 0.9075
+  simT0.1    pds 0.9337
+  simT0.2    pds 0.9447
+  simT0.5    pds 0.9506
+  simT1      pds 0.9536
+
+=== hold-out hct116: 1325 targets measured in >=2 profiled others (src=['k562', 'hek293t', 'rpe1']) ===
+  single_k562 pds 0.9637
+  single_hek293t pds 0.5000
+  single_rpe1 pds 0.7266
+  equal      pds 0.9728
+  simT0.02   pds 0.9721
+  simT0.05   pds 0.9721
+  simT0.1    pds 0.9721
+  simT0.2    pds 0.9728
+  simT0.5    pds 0.9728
+  simT1      pds 0.9728
+
+=== hold-out hek293t: 619 targets measured in >=2 profiled others (src=['k562', 'hct116', 'rpe1']) ===
+  single_k562 pds 0.7233
+  single_hct116 pds 0.7961
+  single_rpe1 pds 0.5000
+  equal      pds 0.8317
+  simT0.02   pds 0.8350
+  simT0.05   pds 0.8317
+  simT0.1    pds 0.8350
+  simT0.2    pds 0.8333
+  simT0.5    pds 0.8317
+  simT1      pds 0.8317
+
+=== hold-out rpe1: 878 targets measured in >=2 profiled others (src=['k562', 'hct116', 'hek293t']) ===
+  single_k562 pds 0.7651
+  single_hct116 pds 0.9019
+  single_hek293t pds 0.5000
+  equal      pds 0.8877
+  simT0.02   pds 0.7662
+  simT0.05   pds 0.7993
+  simT0.1    pds 0.8369
+  simT0.2    pds 0.8529
+  simT0.5    pds 0.8723
+  simT1      pds 0.8774
+
+=== summary (mean pds across hold-outs) ===
+  simT0.02   0.8620  (4 lines)
+  simT0.05   0.8777  (4 lines)
+  simT0.1    0.8944  (4 lines)
+  simT0.2    0.9009  (4 lines)
+  simT0.5    0.9069  (4 lines)
+  simT1      0.9089  (4 lines)
+  equal      0.9122  (4 lines)
+  single_k562 0.8174  (3 lines)
+  single_hct116 0.8867  (3 lines)
+  single_hek293t 0.5000  (3 lines)
+  single_rpe1 0.6059  (3 lines)

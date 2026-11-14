@@ -1,0 +1,18 @@
+  h1       285 rows
+  k562     9866 rows
+  rpe1     2393 rows
+  hct116   8987 rows
+  hek293t  4297 rows
+
+=== B:h1 | pool 285 queries 274 | k=20 splits=3 eval=137 ===
+  split 0: random -0.0793  kmeans -0.0452  shared -0.0515  magnitude -0.0395  diversity -0.1199  disagreement -0.1038
+  split 1: random -0.0331  kmeans -0.0286  shared +0.0056  magnitude -0.0071  diversity -0.0826  disagreement -0.0933
+  split 2: random -0.0603  kmeans -0.0526  shared -0.0122  magnitude -0.0203  diversity -0.0945  disagreement -0.1060
+  h1       285 rows
+  k562     9866 rows
+  rpe1     2393 rows
+  hct116   8987 rows
+  hek293t  4297 rows
+
+=== B:k562 | pool 9866 queries 5820 | k=20 splits=3 eval=300 ===
+  split 0: random -0.0805  kmeans -0.0653  shared -0.0451  magnitude -0.0763  diversity -0.1155  disagreement -0.1302

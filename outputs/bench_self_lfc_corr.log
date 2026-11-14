@@ -1,0 +1,25 @@
+  h1       285 rows
+  k562     9866 rows
+  rpe1     2393 rows
+  hct116   8987 rows
+  hek293t  4297 rows
+
+=== k562: sampled 1000, excludable 784 ===
+  PDS none med 0.9741 mean 0.8136; self med 0.7648 mean 0.6838
+  per-query drop: all med +0.0033 mean +0.1298; excludable med +0.0282 mean +0.1655
+  self-LFC excludable med -2.631 (frac < -1 0.784)
+  Spearman(drop, self-LFC): all -0.592 (p 9.7e-90, n 937); excludable -0.548 [-0.598,-0.492] p 1.1e-62 n 784
+
+=== rpe1: sampled 1000, excludable 828 ===
+  PDS none med 0.9283 mean 0.8046; self med 0.8462 mean 0.7398
+  per-query drop: all med +0.0033 mean +0.0648; excludable med +0.0088 mean +0.0783
+  self-LFC excludable med -3.562 (frac < -1 0.903)
+  Spearman(drop, self-LFC): all -0.512 (p 1.1e-60, n 890); excludable -0.460 [-0.515,-0.400] p 1.5e-44 n 828
+
+=== hct116: sampled 1000, excludable 528 ===
+  PDS none med 0.8839 mean 0.7270; self med 0.6967 mean 0.6261
+  per-query drop: all med +0.0000 mean +0.1009; excludable med +0.0716 mean +0.1910
+  self-LFC excludable med -27.400 (frac < -1 0.860)
+  Spearman(drop, self-LFC): all -0.657 (p 1.5e-119, n 959); excludable -0.334 [-0.410,-0.255] p 3.3e-15 n 528
+
+saved outputs/bench_self_lfc_corr.csv / _summary.csv

@@ -1,0 +1,59 @@
+  h1       285 rows
+  k562     9866 rows
+  rpe1     2393 rows
+  hct116   8987 rows
+  hek293t  4297 rows
+
+######## Tier B | mode mix | 5-fold | 256 PCs ########
+
+=== hold-out h1: pool 285, queries 274, sources ['k562', 'rpe1', 'hct116', 'hek293t'] ===
+  features (274, 10778), targets (274, 10778)
+  fold 0: train 219 val 55 comp 218 alpha 0.316
+  fold 1: train 219 val 55 comp 218 alpha 0.316
+  fold 2: train 219 val 55 comp 218 alpha 0.1
+  fold 3: train 219 val 55 comp 218 alpha 0.1
+  fold 4: train 220 val 54 comp 219 alpha 0.1
+  ridge_mix    n= 274 mean 0.6081 (equal 0.6538) median 0.6456 (equal 0.7228)
+  delta vs equal -0.0457 [-0.0897,-0.0020] p=0.082 win=0.47
+
+=== hold-out k562: pool 9866, queries 5820, sources ['h1', 'rpe1', 'hct116', 'hek293t'] ===
+  features (5820, 10778), targets (5820, 10778)
+  fold 0: train 4656 val 1164 comp 256 alpha 10
+  fold 1: train 4656 val 1164 comp 256 alpha 10
+  fold 2: train 4656 val 1164 comp 256 alpha 10
+  fold 3: train 4656 val 1164 comp 256 alpha 10
+  fold 4: train 4656 val 1164 comp 256 alpha 10
+  ridge_mix    n=5820 mean 0.6451 (equal 0.6767) median 0.7124 (equal 0.7554)
+  delta vs equal -0.0315 [-0.0404,-0.0234] p=5.7e-28 win=0.40
+
+=== hold-out rpe1: pool 2393, queries 2390, sources ['h1', 'k562', 'hct116', 'hek293t'] ===
+  features (2390, 10778), targets (2390, 10778)
+  fold 0: train 1912 val 478 comp 256 alpha 10
+  fold 1: train 1912 val 478 comp 256 alpha 10
+  fold 2: train 1912 val 478 comp 256 alpha 10
+  fold 3: train 1912 val 478 comp 256 alpha 10
+  fold 4: train 1912 val 478 comp 256 alpha 10
+  ridge_mix    n=2390 mean 0.5344 (equal 0.7435) median 0.5441 (equal 0.8483)
+  delta vs equal -0.2091 [-0.2212,-0.1968] p=2.4e-192 win=0.21
+
+=== hold-out hct116: pool 8987, queries 6671, sources ['h1', 'k562', 'rpe1', 'hek293t'] ===
+  features (6671, 10778), targets (6671, 10778)
+  fold 0: train 5336 val 1335 comp 256 alpha 31.6
+  fold 1: train 5337 val 1334 comp 256 alpha 31.6
+  fold 2: train 5337 val 1334 comp 256 alpha 31.6
+  fold 3: train 5337 val 1334 comp 256 alpha 31.6
+  fold 4: train 5337 val 1334 comp 256 alpha 31.6
+  ridge_mix    n=6671 mean 0.6030 (equal 0.6353) median 0.6503 (equal 0.7022)
+  delta vs equal -0.0323 [-0.0403,-0.0242] p=1.1e-11 win=0.46
+
+=== hold-out hek293t: pool 4297, queries 3523, sources ['h1', 'k562', 'rpe1', 'hct116'] ===
+  features (3523, 10778), targets (3523, 10778)
+  fold 0: train 2818 val 705 comp 256 alpha 31.6
+  fold 1: train 2818 val 705 comp 256 alpha 31.6
+  fold 2: train 2818 val 705 comp 256 alpha 31.6
+  fold 3: train 2819 val 704 comp 256 alpha 31.6
+  fold 4: train 2819 val 704 comp 256 alpha 31.6
+  ridge_mix    n=3523 mean 0.5094 (equal 0.5896) median 0.5162 (equal 0.6393)
+  delta vs equal -0.0803 [-0.0913,-0.0686] p=1.6e-41 win=0.41
+
+saved outputs/bench_supervised_v2_mix.csv / .npz

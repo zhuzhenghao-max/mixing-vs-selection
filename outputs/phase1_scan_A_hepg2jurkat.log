@@ -1,0 +1,78 @@
+  k562     1383 rows (nadig)
+  rpe1     1499 rows (nadig)
+  hepg2    1340 rows (nadig)
+  jurkat   1537 rows (nadig)
+
+=== A:hepg2 | pool 1340 queries 1278 | k=20 splits=3 eval=300 ===
+  split 0: random -0.0156  kmeans +0.0266  shared -0.0016  magnitude -0.0433  diversity -0.0829  disagreement -0.2664
+  split 1: random -0.0587  kmeans -0.0108  shared -0.0321  magnitude -0.0830  diversity -0.1988  disagreement -0.2652
+  split 2: random -0.0466  kmeans +0.0177  shared -0.0073  magnitude -0.0423  diversity -0.2551  disagreement -0.2573
+  k562     1383 rows (nadig)
+  rpe1     1499 rows (nadig)
+  hepg2    1340 rows (nadig)
+  jurkat   1537 rows (nadig)
+
+=== A:jurkat | pool 1537 queries 1466 | k=20 splits=3 eval=300 ===
+  split 0: random -0.0941  kmeans -0.0618  shared -0.0650  magnitude -0.0938  diversity -0.3225  disagreement -0.3738
+  split 1: random -0.1091  kmeans -0.0303  shared -0.0390  magnitude -0.0609  diversity -0.3133  disagreement -0.3095
+  split 2: random -0.0450  kmeans +0.0169  shared -0.0151  magnitude -0.0331  diversity -0.3003  disagreement -0.3039
+
+Summary (delta PDS vs equal mixing)
+tier line     strategy        delta      sd   vs_rnd                 CI         p   win
+A    hepg2    random        -0.0403  0.0181  +0.0000 [+0.0000,+0.0000]         1  0.00
+A    hepg2    kmeans        +0.0112  0.0159  +0.0534 [+0.0440,+0.0632]   1.4e-30  0.71
+A    hepg2    shared        -0.0137  0.0132  +0.0299 [+0.0195,+0.0406]   4.1e-14  0.65
+A    hepg2    magnitude     -0.0562  0.0190  -0.0123 [-0.0279,+0.0033]     0.065  0.56
+A    hepg2    diversity     -0.1789  0.0717  -0.1324 [-0.1533,-0.1106]   2.8e-27  0.34
+A    hepg2    disagreement  -0.2630  0.0040  -0.2208 [-0.2472,-0.1952]   1.2e-43  0.31
+A    jurkat   random        -0.0827  0.0274  +0.0000 [+0.0000,+0.0000]         1  0.00
+A    jurkat   kmeans        -0.0251  0.0323  +0.0564 [+0.0477,+0.0646]   4.7e-42  0.76
+A    jurkat   shared        -0.0397  0.0204  +0.0431 [+0.0348,+0.0516]   7.8e-29  0.71
+A    jurkat   magnitude     -0.0626  0.0248  +0.0218 [+0.0122,+0.0313]   8.2e-11  0.64
+A    jurkat   diversity     -0.3120  0.0091  -0.2326 [-0.2604,-0.2050]   5.2e-43  0.30
+A    jurkat   disagreement  -0.3291  0.0317  -0.2441 [-0.2696,-0.2182]   9.7e-53  0.27
+
+hepg2: spread +0.2741; best kmeans +0.0112; best-random +0.0515
+
+jurkat: spread +0.3040; best kmeans -0.0251; best-random +0.0577
+
+wrote outputs/phase1_selection_pilot_A_k20_hepg2jurkat.csv
+  k562     1383 rows (nadig)
+  rpe1     1499 rows (nadig)
+  hepg2    1340 rows (nadig)
+  jurkat   1537 rows (nadig)
+
+=== A:hepg2 | pool 1340 queries 1278 | k=50 splits=3 eval=300 ===
+  split 0: random +0.0245  kmeans +0.0527  shared +0.0157  magnitude -0.0010  diversity -0.1638  disagreement -0.2705
+  split 1: random +0.0330  kmeans +0.0511  shared +0.0278  magnitude +0.0228  diversity -0.2650  disagreement -0.2609
+  split 2: random +0.0074  kmeans +0.0178  shared +0.0044  magnitude -0.0044  diversity -0.1581  disagreement -0.2886
+  k562     1383 rows (nadig)
+  rpe1     1499 rows (nadig)
+  hepg2    1340 rows (nadig)
+  jurkat   1537 rows (nadig)
+
+=== A:jurkat | pool 1537 queries 1466 | k=50 splits=3 eval=300 ===
+  split 0: random -0.0527  kmeans -0.0154  shared -0.0441  magnitude -0.0601  diversity -0.3341  disagreement -0.3486
+  split 1: random -0.0133  kmeans +0.0311  shared -0.0025  magnitude -0.0084  diversity -0.3316  disagreement -0.2919
+  split 2: random -0.0153  kmeans +0.0146  shared -0.0078  magnitude -0.0232  diversity -0.3044  disagreement -0.3096
+
+Summary (delta PDS vs equal mixing)
+tier line     strategy        delta      sd   vs_rnd                 CI         p   win
+A    hepg2    random        +0.0217  0.0106  +0.0000 [+0.0000,+0.0000]         1  0.00
+A    hepg2    kmeans        +0.0405  0.0161  +0.0194 [+0.0114,+0.0273]   5.2e-09  0.58
+A    hepg2    shared        +0.0160  0.0096  -0.0082 [-0.0184,+0.0015]      0.12  0.56
+A    hepg2    magnitude     +0.0058  0.0121  -0.0167 [-0.0272,-0.0060]      0.24  0.51
+A    hepg2    diversity     -0.1956  0.0491  -0.2149 [-0.2399,-0.1918]   4.4e-48  0.29
+A    hepg2    disagreement  -0.2733  0.0115  -0.2981 [-0.3265,-0.2703]   9.1e-61  0.25
+A    jurkat   random        -0.0271  0.0181  +0.0000 [+0.0000,+0.0000]         1  0.00
+A    jurkat   kmeans        +0.0101  0.0192  +0.0391 [+0.0307,+0.0477]   4.6e-30  0.73
+A    jurkat   shared        -0.0181  0.0185  +0.0087 [+0.0007,+0.0166]   1.9e-06  0.61
+A    jurkat   magnitude     -0.0306  0.0218  -0.0027 [-0.0114,+0.0058]     0.037  0.56
+A    jurkat   diversity     -0.3234  0.0134  -0.2908 [-0.3183,-0.2631]     2e-61  0.25
+A    jurkat   disagreement  -0.3167  0.0237  -0.2840 [-0.3108,-0.2575]   3.3e-64  0.23
+
+hepg2: spread +0.3138; best kmeans +0.0405; best-random +0.0188
+
+jurkat: spread +0.3335; best kmeans +0.0101; best-random +0.0372
+
+wrote outputs/phase1_selection_pilot_A_k50_hepg2jurkat.csv

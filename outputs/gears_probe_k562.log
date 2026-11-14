@@ -1,0 +1,12 @@
+device cpu
+  k562     1383 rows (nadig)
+  rpe1     1499 rows (nadig)
+  hepg2    1340 rows (nadig)
+  jurkat   1537 rows (nadig)
+tier A: 1 folds, 5952 genes, 2023 perturbations
+gene sets 2292
+GO graph 39459 edges (0s)
+  fold k562: queries 1309, train rows 4312 (1917 targets), val rows 64 (32 targets), gene axis 5952
+  coexpr graph 8671 edges
+    epoch 01 loss 0.1925 val_mse 0.00017 * (345s)
+    epoch 02 loss 0.1851 val_mse 0.00017 (1415s)

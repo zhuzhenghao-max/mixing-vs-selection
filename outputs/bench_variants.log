@@ -1,0 +1,62 @@
+  h1       285 rows
+  k562     9866 rows
+  rpe1     2393 rows
+  hct116   8987 rows
+  hek293t  4297 rows
+
+=== k562: 1000 sampled queries, sources ['h1', 'rpe1', 'hct116', 'hek293t'] ===
+  equal         med 0.9741 mean 0.8136
+  equal_raw     med 0.9728 mean 0.8111
+  equal_center  med 0.9580 mean 0.7857
+  gated         med 0.9744 mean 0.8124
+  gated_raw     med 0.9730 mean 0.8114
+  best_self     med 0.9739 mean 0.8120
+  top2_selfw    med 0.9755 mean 0.8142
+  consensus     med 0.9684 mean 0.8071
+  normw         med 0.9728 mean 0.8109
+  d(equal_raw  -equal) med +0.0000 mean -0.0024 win 0.07
+  d(equal_center-equal) med +0.0000 mean -0.0279 win 0.36
+  d(gated      -equal) med +0.0000 mean -0.0011 win 0.01
+  d(gated_raw  -equal) med +0.0000 mean -0.0022 win 0.07
+  d(best_self  -equal) med +0.0000 mean -0.0016 win 0.09
+  d(top2_selfw -equal) med +0.0000 mean +0.0007 win 0.06
+  d(consensus  -equal) med +0.0000 mean -0.0065 win 0.08
+  d(normw      -equal) med +0.0000 mean -0.0026 win 0.08
+
+=== rpe1: 1000 sampled queries, sources ['h1', 'k562', 'hct116', 'hek293t'] ===
+  equal         med 0.9283 mean 0.8046
+  equal_raw     med 0.9273 mean 0.8039
+  equal_center  med 0.9265 mean 0.8167
+  gated         med 0.9321 mean 0.8062
+  gated_raw     med 0.9302 mean 0.8056
+  best_self     med 0.9310 mean 0.8076
+  top2_selfw    med 0.9340 mean 0.8081
+  consensus     med 0.9068 mean 0.7893
+  normw         med 0.9279 mean 0.8046
+  d(equal_raw  -equal) med +0.0000 mean -0.0007 win 0.14
+  d(equal_center-equal) med +0.0000 mean +0.0121 win 0.45
+  d(gated      -equal) med +0.0000 mean +0.0017 win 0.03
+  d(gated_raw  -equal) med +0.0000 mean +0.0010 win 0.14
+  d(best_self  -equal) med +0.0000 mean +0.0030 win 0.15
+  d(top2_selfw -equal) med +0.0000 mean +0.0035 win 0.13
+  d(consensus  -equal) med +0.0000 mean -0.0152 win 0.11
+  d(normw      -equal) med +0.0000 mean +0.0000 win 0.15
+
+=== hct116: 1000 sampled queries, sources ['h1', 'k562', 'rpe1', 'hek293t'] ===
+  equal         med 0.8839 mean 0.7270
+  equal_raw     med 0.8704 mean 0.7241
+  equal_center  med 0.8695 mean 0.7325
+  gated         med 0.8839 mean 0.7269
+  gated_raw     med 0.8704 mean 0.7237
+  best_self     med 0.8753 mean 0.7238
+  top2_selfw    med 0.8839 mean 0.7270
+  consensus     med 0.8602 mean 0.7190
+  normw         med 0.8733 mean 0.7241
+  d(equal_raw  -equal) med +0.0000 mean -0.0029 win 0.04
+  d(equal_center-equal) med +0.0000 mean +0.0055 win 0.39
+  d(gated      -equal) med +0.0000 mean -0.0001 win 0.01
+  d(gated_raw  -equal) med +0.0000 mean -0.0033 win 0.05
+  d(best_self  -equal) med +0.0000 mean -0.0032 win 0.07
+  d(top2_selfw -equal) med +0.0000 mean +0.0000 win 0.04
+  d(consensus  -equal) med +0.0000 mean -0.0079 win 0.06
+  d(normw      -equal) med +0.0000 mean -0.0028 win 0.05

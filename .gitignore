@@ -1,0 +1,22 @@
+# Raw third-party data (see MANIFEST.md)
+data/external/
+data/tahoe/tmp/
+data/tahoe/lines/
+data/*.h5ad
+data/*.zip
+
+# Large derived arrays archived on Zenodo (see MANIFEST.md)
+outputs/gears_baseline_A.npz
+outputs/nadig_rows.npz
+outputs/rpe1_rows.npz
+outputs/gwps_rows.npz
+outputs/seed_runs/*_full.npz
+
+# Caches and local artefacts
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+.claude/
+.DS_Store
+Thumbs.db

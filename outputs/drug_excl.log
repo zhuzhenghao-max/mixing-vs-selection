@@ -1,0 +1,17 @@
+A549 (1137, 10778)
+A498 (1051, 10778)
+HS-578T (718, 10778)
+HEC-1-A (747, 10778)
+J82 (663, 10778)
+MIA_PaCa-2 (874, 10778)
+SK-MEL-2 (810, 10778)
+common active 648
+drugs 304 max doses 3
+A549         full mean 0.9848 median 1.0000 first 0.529 | drug-excl mean 0.9850 median 1.0000 first 0.560
+A498         full mean 0.9931 median 1.0000 first 0.608 | drug-excl mean 0.9933 median 1.0000 first 0.645
+HS-578T      full mean 0.9835 median 0.9992 first 0.500 | drug-excl mean 0.9837 median 1.0000 first 0.542
+HEC-1-A      full mean 0.9908 median 1.0000 first 0.517 | drug-excl mean 0.9911 median 1.0000 first 0.539
+J82          full mean 0.9698 median 0.9985 first 0.418 | drug-excl mean 0.9700 median 0.9985 first 0.466
+MIA_PaCa-2   full mean 0.9935 median 0.9985 first 0.489 | drug-excl mean 0.9937 median 1.0000 first 0.534
+SK-MEL-2     full mean 0.9938 median 0.9985 first 0.478 | drug-excl mean 0.9941 median 1.0000 first 0.517
+saved pilot_x.npz

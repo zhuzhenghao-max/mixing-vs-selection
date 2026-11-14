@@ -1,0 +1,23 @@
+{
+  "title": "Separating mixing from selection: a leave-one-line-out benchmark for cross-cell-line perturbation prediction",
+  "description": "<p>Analysis code and derived per-target scores for a leave-one-line-out benchmark of cross-cell-line perturbation prediction. Tier A holds out each of four harmonized cell lines (K562, RPE1, HepG2, Jurkat; 5,486 queries); Tier B holds out each of five heterogeneous lines (H1, K562, RPE1, HCT116, HEK293T; 18,678 queries). The archive contains the analysis scripts, summary tables, manuscript source, figures, and the per-target arrays needed to rerun the headline audit. The largest prediction arrays and raw row caches are deposited as separate files. The analysis code is MIT-licensed; derived data and figures are CC BY 4.0. Raw third-party datasets are not redistributed and remain under their original licenses.</p>",
+  "creators": [
+    {
+      "name": "Zhu, Zhenghao",
+      "affiliation": "Heze University"
+    }
+  ],
+  "upload_type": "software",
+  "license": "cc-by-4.0",
+  "access_right": "open",
+  "language": "eng",
+  "version": "1.0.0",
+  "publication_date": "2026-11-14",
+  "keywords": [
+    "perturbation prediction",
+    "single-cell",
+    "cross-cell-line transfer",
+    "benchmark",
+    "perturbation discrimination score"
+  ]
+}

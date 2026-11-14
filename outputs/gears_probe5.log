@@ -1,0 +1,16 @@
+device cpu
+  k562     1383 rows (nadig)
+  rpe1     1499 rows (nadig)
+  hepg2    1340 rows (nadig)
+  jurkat   1537 rows (nadig)
+tier A: 1 folds, 5952 genes, 2023 perturbations
+gene sets 2292
+GO graph 39459 edges (0s)
+  fold k562: queries 1309, train rows 4274 (1898 targets), val rows 102 (51 targets), gene axis 5952
+  coexpr graph 25270 edges
+    epoch 01 loss 0.0079 val_mse 0.00695 val_pds 0.5249 train_pds 0.5183 * (166s)
+    epoch 02 loss 0.0075 val_mse 0.18394 val_pds 0.5059 train_pds 0.5031 (171s)
+    epoch 03 loss 0.0073 val_mse 0.08809 val_pds 0.5047 train_pds 0.5023 (197s)
+  === k562: n=1309 gears 0.5141 (0.5091) vs equal 0.9176 (0.8072) d_med +0.2242 win 0.88 [557s]
+tier holdout    n  best_epoch  pds_med  pds_mean  equal_med  equal_mean   d_med   d_mean      win
+   A    k562 1309           0   0.5141  0.509089    0.91757    0.807227 0.22415 0.298138 0.878533

@@ -1,0 +1,3 @@
+# 内部评估: 2025 H1 留出集
+real: data/internal/real_heldout.h5ad
+pert_col: target_gene

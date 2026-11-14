@@ -1,0 +1,19 @@
+  k562     1383 rows (nadig)
+  rpe1     1499 rows (nadig)
+  hepg2    1340 rows (nadig)
+  jurkat   1537 rows (nadig)
+  fold k562: queries 1309, train rows 4274 (1898 targets), val rows 102 (51 targets), gene axis 5952
+y |mean| 0.0569 mean y^2 0.007605
+step 000 loss 0.008270 pred |mean| 0.0204 pred rms 0.0259
+  grad indv_b1            norm 2.424e-06
+  grad indv_b2            norm 1.071e-03
+  grad gene_emb.weight    norm 1.593e-04
+  grad pert_emb.weight    norm 1.970e-04
+step 020 loss 0.001308 pred |mean| 0.0421 pred rms 0.0671 (12s)
+step 040 loss 0.000996 pred |mean| 0.0402 pred rms 0.0640 (24s)
+step 060 loss 0.000868 pred |mean| 0.0398 pred rms 0.0641 (36s)
+step 080 loss 0.000942 pred |mean| 0.0387 pred rms 0.0630 (48s)
+step 100 loss 0.000781 pred |mean| 0.0394 pred rms 0.0643 (59s)
+step 120 loss 0.000867 pred |mean| 0.0391 pred rms 0.0643 (71s)
+train-mode loss 0.000867 pred rms 0.0643
+eval-mode  loss 0.010649 pred rms 0.0921

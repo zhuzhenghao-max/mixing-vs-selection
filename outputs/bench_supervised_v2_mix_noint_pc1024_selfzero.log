@@ -1,0 +1,20 @@
+  h1       285 rows
+  k562     9866 rows
+  rpe1     2393 rows
+  hct116   8987 rows
+  hek293t  4297 rows
+
+######## Tier B | mode mix | 5-fold | 1024 PCs ########
+
+=== hold-out h1: pool 285, queries 274, sources ['k562', 'rpe1', 'hct116', 'hek293t'] ===
+  features (274, 10778), targets (274, 10778)
+  fold 0: train 219 val 55 comp 218 alpha 10
+  fold 1: train 219 val 55 comp 218 alpha 10
+  fold 2: train 219 val 55 comp 218 alpha 10
+  fold 3: train 219 val 55 comp 218 alpha 31.6
+  fold 4: train 220 val 54 comp 219 alpha 10
+  ridge_mix    n= 274 mean 0.6761 (equal 0.6538) median 0.7526 (equal 0.7228)
+  delta vs equal +0.0223 [-0.0155,+0.0599] p=0.28 win=0.53
+
+=== hold-out k562: pool 9866, queries 5820, sources ['h1', 'rpe1', 'hct116', 'hek293t'] ===
+  features (5820, 10778), targets (5820, 10778)

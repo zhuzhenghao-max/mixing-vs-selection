@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: >-
+  If you use this benchmark, please cite the manuscript and the archived
+  release. The analysis code is MIT-licensed; derived data and figures are
+  CC BY 4.0.
+type: software
+title: >-
+  Separating mixing from selection: a leave-one-line-out benchmark for
+  cross-cell-line perturbation prediction
+abstract: >-
+  Analysis code and derived per-target scores for a leave-one-line-out
+  benchmark of cross-cell-line perturbation prediction, covering four
+  harmonized cell lines (Tier A) and five heterogeneous lines (Tier B).
+authors:
+  - family-names: Zhu
+    given-names: Zhenghao
+    affiliation: Heze University, Heze, Shandong, China
+version: 1.0.0
+date-released: 2026-11-14
+license: MIT
+keywords:
+  - perturbation prediction
+  - single-cell
+  - cross-cell-line transfer
+  - benchmark
+  - perturbation discrimination score
+# Fill in after the repository and archive are created:
+# repository-code: https://github.com/<account>/<repository>
+# doi: 10.5281/zenodo.<record>

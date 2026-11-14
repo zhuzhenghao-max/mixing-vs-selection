@@ -1,0 +1,63 @@
+  k562     1383 rows (nadig)
+  rpe1     1499 rows (nadig)
+  hepg2    1340 rows (nadig)
+  jurkat   1537 rows (nadig)
+eval positions 5952
+k562    all   equal         n=1309 cos 0.2603 pear 0.2526 jac50 0.0904 relMSEcal 0.8922
+k562    all   equal_center  n=1309 cos 0.2090 pear 0.2061 jac50 0.0875 relMSEcal 0.9107
+k562    all   mean          n=1309 cos 0.1726 pear 0.1680 jac50 0.0503 relMSEcal 0.9384
+k562    all   gears         n=1309 cos 0.1504 pear 0.1419 jac50 0.0342 relMSEcal 0.9501
+k562    gated equal         n= 163 cos 0.2622 pear 0.2498 jac50 0.0933 relMSEcal 0.8925
+k562    gated gated_equal   n= 163 cos 0.2496 pear 0.2359 jac50 0.0859 relMSEcal 0.9011
+k562    gated equal_center  n= 163 cos 0.2078 pear 0.2031 jac50 0.0911 relMSEcal 0.9105
+k562    gated mean          n= 163 cos 0.1759 pear 0.1624 jac50 0.0506 relMSEcal 0.9368
+k562    gated gears         n= 163 cos 0.1344 pear 0.1249 jac50 0.0303 relMSEcal 0.9531
+  PDS audit k562/equal: n=1309 max|diff|=0.00e+00
+  PDS audit k562/equal_center: n=1309 max|diff|=0.00e+00
+  PDS audit k562/mean: n=1309 max|diff|=0.00e+00
+  PDS audit k562/gated_equal: n=163 max|diff|=0.00e+00
+  PDS audit k562/gears: n=1309 max|diff|=0.00e+00
+rpe1    all   equal         n=1433 cos 0.2934 pear 0.2826 jac50 0.1119 relMSEcal 0.8654
+rpe1    all   equal_center  n=1433 cos 0.1459 pear 0.1432 jac50 0.0928 relMSEcal 0.9191
+rpe1    all   mean          n=1433 cos 0.3751 pear 0.3617 jac50 0.1790 relMSEcal 0.7807
+rpe1    all   gears         n=1433 cos 0.2300 pear 0.2173 jac50 0.0603 relMSEcal 0.8923
+rpe1    gated equal         n= 197 cos 0.3136 pear 0.3006 jac50 0.1177 relMSEcal 0.8485
+rpe1    gated gated_equal   n= 197 cos 0.2780 pear 0.2659 jac50 0.1031 relMSEcal 0.8714
+rpe1    gated equal_center  n= 197 cos 0.1839 pear 0.1782 jac50 0.0963 relMSEcal 0.9042
+rpe1    gated mean          n= 197 cos 0.3662 pear 0.3500 jac50 0.1755 relMSEcal 0.7839
+rpe1    gated gears         n= 197 cos 0.2424 pear 0.2233 jac50 0.0638 relMSEcal 0.8783
+  PDS audit rpe1/equal: n=1433 max|diff|=0.00e+00
+  PDS audit rpe1/equal_center: n=1433 max|diff|=0.00e+00
+  PDS audit rpe1/mean: n=1433 max|diff|=0.00e+00
+  PDS audit rpe1/gated_equal: n=197 max|diff|=0.00e+00
+  PDS audit rpe1/gears: n=1433 max|diff|=0.00e+00
+hepg2   all   equal         n=1278 cos 0.2999 pear 0.2920 jac50 0.1194 relMSEcal 0.8631
+hepg2   all   equal_center  n=1278 cos 0.2069 pear 0.2072 jac50 0.1027 relMSEcal 0.9026
+hepg2   all   mean          n=1278 cos 0.3037 pear 0.2938 jac50 0.1317 relMSEcal 0.8435
+hepg2   all   gears         n=1278 cos 0.2247 pear 0.2173 jac50 0.0729 relMSEcal 0.8991
+hepg2   gated equal         n= 155 cos 0.3261 pear 0.3156 jac50 0.1253 relMSEcal 0.8461
+hepg2   gated gated_equal   n= 155 cos 0.2915 pear 0.2822 jac50 0.1100 relMSEcal 0.8679
+hepg2   gated equal_center  n= 155 cos 0.2223 pear 0.2215 jac50 0.1090 relMSEcal 0.8891
+hepg2   gated mean          n= 155 cos 0.3231 pear 0.3061 jac50 0.1253 relMSEcal 0.8417
+hepg2   gated gears         n= 155 cos 0.2417 pear 0.2265 jac50 0.0717 relMSEcal 0.8902
+  PDS audit hepg2/equal: n=1278 max|diff|=0.00e+00
+  PDS audit hepg2/equal_center: n=1278 max|diff|=0.00e+00
+  PDS audit hepg2/mean: n=1278 max|diff|=0.00e+00
+  PDS audit hepg2/gated_equal: n=155 max|diff|=0.00e+00
+  PDS audit hepg2/gears: n=1278 max|diff|=0.00e+00
+jurkat  all   equal         n=1466 cos 0.2537 pear 0.2433 jac50 0.0968 relMSEcal 0.8965
+jurkat  all   equal_center  n=1466 cos 0.1603 pear 0.1584 jac50 0.0826 relMSEcal 0.9326
+jurkat  all   mean          n=1466 cos 0.2062 pear 0.1922 jac50 0.0771 relMSEcal 0.9215
+jurkat  all   gears         n=1466 cos 0.1783 pear 0.1668 jac50 0.0455 relMSEcal 0.9325
+jurkat  gated equal         n= 159 cos 0.2586 pear 0.2460 jac50 0.0973 relMSEcal 0.8889
+jurkat  gated gated_equal   n= 159 cos 0.2355 pear 0.2238 jac50 0.0907 relMSEcal 0.9031
+jurkat  gated equal_center  n= 159 cos 0.1553 pear 0.1548 jac50 0.0826 relMSEcal 0.9267
+jurkat  gated mean          n= 159 cos 0.2185 pear 0.1962 jac50 0.0790 relMSEcal 0.9148
+jurkat  gated gears         n= 159 cos 0.1686 pear 0.1495 jac50 0.0423 relMSEcal 0.9306
+  PDS audit jurkat/equal: n=1466 max|diff|=0.00e+00
+  PDS audit jurkat/equal_center: n=1466 max|diff|=0.00e+00
+  PDS audit jurkat/mean: n=1466 max|diff|=0.00e+00
+  PDS audit jurkat/gated_equal: n=159 max|diff|=0.00e+00
+  PDS audit jurkat/gears: n=1466 max|diff|=0.00e+00
+
+wrote 36 method rows and 80 comparisons

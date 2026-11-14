@@ -1,0 +1,128 @@
+  h1       285 rows
+  k562     9866 rows
+  rpe1     2393 rows
+  hct116   8987 rows
+  hek293t  4297 rows
+  k562     1383 rows (nadig)
+  rpe1     1499 rows (nadig)
+  hepg2    1340 rows (nadig)
+  jurkat   1537 rows (nadig)
+
+=== A k562: pool 1383, queries 1309, gate 163, eval positions 5952, panel removes 1146, remaining 4806 ===
+  equal          n= 1309 mean 0.8165 median 0.9269
+  mean           n= 1309 mean 0.4991 median 0.4971
+    d(mean        -equal) n= 1309 med -0.2706 mean -0.3173 [-0.3314,-0.3035] p=7.84e-203 win=0.03
+  equal_raw      n= 1309 mean 0.8064 median 0.9182
+    d(equal_raw   -equal) n= 1309 med +0.0000 mean -0.0100 [-0.0115,-0.0086] p=1.01e-56 win=0.17
+  equal_center   n= 1309 mean 0.9037 median 0.9761
+    d(equal_center-equal) n= 1309 med +0.0195 mean +0.0873 [+0.0756,+0.0987] p=4.00e-77 win=0.70
+  gated_equal    n=  163 mean 0.8353 median 0.9342
+    d(gated_equal -equal) n=  163 med +0.0000 mean +0.0120 [-0.0008,+0.0260] p=2.22e-01 win=0.26
+  top2_selfw     n= 1309 mean 0.8209 median 0.9320
+    d(top2_selfw  -equal) n= 1309 med +0.0000 mean +0.0044 [+0.0005,+0.0082] p=9.06e-04 win=0.34
+
+=== A rpe1: pool 1499, queries 1433, gate 197, eval positions 5952, panel removes 1254, remaining 4698 ===
+  equal          n= 1433 mean 0.8331 median 0.9873
+  mean           n= 1433 mean 0.4983 median 0.4987
+    d(mean        -equal) n= 1433 med -0.2971 mean -0.3347 [-0.3489,-0.3207] p=4.19e-218 win=0.05
+  equal_raw      n= 1433 mean 0.8295 median 0.9846
+    d(equal_raw   -equal) n= 1433 med +0.0000 mean -0.0036 [-0.0051,-0.0022] p=7.88e-10 win=0.21
+  equal_center   n= 1433 mean 0.8670 median 0.9680
+    d(equal_center-equal) n= 1433 med +0.0000 mean +0.0339 [+0.0198,+0.0489] p=2.66e-01 win=0.40
+  gated_equal    n=  197 mean 0.8028 median 0.9887
+    d(gated_equal -equal) n=  197 med +0.0000 mean -0.0097 [-0.0249,+0.0059] p=2.55e-03 win=0.13
+  top2_selfw     n= 1433 mean 0.8270 median 0.9800
+    d(top2_selfw  -equal) n= 1433 med +0.0000 mean -0.0061 [-0.0108,-0.0014] p=9.89e-09 win=0.20
+
+=== A hepg2: pool 1340, queries 1278, gate 155, eval positions 5952, panel removes 1085, remaining 4867 ===
+  equal          n= 1278 mean 0.8005 median 0.9298
+  mean           n= 1278 mean 0.5013 median 0.5022
+    d(mean        -equal) n= 1278 med -0.2423 mean -0.2992 [-0.3131,-0.2852] p=1.44e-196 win=0.06
+  equal_raw      n= 1278 mean 0.7905 median 0.9235
+    d(equal_raw   -equal) n= 1278 med +0.0000 mean -0.0100 [-0.0116,-0.0083] p=4.41e-37 win=0.20
+  equal_center   n= 1278 mean 0.8933 median 0.9675
+    d(equal_center-equal) n= 1278 med +0.0052 mean +0.0928 [+0.0792,+0.1070] p=3.99e-38 win=0.60
+  gated_equal    n=  155 mean 0.8301 median 0.9552
+    d(gated_equal -equal) n=  155 med +0.0000 mean -0.0025 [-0.0167,+0.0127] p=6.73e-02 win=0.15
+  top2_selfw     n= 1278 mean 0.8077 median 0.9380
+    d(top2_selfw  -equal) n= 1278 med +0.0000 mean +0.0072 [+0.0022,+0.0123] p=6.08e-02 win=0.32
+
+=== A jurkat: pool 1537, queries 1466, gate 159, eval positions 5952, panel removes 1256, remaining 4696 ===
+  equal          n= 1466 mean 0.8267 median 0.9365
+  mean           n= 1466 mean 0.5026 median 0.4997
+    d(mean        -equal) n= 1466 med -0.2637 mean -0.3241 [-0.3376,-0.3098] p=3.50e-229 win=0.04
+  equal_raw      n= 1466 mean 0.8122 median 0.9277
+    d(equal_raw   -equal) n= 1466 med +0.0000 mean -0.0145 [-0.0167,-0.0124] p=2.56e-58 win=0.16
+  equal_center   n= 1466 mean 0.8750 median 0.9668
+    d(equal_center-equal) n= 1466 med +0.0085 mean +0.0483 [+0.0364,+0.0612] p=9.81e-26 win=0.60
+  gated_equal    n=  159 mean 0.8187 median 0.9479
+    d(gated_equal -equal) n=  159 med +0.0000 mean -0.0029 [-0.0219,+0.0160] p=4.12e-01 win=0.18
+  top2_selfw     n= 1466 mean 0.8304 median 0.9417
+    d(top2_selfw  -equal) n= 1466 med +0.0000 mean +0.0037 [-0.0007,+0.0079] p=6.93e-04 win=0.32
+
+=== B h1: pool 285, queries 274, gate 246, eval positions 10778, panel removes 282, remaining 10496 ===
+  equal          n=  274 mean 0.6506 median 0.7201
+  mean           n=  274 mean 0.4989 median 0.4982
+    d(mean        -equal) n=  274 med -0.1426 mean -0.1517 [-0.1906,-0.1139] p=9.47e-13 win=0.29
+  equal_raw      n=  274 mean 0.6309 median 0.6831
+    d(equal_raw   -equal) n=  274 med +0.0000 mean -0.0196 [-0.0316,-0.0089] p=7.51e-03 win=0.22
+  equal_center   n=  274 mean 0.6225 median 0.6725
+    d(equal_center-equal) n=  274 med +0.0000 mean -0.0281 [-0.0610,+0.0056] p=2.14e-01 win=0.47
+  gated_equal    n=  246 mean 0.6687 median 0.7377
+    d(gated_equal -equal) n=  246 med +0.0000 mean +0.0009 [-0.0075,+0.0099] p=8.58e-01 win=0.04
+  top2_selfw     n=  274 mean 0.6357 median 0.7042
+    d(top2_selfw  -equal) n=  274 med +0.0000 mean -0.0149 [-0.0300,-0.0005] p=6.38e-02 win=0.24
+
+=== B k562: pool 9866, queries 5820, gate 4254, eval positions 10778, panel removes 8042, remaining 2736 ===
+  equal          n= 5820 mean 0.5770 median 0.5933
+  mean           n= 5820 mean 0.4903 median 0.4837
+    d(mean        -equal) n= 5820 med -0.0751 mean -0.0868 [-0.0969,-0.0773] p=3.57e-61 win=0.40
+  equal_raw      n= 5820 mean 0.5748 median 0.5921
+    d(equal_raw   -equal) n= 5820 med +0.0000 mean -0.0022 [-0.0034,-0.0010] p=9.02e-06 win=0.11
+  equal_center   n= 5820 mean 0.5679 median 0.5901
+    d(equal_center-equal) n= 5820 med -0.0024 mean -0.0091 [-0.0141,-0.0040] p=6.06e-06 win=0.46
+  gated_equal    n= 4254 mean 0.5839 median 0.6071
+    d(gated_equal -equal) n= 4254 med +0.0000 mean -0.0006 [-0.0021,+0.0010] p=1.85e-01 win=0.03
+  top2_selfw     n= 5820 mean 0.5741 median 0.5913
+    d(top2_selfw  -equal) n= 5820 med +0.0000 mean -0.0029 [-0.0047,-0.0011] p=1.80e-04 win=0.08
+
+=== B rpe1: pool 2393, queries 2390, gate 1713, eval positions 10778, panel removes 1974, remaining 8804 ===
+  equal          n= 2390 mean 0.7447 median 0.8549
+  mean           n= 2390 mean 0.4997 median 0.4998
+    d(mean        -equal) n= 2390 med -0.2084 mean -0.2449 [-0.2598,-0.2302] p=1.64e-176 win=0.22
+  equal_raw      n= 2390 mean 0.7418 median 0.8518
+    d(equal_raw   -equal) n= 2390 med +0.0000 mean -0.0029 [-0.0048,-0.0011] p=3.68e-02 win=0.16
+  equal_center   n= 2390 mean 0.7600 median 0.8635
+    d(equal_center-equal) n= 2390 med +0.0000 mean +0.0154 [+0.0091,+0.0212] p=7.79e-02 win=0.45
+  gated_equal    n= 1713 mean 0.7631 median 0.8712
+    d(gated_equal -equal) n= 1713 med +0.0000 mean -0.0013 [-0.0040,+0.0012] p=6.66e-01 win=0.04
+  top2_selfw     n= 2390 mean 0.7413 median 0.8512
+    d(top2_selfw  -equal) n= 2390 med +0.0000 mean -0.0033 [-0.0064,-0.0001] p=2.78e-02 win=0.13
+
+=== B hct116: pool 8987, queries 6671, gate 2878, eval positions 10778, panel removes 4315, remaining 6463 ===
+  equal          n= 6671 mean 0.6059 median 0.6493
+  mean           n= 6671 mean 0.5104 median 0.5144
+    d(mean        -equal) n= 6671 med -0.0585 mean -0.0956 [-0.1034,-0.0873] p=3.86e-111 win=0.38
+  equal_raw      n= 6671 mean 0.6035 median 0.6470
+    d(equal_raw   -equal) n= 6671 med +0.0000 mean -0.0024 [-0.0034,-0.0013] p=2.40e-09 win=0.08
+  equal_center   n= 6671 mean 0.5853 median 0.6131
+    d(equal_center-equal) n= 6671 med -0.0033 mean -0.0206 [-0.0269,-0.0143] p=1.81e-14 win=0.46
+  gated_equal    n= 2878 mean 0.6581 median 0.7211
+    d(gated_equal -equal) n= 2878 med +0.0000 mean -0.0015 [-0.0039,+0.0008] p=1.15e-01 win=0.04
+  top2_selfw     n= 6671 mean 0.6042 median 0.6475
+    d(top2_selfw  -equal) n= 6671 med +0.0000 mean -0.0017 [-0.0031,-0.0004] p=1.01e-03 win=0.06
+
+=== B hek293t: pool 4297, queries 3523, gate 489, eval positions 10778, panel removes 803, remaining 9975 ===
+  equal          n= 3523 mean 0.5842 median 0.6236
+  mean           n= 3523 mean 0.4965 median 0.4944
+    d(mean        -equal) n= 3523 med -0.0377 mean -0.0877 [-0.0988,-0.0762] p=2.70e-51 win=0.39
+  equal_raw      n= 3523 mean 0.5828 median 0.6229
+    d(equal_raw   -equal) n= 3523 med +0.0000 mean -0.0014 [-0.0026,-0.0003] p=8.68e-04 win=0.07
+  equal_center   n= 3523 mean 0.5820 median 0.6129
+    d(equal_center-equal) n= 3523 med -0.0012 mean -0.0022 [-0.0104,+0.0058] p=1.55e-01 win=0.48
+  gated_equal    n=  489 mean 0.6610 median 0.7214
+    d(gated_equal -equal) n=  489 med +0.0000 mean -0.0026 [-0.0118,+0.0064] p=3.40e-01 win=0.10
+  top2_selfw     n= 3523 mean 0.5828 median 0.6227
+    d(top2_selfw  -equal) n= 3523 med +0.0000 mean -0.0014 [-0.0031,+0.0001] p=2.29e-02 win=0.04
+
+saved outputs/bench_scope_sensitivity.csv/.npz

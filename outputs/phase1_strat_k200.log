@@ -1,0 +1,33 @@
+  k562     1383 rows (nadig)
+  rpe1     1499 rows (nadig)
+  hepg2    1340 rows (nadig)
+  jurkat   1537 rows (nadig)
+
+=== A:k562 | pool 1383 queries 1309 | k=200 splits=3 eval=300 ===
+  split 0: random +0.0401  kmeans +0.0135  strat +0.0426
+  split 1: random +0.0368  kmeans +0.0231  strat +0.0465
+  split 2: random +0.0470  kmeans +0.0433  strat +0.0480
+  k562     1383 rows (nadig)
+  rpe1     1499 rows (nadig)
+  hepg2    1340 rows (nadig)
+  jurkat   1537 rows (nadig)
+
+=== A:rpe1 | pool 1499 queries 1433 | k=200 splits=3 eval=300 ===
+  split 0: random -0.0133  kmeans -0.0268  strat -0.0193
+  split 1: random -0.0143  kmeans -0.0517  strat -0.0231
+  split 2: random -0.0431  kmeans -0.0107  strat -0.0351
+
+Summary (delta PDS vs equal mixing)
+tier line     strategy        delta      sd   vs_rnd                 CI         p   win
+A    k562     random        +0.0413  0.0042  +0.0000 [+0.0000,+0.0000]         1  0.00
+A    k562     kmeans        +0.0266  0.0124  -0.0144 [-0.0240,-0.0049]     0.042  0.47
+A    k562     strat         +0.0457  0.0023  +0.0047 [+0.0002,+0.0093]    0.0057  0.54
+A    rpe1     random        -0.0236  0.0138  +0.0000 [+0.0000,+0.0000]         1  0.00
+A    rpe1     kmeans        -0.0297  0.0169  -0.0069 [-0.0226,+0.0091]      0.38  0.51
+A    rpe1     strat         -0.0258  0.0067  -0.0013 [-0.0081,+0.0054]      0.39  0.54
+
+k562: spread +0.0190; best strat +0.0457; best-random +0.0044
+
+rpe1: spread +0.0062; best random -0.0236; best-random +0.0000
+
+wrote outputs/phase1_selection_pilot_A_k200_strat200.csv

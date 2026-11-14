@@ -1,0 +1,33 @@
+  k562     1383 rows (nadig)
+  rpe1     1499 rows (nadig)
+  hepg2    1340 rows (nadig)
+  jurkat   1537 rows (nadig)
+triples 12720
+
+Spearman(PDS, x) per (holdout<-source)
+  hepg2   <-jurkat   n= 1035  self_lfc -0.06  row_norm +0.28
+  hepg2   <-k562     n=  940  self_lfc -0.07  row_norm +0.42
+  hepg2   <-rpe1     n= 1045  self_lfc -0.10  row_norm +0.32
+  jurkat  <-hepg2    n= 1035  self_lfc -0.01  row_norm +0.19
+  jurkat  <-k562     n= 1110  self_lfc -0.05  row_norm +0.37
+  jurkat  <-rpe1     n= 1183  self_lfc +0.01  row_norm +0.06
+  k562    <-hepg2    n=  940  self_lfc -0.07  row_norm +0.35
+  k562    <-jurkat   n= 1110  self_lfc -0.08  row_norm +0.39
+  k562    <-rpe1     n= 1047  self_lfc -0.05  row_norm +0.12
+  rpe1    <-hepg2    n= 1045  self_lfc -0.00  row_norm +0.27
+  rpe1    <-jurkat   n= 1183  self_lfc +0.04  row_norm +0.25
+  rpe1    <-k562     n= 1047  self_lfc -0.02  row_norm +0.34
+
+self-LFC bin -> median PDS (within-pair deciles, averaged)
+  bin 0: self_lfc ~ -1.30  pds 0.9246  (pairs 12)
+  bin 1: self_lfc ~ -0.85  pds 0.9354  (pairs 12)
+  bin 2: self_lfc ~ -0.65  pds 0.9189  (pairs 12)
+  bin 3: self_lfc ~ -0.49  pds 0.9152  (pairs 12)
+  bin 4: self_lfc ~ -0.39  pds 0.9115  (pairs 12)
+  bin 5: self_lfc ~ -0.31  pds 0.9200  (pairs 12)
+  bin 6: self_lfc ~ -0.25  pds 0.9078  (pairs 12)
+  bin 7: self_lfc ~ -0.20  pds 0.9121  (pairs 12)
+  bin 8: self_lfc ~ -0.15  pds 0.8908  (pairs 12)
+  bin 9: self_lfc ~ -0.10  pds 0.9005  (pairs 12)
+
+saved outputs/bench_transfer_nadig_v2_triples.csv

@@ -1,0 +1,23 @@
+  k562     1383 rows (nadig)
+  rpe1     1499 rows (nadig)
+  hepg2    1340 rows (nadig)
+  jurkat   1537 rows (nadig)
+data 3s
+go 0s
+  fold k562: queries 1309, train rows 4274 (1898 targets), val rows 102 (51 targets), gene axis 5952
+fold 1s
+coexpr 0s
+model 0s
+batch torch.Size([16, 5952]) pert ['NRBP1', 'CABIN1', 'LARS', 'TOE1', 'SARS2', 'DCTN2']
+fwd/bwd 0.9s
+loss 0.20098
+y    |mean 0.0569 norm 6.2098
+pred |mean 0.0204 norm 1.9703
+  indv_w1                norm 3.950e-04 max 5.534e-06
+  indv_b1                norm 1.180e-06 max 4.760e-07
+  indv_w2                norm 2.451e-03 max 3.139e-04
+  indv_b2                norm 5.055e-04 max 1.959e-04
+  gene_emb.weight        norm 9.079e-05 max 2.095e-06
+  pert_emb.weight        norm 1.022e-04 max 1.401e-05
+  recovery_w.0.weight    norm 1.267e-04 max 6.549e-06
+  cross_gene_state.0.weight norm 9.581e-04 max 1.763e-05

@@ -1,0 +1,33 @@
+  h1       285 rows
+  k562     9866 rows
+  rpe1     2393 rows
+  hct116   8987 rows
+  hek293t  4297 rows
+exclude=self denominator=n
+
+=== k562: 1000 sampled queries, sources ['h1', 'rpe1', 'hct116', 'hek293t'] ===
+  equal         med 0.7648 mean 0.6838
+  median        med 0.7637 mean 0.6836
+  trimmed       med 0.7663 mean 0.6833
+  concordw      med 0.7637 mean 0.6837
+  d(median     -equal) med +0.0000 mean -0.0002 win 0.01
+  d(trimmed    -equal) med +0.0000 mean -0.0005 win 0.01
+  d(concordw   -equal) med +0.0000 mean -0.0001 win 0.01
+
+=== rpe1: 1000 sampled queries, sources ['h1', 'k562', 'hct116', 'hek293t'] ===
+  equal         med 0.8462 mean 0.7398
+  median        med 0.8473 mean 0.7389
+  trimmed       med 0.8452 mean 0.7397
+  concordw      med 0.8462 mean 0.7393
+  d(median     -equal) med +0.0000 mean -0.0008 win 0.02
+  d(trimmed    -equal) med +0.0000 mean -0.0001 win 0.03
+  d(concordw   -equal) med +0.0000 mean -0.0004 win 0.02
+
+=== hct116: 1000 sampled queries, sources ['h1', 'k562', 'rpe1', 'hek293t'] ===
+  equal         med 0.6967 mean 0.6261
+  median        med 0.6957 mean 0.6253
+  trimmed       med 0.6967 mean 0.6257
+  concordw      med 0.6980 mean 0.6261
+  d(median     -equal) med +0.0000 mean -0.0008 win 0.01
+  d(trimmed    -equal) med +0.0000 mean -0.0005 win 0.01
+  d(concordw   -equal) med +0.0000 mean -0.0000 win 0.01

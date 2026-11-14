@@ -1,0 +1,81 @@
+Phase 0: template dominance vs calibration benefit
+  h1       285 rows
+  k562     9866 rows
+  rpe1     2393 rows
+  hct116   8987 rows
+  hek293t  4297 rows
+
+Per-line variance structure and calibration gain
+tier line       rows    cos2  cos2med    norm     pc1    ridge      mlp   mlp_s1
+A    k562       1383   0.106    0.050   0.078   0.164  +0.0687  +0.0435   0.0432
+A    rpe1       1499   0.350    0.352   0.297   0.330  +0.0074  -0.0843        -
+A    hepg2      1340   0.214    0.141   0.169   0.223  +0.0857  +0.0116   0.0078
+A    jurkat     1537   0.139    0.090   0.111   0.140  +0.0650  -0.0001        -
+B    h1          285   0.148    0.104   0.071   0.199  +0.0049  -0.0526        -
+B    k562       9866   0.015    0.011   0.005   0.193  -0.0051  +0.0379   0.0401
+B    rpe1       2393   0.124    0.100   0.050   0.219  -0.0068  -0.1002        -
+B    hct116     8987   0.026    0.021   0.016   0.021  -0.0543  +0.0264   0.0284
+B    hek293t    4297   0.057    0.037   0.024   0.059  -0.0212  -0.0234        -
+
+Correlations (one-sided: higher template -> lower gain)
+[all]
+  MLP delta vs cos2                      n= 9  Spearman -0.550 (perm p=0.0712, less)  Pearson -0.551
+  ridge delta vs cos2                    n= 9  Spearman +0.617 (perm p=0.9634, less)  Pearson +0.401
+  MLP delta vs PC1 share                 n= 9  Spearman -0.467 (perm p=0.1063, less)  Pearson -0.509
+  ridge delta vs PC1 share               n= 9  Spearman +0.500 (perm p=0.9193, less)  Pearson +0.383
+[Tier A]
+  MLP delta vs cos2                      n= 4  Spearman -0.800 (perm p=0.1668, less)  Pearson -0.930
+  ridge delta vs cos2                    n= 4  Spearman -0.400 (perm p=0.3725, less)  Pearson -0.778
+  MLP delta vs PC1 share                 n= 4  Spearman -0.400 (perm p=0.3685, less)  Pearson -0.854
+  ridge delta vs PC1 share               n= 4  Spearman -0.200 (perm p=0.4561, less)  Pearson -0.769
+[Tier B]
+  MLP delta vs cos2                      n= 5  Spearman -0.900 (perm p=0.0433, less)  Pearson -0.888
+  ridge delta vs cos2                    n= 5  Spearman +0.400 (perm p=0.7711, less)  Pearson +0.605
+  MLP delta vs PC1 share                 n= 5  Spearman -0.700 (perm p=0.1144, less)  Pearson -0.506
+  ridge delta vs PC1 share               n= 5  Spearman +0.700 (perm p=0.9291, less)  Pearson +0.892
+[Tier B no H1]
+  MLP delta vs cos2                      n= 4  Spearman -1.000 (perm p=0.0417, less)  Pearson -0.997
+  ridge delta vs cos2                    n= 4  Spearman -0.200 (perm p=0.4569, less)  Pearson +0.396
+  MLP delta vs PC1 share                 n= 4  Spearman -0.400 (perm p=0.3726, less)  Pearson -0.446
+  ridge delta vs PC1 share               n= 4  Spearman +0.800 (perm p=0.9570, less)  Pearson +0.881
+[all no H1]
+  MLP delta vs cos2                      n= 8  Spearman -0.524 (perm p=0.0970, less)  Pearson -0.556
+  ridge delta vs cos2                    n= 8  Spearman +0.595 (perm p=0.9428, less)  Pearson +0.409
+  MLP delta vs PC1 share                 n= 8  Spearman -0.333 (perm p=0.2133, less)  Pearson -0.500
+  ridge delta vs PC1 share               n= 8  Spearman +0.548 (perm p=0.9236, less)  Pearson +0.397
+
+Stratified tests (permute ΔPDS within tier)
+  cos2_mean    vs mlp_delta    raw -0.550 (p=0.0082)  within-tier z -0.883 (p=0.0039)
+  cos2_mean    vs ridge_delta  raw +0.617 (p=0.7214)  within-tier z +0.083 (p=0.5265)
+  cos2_median  vs mlp_delta    raw -0.617 (p=0.0070)  within-tier z -0.883 (p=0.0039)
+  cos2_median  vs ridge_delta  raw +0.550 (p=0.7269)  within-tier z +0.083 (p=0.5265)
+  norm_ratio   vs mlp_delta    raw -0.283 (p=0.0054)  within-tier z -0.883 (p=0.0039)
+  norm_ratio   vs ridge_delta  raw +0.783 (p=0.6453)  within-tier z +0.083 (p=0.5265)
+  pc1_share    vs mlp_delta    raw -0.467 (p=0.0720)  within-tier z -0.583 (p=0.0642)
+  pc1_share    vs ridge_delta  raw +0.500 (p=0.8680)  within-tier z +0.167 (p=0.8037)
+
+Leave-one-out (MLP delta vs cos2, all 9)
+  drop A:k562     Spearman -0.548
+  drop A:rpe1     Spearman -0.452
+  drop A:hepg2    Spearman -0.643
+  drop A:jurkat   Spearman -0.595
+  drop B:h1       Spearman -0.524
+  drop B:k562     Spearman -0.429
+  drop B:rpe1     Spearman -0.643
+  drop B:hct116   Spearman -0.429
+  drop B:hek293t  Spearman -0.619
+
+Leave-one-out (MLP delta vs cos2, Tier A only)
+  drop A:k562     Spearman -0.500
+  drop A:rpe1     Spearman -0.500
+  drop A:hepg2    Spearman -1.000
+  drop A:jurkat   Spearman -1.000
+
+wrote figures/phase0_template_vs_delta.png/.pdf
+
+wrote outputs/phase0_variance_calibration.csv
+
+Phase 0 readout:
+  raw pooled: MLP delta vs cos2, all 9, Spearman -0.550, p=0.0712
+  tier-stratified primary: within-tier z cos2 vs MLP, Spearman -0.883, p=0.0039
+  go if |rho_s| >= 0.60 and p < 0.05 and LOO keeps the sign

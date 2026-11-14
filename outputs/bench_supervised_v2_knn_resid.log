@@ -1,0 +1,24 @@
+  h1       285 rows
+  k562     9866 rows
+  rpe1     2393 rows
+  hct116   8987 rows
+  hek293t  4297 rows
+
+######## Tier B | knn_resid | ks [25] ########
+
+=== hold-out h1: pool 285, queries 274, sources ['k562', 'rpe1', 'hct116', 'hek293t'] ===
+  knn_resid_k25      mean 0.6249 (equal 0.6538) delta -0.0289 [-0.0705,+0.0121] p=0.28 win=0.49
+
+=== hold-out k562: pool 9866, queries 5820, sources ['h1', 'rpe1', 'hct116', 'hek293t'] ===
+  knn_resid_k25      mean 0.6783 (equal 0.6767) delta +0.0016 [-0.0064,+0.0100] p=0.099 win=0.48
+
+=== hold-out rpe1: pool 2393, queries 2390, sources ['h1', 'k562', 'hct116', 'hek293t'] ===
+  knn_resid_k25      mean 0.6597 (equal 0.7435) delta -0.0839 [-0.0939,-0.0739] p=4.9e-72 win=0.31
+
+=== hold-out hct116: pool 8987, queries 6671, sources ['h1', 'k562', 'rpe1', 'hek293t'] ===
+  knn_resid_k25      mean 0.6141 (equal 0.6353) delta -0.0212 [-0.0298,-0.0122] p=0.00098 win=0.49
+
+=== hold-out hek293t: pool 4297, queries 3523, sources ['h1', 'k562', 'rpe1', 'hct116'] ===
+  knn_resid_k25      mean 0.5711 (equal 0.5896) delta -0.0185 [-0.0268,-0.0102] p=0.058 win=0.49
+
+saved outputs/bench_supervised_v2_knn_resid.csv / .npz

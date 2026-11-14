@@ -1,0 +1,4 @@
+holdout,n_sampled,n_excludable,pds_none_median,pds_none_mean,pds_self_median,pds_self_mean,drop_median_excludable,drop_mean_excludable,self_lfc_median_excludable,spearman_all,p_all,spearman_excludable,ci_lo,ci_hi,p_excludable
+k562,1000,784,0.9741,0.8136,0.7648,0.6838,+0.0282,+0.1655,-2.6309,-0.5921,9.715e-90,-0.5482,-0.5982,-0.4917,1.056e-62
+rpe1,1000,828,0.9283,0.8046,0.8462,0.7398,+0.0088,+0.0783,-3.5622,-0.5122,1.137e-60,-0.4598,-0.5151,-0.4004,1.522e-44
+hct116,1000,528,0.8839,0.7270,0.6967,0.6261,+0.0716,+0.1910,-27.4001,-0.6570,1.538e-119,-0.3337,-0.4097,-0.2551,3.348e-15

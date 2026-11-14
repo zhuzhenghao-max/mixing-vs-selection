@@ -1,0 +1,48 @@
+  k562     1383 rows (nadig)
+  rpe1     1499 rows (nadig)
+  hepg2    1340 rows (nadig)
+  jurkat   1537 rows (nadig)
+
+######## Tier A | mode mix | 5-fold | 256 PCs ########
+
+=== hold-out k562: pool 1383, queries 1309, sources ['rpe1', 'hepg2', 'jurkat'] ===
+  features (1309, 10778), targets (1309, 10778)
+  fold 0: train 1047 val 262 comp 256 alpha 1
+  fold 1: train 1047 val 262 comp 256 alpha 1
+  fold 2: train 1047 val 262 comp 256 alpha 1
+  fold 3: train 1047 val 262 comp 256 alpha 1
+  fold 4: train 1048 val 261 comp 256 alpha 1
+  ridge_mix    n=1309 mean 0.7706 (equal 0.8072) median 0.8894 (equal 0.9176)
+  delta vs equal -0.0366 [-0.0449,-0.0281] p=3.4e-16 win=0.38
+
+=== hold-out rpe1: pool 1499, queries 1433, sources ['k562', 'hepg2', 'jurkat'] ===
+  features (1433, 10778), targets (1433, 10778)
+  fold 0: train 1146 val 287 comp 256 alpha 1
+  fold 1: train 1146 val 287 comp 256 alpha 1
+  fold 2: train 1146 val 287 comp 256 alpha 1
+  fold 3: train 1147 val 286 comp 256 alpha 1
+  fold 4: train 1147 val 286 comp 256 alpha 1
+  ridge_mix    n=1433 mean 0.6483 (equal 0.8280) median 0.7365 (equal 0.9853)
+  delta vs equal -0.1798 [-0.1945,-0.1656] p=5.3e-127 win=0.19
+
+=== hold-out hepg2: pool 1340, queries 1278, sources ['k562', 'rpe1', 'jurkat'] ===
+  features (1278, 10778), targets (1278, 10778)
+  fold 0: train 1022 val 256 comp 256 alpha 1
+  fold 1: train 1022 val 256 comp 256 alpha 1
+  fold 2: train 1022 val 256 comp 256 alpha 1
+  fold 3: train 1023 val 255 comp 256 alpha 1
+  fold 4: train 1023 val 255 comp 256 alpha 1
+  ridge_mix    n=1278 mean 0.6942 (equal 0.7940) median 0.8075 (equal 0.9239)
+  delta vs equal -0.0999 [-0.1106,-0.0895] p=3e-72 win=0.28
+
+=== hold-out jurkat: pool 1537, queries 1466, sources ['k562', 'rpe1', 'hepg2'] ===
+  features (1466, 10778), targets (1466, 10778)
+  fold 0: train 1172 val 294 comp 256 alpha 3.16
+  fold 1: train 1173 val 293 comp 256 alpha 3.16
+  fold 2: train 1173 val 293 comp 256 alpha 3.16
+  fold 3: train 1173 val 293 comp 256 alpha 3.16
+  fold 4: train 1173 val 293 comp 256 alpha 3.16
+  ridge_mix    n=1466 mean 0.6956 (equal 0.8288) median 0.8120 (equal 0.9392)
+  delta vs equal -0.1331 [-0.1461,-0.1203] p=5.7e-95 win=0.23
+
+saved outputs/bench_supervised_nadig_v2_mix.csv / .npz

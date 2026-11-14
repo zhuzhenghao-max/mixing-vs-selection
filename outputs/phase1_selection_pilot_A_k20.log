@@ -1,0 +1,43 @@
+  k562     1383 rows (nadig)
+  rpe1     1499 rows (nadig)
+  hepg2    1340 rows (nadig)
+  jurkat   1537 rows (nadig)
+
+=== A:k562 | pool 1383 queries 1309 | k=20 splits=3 eval=300 ===
+  split 0: random -0.0372  shared -0.0176  magnitude -0.0268  agreement -0.0584  disagreement -0.2730  diversity -0.3022  hybrid -0.2752  kmeans +0.0023
+  split 1: random -0.0267  shared -0.0016  magnitude -0.0225  agreement -0.1269  disagreement -0.2237  diversity -0.3066  hybrid -0.3455  kmeans +0.0114
+  split 2: random -0.0185  shared -0.0142  magnitude -0.0247  agreement -0.0816  disagreement -0.2887  diversity -0.3065  hybrid -0.2352  kmeans -0.0031
+  k562     1383 rows (nadig)
+  rpe1     1499 rows (nadig)
+  hepg2    1340 rows (nadig)
+  jurkat   1537 rows (nadig)
+
+=== A:rpe1 | pool 1499 queries 1433 | k=20 splits=3 eval=300 ===
+  split 0: random -0.1386  shared -0.0890  magnitude -0.0900  agreement -0.0801  disagreement -0.4281  diversity -0.1884  hybrid -0.3363  kmeans -0.0583
+  split 1: random -0.1428  shared -0.0745  magnitude -0.1010  agreement -0.1766  disagreement -0.4190  diversity -0.2026  hybrid -0.3538  kmeans -0.0599
+  split 2: random -0.1305  shared -0.1035  magnitude -0.1098  agreement -0.1313  disagreement -0.4290  diversity -0.2302  hybrid -0.4254  kmeans -0.0760
+
+Summary (delta PDS vs equal mixing)
+tier line     strategy        delta      sd   vs_rnd                 CI         p   win
+A    k562     random        -0.0275  0.0077  +0.0000 [+0.0000,+0.0000]         1  0.00
+A    k562     shared        -0.0111  0.0069  +0.0182 [+0.0098,+0.0264]   2.4e-09  0.64
+A    k562     magnitude     -0.0247  0.0018  +0.0047 [-0.0043,+0.0138]     0.012  0.57
+A    k562     agreement     -0.0890  0.0285  -0.0593 [-0.0745,-0.0446]   2.8e-10  0.42
+A    k562     disagreement  -0.2618  0.0277  -0.2372 [-0.2597,-0.2132]   1.2e-61  0.23
+A    k562     diversity     -0.3051  0.0020  -0.2772 [-0.3022,-0.2516]   2.2e-67  0.20
+A    k562     hybrid        -0.2853  0.0456  -0.2569 [-0.2816,-0.2320]   3.8e-62  0.24
+A    k562     kmeans        +0.0035  0.0060  +0.0317 [+0.0247,+0.0388]   2.7e-27  0.73
+A    rpe1     random        -0.1373  0.0051  +0.0000 [+0.0000,+0.0000]         1  0.00
+A    rpe1     shared        -0.0890  0.0118  +0.0509 [+0.0390,+0.0629]   3.7e-20  0.65
+A    rpe1     magnitude     -0.1003  0.0081  +0.0391 [+0.0279,+0.0508]   1.6e-15  0.65
+A    rpe1     agreement     -0.1293  0.0394  +0.0060 [-0.0088,+0.0209]   0.00094  0.60
+A    rpe1     disagreement  -0.4254  0.0045  -0.2867 [-0.3132,-0.2603]   2.4e-62  0.24
+A    rpe1     diversity     -0.2071  0.0173  -0.0720 [-0.0914,-0.0526]     3e-08  0.46
+A    rpe1     hybrid        -0.3719  0.0385  -0.2340 [-0.2578,-0.2103]   1.5e-54  0.26
+A    rpe1     kmeans        -0.0647  0.0080  +0.0746 [+0.0618,+0.0876]   1.1e-32  0.73
+
+k562: spread +0.3086; best kmeans +0.0035; best-random +0.0310
+
+rpe1: spread +0.3606; best kmeans -0.0647; best-random +0.0726
+
+wrote outputs/phase1_selection_pilot_A_k20.csv

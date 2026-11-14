@@ -1,0 +1,19 @@
+  h1       285 rows
+  k562     9866 rows
+  rpe1     2393 rows
+  hct116   8987 rows
+  hek293t  4297 rows
+
+######## Tier B | mode mix | 5-fold | 1024 PCs ########
+
+=== hold-out rpe1: pool 2393, queries 2390, sources ['h1', 'k562', 'hct116', 'hek293t'] ===
+  features (2390, 10778), targets (2390, 10778)
+  fold 0: train 1912 val 478 comp 1024 alpha 31.6
+  fold 1: train 1912 val 478 comp 1024 alpha 31.6
+  fold 2: train 1912 val 478 comp 1024 alpha 31.6
+  fold 3: train 1912 val 478 comp 1024 alpha 31.6
+  fold 4: train 1912 val 478 comp 1024 alpha 31.6
+  ridge_mix    n=2390 mean 0.7367 (equal 0.7435) median 0.8078 (equal 0.8483)
+  delta vs equal -0.0068 [-0.0203,+0.0067] p=0.0015 win=0.42
+
+saved outputs/bench_supervised_v2_mix_noint_pc1024.csv / .npz

@@ -1,0 +1,79 @@
+  h1       285 rows
+  k562     9866 rows
+  rpe1     2393 rows
+  hct116   8987 rows
+  hek293t  4297 rows
+
+######## Tier B | mlp | 5-fold ########
+
+=== hold-out k562: pool 9866, queries 5820, sources ['h1', 'rpe1', 'hct116', 'hek293t'] ===
+  features (5820, 10778), targets (5820, 10778)
+    fold 0 ep   1 inner 0.00016 best 0.00016 (1s)
+    fold 0 ep  10 inner 0.00015 best 0.00015 (7s)
+    fold 0 ep  20 inner 0.00015 best 0.00015 (14s)
+    fold 0 ep  30 inner 0.00015 best 0.00015 (22s)
+    fold 0 ep  40 inner 0.00015 best 0.00015 (30s)
+    fold 0 ep  50 inner 0.00015 best 0.00015 (39s)
+    fold 0 ep  60 inner 0.00015 best 0.00015 (46s)
+  fold 0: comp 1024 hidden (512, 256) epochs 60 inner 0.00015 (47s)
+    fold 1 ep   1 inner 0.00016 best 0.00016 (1s)
+    fold 1 ep  10 inner 0.00015 best 0.00015 (9s)
+    fold 1 ep  20 inner 0.00015 best 0.00015 (17s)
+    fold 1 ep  30 inner 0.00015 best 0.00015 (24s)
+    fold 1 ep  40 inner 0.00015 best 0.00015 (32s)
+    fold 1 ep  50 inner 0.00015 best 0.00015 (40s)
+    fold 1 ep  60 inner 0.00015 best 0.00015 (47s)
+  fold 1: comp 1024 hidden (512, 256) epochs 60 inner 0.00015 (47s)
+    fold 2 ep   1 inner 0.00016 best 0.00016 (1s)
+    fold 2 ep  10 inner 0.00015 best 0.00015 (8s)
+    fold 2 ep  20 inner 0.00015 best 0.00015 (15s)
+    fold 2 ep  30 inner 0.00015 best 0.00015 (23s)
+    fold 2 ep  40 inner 0.00015 best 0.00015 (30s)
+    fold 2 ep  50 inner 0.00015 best 0.00015 (38s)
+    fold 2 ep  60 inner 0.00015 best 0.00015 (46s)
+  fold 2: comp 1024 hidden (512, 256) epochs 60 inner 0.00015 (46s)
+    fold 3 ep   1 inner 0.00016 best 0.00016 (1s)
+    fold 3 ep  10 inner 0.00015 best 0.00015 (9s)
+    fold 3 ep  20 inner 0.00015 best 0.00015 (17s)
+    fold 3 ep  30 inner 0.00015 best 0.00015 (26s)
+    fold 3 ep  40 inner 0.00015 best 0.00015 (34s)
+    fold 3 ep  50 inner 0.00015 best 0.00015 (44s)
+    fold 3 ep  60 inner 0.00015 best 0.00015 (53s)
+  fold 3: comp 1024 hidden (512, 256) epochs 60 inner 0.00015 (53s)
+    fold 4 ep   1 inner 0.00016 best 0.00016 (1s)
+    fold 4 ep  10 inner 0.00015 best 0.00015 (8s)
+    fold 4 ep  20 inner 0.00015 best 0.00015 (17s)
+    fold 4 ep  30 inner 0.00015 best 0.00015 (26s)
+    fold 4 ep  40 inner 0.00015 best 0.00015 (35s)
+    fold 4 ep  50 inner 0.00015 best 0.00015 (44s)
+    fold 4 ep  60 inner 0.00015 best 0.00015 (53s)
+  fold 4: comp 1024 hidden (512, 256) epochs 60 inner 0.00015 (54s)
+  mlp_mix      n=5820 mean 0.7145 (equal 0.6767) median 0.8238 (equal 0.7554)
+  delta vs equal +0.0379 [+0.0320,+0.0436] p=4.3e-16 win=0.53
+
+=== hold-out rpe1: pool 2393, queries 2390, sources ['h1', 'k562', 'hct116', 'hek293t'] ===
+  features (2390, 10778), targets (2390, 10778)
+    fold 0 ep   1 inner 0.00015 best 0.00015 (0s)
+    fold 0 ep  10 inner 0.00014 best 0.00014 (4s)
+    fold 0 ep  20 inner 0.00014 best 0.00014 (8s)
+  fold 0: comp 1024 hidden (512, 256) epochs 24 inner 0.00014 (10s)
+    fold 1 ep   1 inner 0.00015 best 0.00015 (0s)
+    fold 1 ep  10 inner 0.00014 best 0.00014 (4s)
+    fold 1 ep  20 inner 0.00014 best 0.00014 (8s)
+  fold 1: comp 1024 hidden (512, 256) epochs 24 inner 0.00014 (9s)
+    fold 2 ep   1 inner 0.00015 best 0.00015 (0s)
+    fold 2 ep  10 inner 0.00014 best 0.00014 (3s)
+    fold 2 ep  20 inner 0.00014 best 0.00014 (6s)
+  fold 2: comp 1024 hidden (512, 256) epochs 25 inner 0.00014 (8s)
+    fold 3 ep   1 inner 0.00015 best 0.00015 (0s)
+    fold 3 ep  10 inner 0.00014 best 0.00014 (3s)
+    fold 3 ep  20 inner 0.00014 best 0.00014 (6s)
+  fold 3: comp 1024 hidden (512, 256) epochs 27 inner 0.00014 (9s)
+    fold 4 ep   1 inner 0.00015 best 0.00015 (0s)
+    fold 4 ep  10 inner 0.00014 best 0.00014 (4s)
+    fold 4 ep  20 inner 0.00014 best 0.00014 (7s)
+  fold 4: comp 1024 hidden (512, 256) epochs 23 inner 0.00014 (8s)
+  mlp_mix      n=2390 mean 0.6433 (equal 0.7435) median 0.6929 (equal 0.8483)
+  delta vs equal -0.1002 [-0.1096,-0.0908] p=5.8e-112 win=0.27
+
+saved outputs/bench_supervised_v2_nl_mlp_pilot.csv / .npz

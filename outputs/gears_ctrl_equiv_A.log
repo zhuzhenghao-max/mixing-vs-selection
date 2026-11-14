@@ -1,0 +1,5 @@
+fold k562  batch 16  genes 5952
+max |pred(c) - pred(0) - c| = 2.384e-07
+max |pred(c) - pred(0)|     = 3.915e+00
+loss zero-input 0.00080917  control-input 0.00080917
+max |grad diff| = 2.774e-11  grad scale = 2.594e-05

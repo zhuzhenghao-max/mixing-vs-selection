@@ -1,0 +1,4 @@
+cli: cell-eval2
+real: data/synth/real.h5ad
+pert_col: target_gene
+control: non-targeting

@@ -1,0 +1,4 @@
+context,path
+A,data/context_A.h5ad
+B,data/context_B.h5ad
+C,data/context_C.h5ad

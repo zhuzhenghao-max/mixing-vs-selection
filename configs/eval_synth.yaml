@@ -1,0 +1,6 @@
+cli: cell-eval2
+real: data/synth/holdout/real_heldout.h5ad
+pert_col: target_gene
+control: non-targeting
+# 合成数据的 lfc 倍率是精确比例, 均值响应 baseline 的 direction reach 打满导致锚点退化
+allow_degenerate_baseline: true
