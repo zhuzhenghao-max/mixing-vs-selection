@@ -9,15 +9,16 @@ https://doi.org/10.5281/zenodo.24223291.
 
 ## What this project is
 
-Predicting how a cell line responds to a genetic or chemical perturbation is
-a central problem in computational biology. A common shortcut is to predict a
-new line's response by averaging the same perturbations measured in other
-lines. This project asks two questions: how far does that shortcut actually
+Predicting how a cell line responds to a genetic or chemical perturbation
+(for example, knocking down a gene or applying a drug) is a central problem
+in computational biology. A common shortcut is to predict a new line's
+response by averaging the same perturbations measured in other lines. This project asks two questions: how far does that shortcut actually
 go, and when an evaluation reports that a method beats it, is the gain real?
 
 The benchmark holds out one cell line at a time. A query is a perturbation
-measured both in the held-out line and in at least one source line.
-Predictions are built from the source lines only and scored against the
+measured both in the held-out line and in at least one source line (another
+line in the panel). Predictions are built from the source lines only and
+scored against the
 held-out line with the perturbation discrimination score (PDS), the
 normalized rank of the true response among all candidates after removing the
 target gene's own coordinate. PDS 1.0 means the true response ranks first;
@@ -36,6 +37,9 @@ mistaken for prediction quality.
 | Tier A | four harmonized lines (K562, RPE1, HepG2, Jurkat), leave one out | 5,486 queries |
 | Tier B | five heterogeneous lines (H1, K562, RPE1, HCT116, HEK293T), leave one out | 18,678 queries |
 | Drug panel | seven and twelve Tahoe-100M cancer lines | 648 / 646 shared conditions |
+
+Tier A lines were processed with a common pipeline. Tier B lines come from
+different studies and measurement platforms, which makes the transfer harder.
 
 ## Key findings
 
