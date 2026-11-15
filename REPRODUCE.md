@@ -158,6 +158,65 @@ documented by `python scripts/tahoe_external.py --help`. The drug-panel
 coherence table is `outputs/tables/tableS13` source data; the regime summary is
 `outputs/tables/table5_regime.csv`.
 
+### Twelve-line extension
+
+The robustness panel adds five lines (SW480, NCI-H460, SNU-423, A-172, KATO
+III) built with the same shard extraction. With all twelve matrices in
+`data/tahoe/lines`, the panel analyses are
+
+```
+python scripts/tahoe_panel12.py check outputs/tahoe_coherence.csv data/tahoe/lines/*.npz
+python scripts/tahoe_panel12.py full  outputs/tahoe_coherence.csv outputs/tahoe12_full.csv outputs/tahoe12_cond.npz data/tahoe/lines/*.npz
+python scripts/tahoe_panel12.py delta outputs/tahoe_coherence.csv outputs/tahoe12_delta.csv data/tahoe/lines/*.npz
+python scripts/tahoe_panel12.py sat   outputs/tahoe_coherence.csv outputs/tahoe12_sat.csv 5 data/tahoe/lines/*.npz
+python scripts/tahoe_panel12.py pilot outputs/tahoe12_cond.npz outputs/tahoe12_pilot.csv
+python scripts/tahoe_coherence_fast.py data/tahoe/lines outputs/tahoe12_coherence.csv
+```
+
+The calibration experiment is run one holdout at a time so that the peak
+memory stays within a 2 GiB container:
+
+```
+for L in A-172 A498 A549 HEC-1-A HS-578T J82 KATO_III MIA_PaCa-2 \
+         NCI-H460 SK-MEL-2 SNU-423 SW480; do
+  python scripts/tahoe_external.py select --lines data/tahoe/lines/*.npz \
+    --metric S --ks 20 50 100 200 --splits 3 --repeats 5 \
+    --strategies random kmeans --only "$L" \
+    --out outputs/sel12/select_$L.csv --out-src outputs/sel12/src_$L.csv \
+    --out-deltas outputs/sel12/deltas_$L.csv
+done
+```
+
+Concatenate the per-line CSVs under a single header, then run
+`tahoe_cal_ci.py` and `tahoe_external.py exchange` as for the seven-line panel:
+
+```
+python scripts/tahoe_cal_ci.py outputs/tahoe12_deltas.csv outputs/tahoe12_ci.csv
+python scripts/tahoe_external.py exchange --select outputs/tahoe12_select.csv \
+  --src outputs/tahoe12_src.csv --out outputs/tahoe12_exch.csv
+```
+
+To score the original seven lines on the same 646 conditions, use the released
+panel file and the seven matrices (write the condition cache under a separate
+name so it does not overwrite the twelve-line one):
+
+```
+python scripts/tahoe_panel12.py full outputs/tahoe12_panel646.csv \
+  outputs/p7_646_full.csv outputs/p7_646_cond.npz \
+  data/tahoe/lines/A498.npz data/tahoe/lines/A549.npz \
+  data/tahoe/lines/HEC-1-A.npz data/tahoe/lines/HS-578T.npz \
+  data/tahoe/lines/J82.npz data/tahoe/lines/MIA_PaCa-2.npz \
+  data/tahoe/lines/SK-MEL-2.npz
+```
+
+The released results are in `outputs/tahoe12_full.csv`,
+`outputs/tahoe12_panel646.csv`, `outputs/p7_646_full.csv`,
+`outputs/tahoe12_delta.csv`, `outputs/tahoe12_sat.csv`,
+`outputs/tahoe12_pilot.csv`, `outputs/tahoe12_coherence.csv`,
+`outputs/tahoe12_select.csv`, `outputs/tahoe12_src.csv`,
+`outputs/tahoe12_deltas.csv`, `outputs/tahoe12_ci.csv`, and
+`outputs/tahoe12_exch.csv`.
+
 ## 9. Secondary metrics
 
 ```

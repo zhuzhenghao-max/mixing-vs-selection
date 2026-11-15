@@ -12,6 +12,7 @@ Subcommands:
 
 import argparse
 import csv
+import ctypes
 import itertools
 import os
 import sys
@@ -23,6 +24,16 @@ from sklearn.decomposition import PCA
 from sklearn.linear_model import RidgeCV
 
 sys.path.insert(0, "scripts")
+
+try:
+    _libc = ctypes.CDLL("libc.so.6")
+except OSError:
+    _libc = None
+
+
+def trim():
+    if _libc is not None:
+        _libc.malloc_trim(0)
 
 
 def unit(X):
@@ -40,6 +51,15 @@ def load_lines(paths, metric="S"):
             X=X, cond=cond, index={c: i for i, c in enumerate(cond)},
             n_trt=np.asarray(d["n_trt"]),
             active=(np.abs(X) > 2).mean(axis=1))
+        d.close()
+        # the per-line files are large; drop their page cache so that a
+        # sequence of per-holdout processes stays inside a small memory cap
+        try:
+            fd = os.open(p, os.O_RDONLY)
+            os.posix_fadvise(fd, 0, 0, os.POSIX_FADV_DONTNEED)
+            os.close(fd)
+        except OSError:
+            pass
         print(f"  {name:12s} {X.shape}")
     return lines
 
@@ -79,12 +99,16 @@ def exchange_k(grid, vals, g):
 
 
 def mix_rows(lines, srcs, conds, metric_rows=None):
-    mats = []
+    acc = None
     for o in srcs:
         idx = lines[o]["index"]
         rows = np.array([idx[c] for c in conds])
-        mats.append(unit(lines[o]["X"][rows]))
-    return np.mean(mats, axis=0)
+        M = unit(lines[o]["X"][rows])
+        if acc is None:
+            acc = M
+        else:
+            acc += M
+    return acc / len(srcs)
 
 
 def cache_subsets(lines, common, out):
@@ -260,7 +284,7 @@ def run_select(args):
     w_d = csv.DictWriter(f_d, fieldnames=delta_fields) if f_d else None
     if w_d is not None:
         w_d.writeheader()
-    for L in names:
+    for L in (args.only or names):
         srcs = [o for o in names if o != L]
         Q = mix_rows(lines, srcs, common)
         Y = lines[L]["X"][rows[L]]
@@ -277,6 +301,7 @@ def run_select(args):
                 w_src.writerow(dict(holdout=L, added=i, split=split,
                                     delta=float(np.mean(d))))
                 f_src.flush()
+                del Pi, d
             ncomp = min(512, len(C) - 1, Q.shape[1])
             pca = PCA(n_components=ncomp, svd_solver="randomized",
                       random_state=split)
@@ -310,6 +335,8 @@ def run_select(args):
                         f_d.flush()
                     print(f"  {L} k={k:3d} {strat:11s} "
                           f"split{split} {np.mean(vals):+.4f}", flush=True)
+            del pca, ZC, ZE
+            trim()
         print(f"  {L} done", flush=True)
     f_out.close()
     print(f"wrote {args.out}")
@@ -441,6 +468,7 @@ def main():
     s.add_argument("--out", required=True)
     s.add_argument("--out-src", default="")
     s.add_argument("--out-deltas", default="")
+    s.add_argument("--only", nargs="*", default=None)
     s.add_argument("--strategies", nargs="+",
                    default=["random", "kmeans", "strat", "magnitude",
                             "agreement", "disagreement"])

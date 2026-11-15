@@ -15,8 +15,8 @@ authors:
   - family-names: Zhu
     given-names: Zhenghao
     affiliation: Heze University, Heze, Shandong, China
-version: 1.0.0
-date-released: 2026-11-14
+version: 1.1.0
+date-released: 2026-11-15
 license: MIT
 keywords:
   - perturbation prediction
@@ -25,4 +25,4 @@ keywords:
   - benchmark
   - perturbation discrimination score
 repository-code: https://github.com/zhuzhenghao-max/mixing-vs-selection
-doi: 10.5281/zenodo.24223292
+doi: 10.5281/zenodo.24223291

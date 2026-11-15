@@ -3,7 +3,7 @@
 Reads the per-condition paired deltas written by ``tahoe_external.py select
 --out-deltas``. Conditions are resampled with replacement within each line,
 budget, and selection rule; the cross-line mean resamples conditions within
-each line and averages the seven line means, so the panel composition is
+each line and averages the per-line means, so the panel composition is
 fixed. Writes outputs/tahoe_calibration_ci.csv.
 """
 

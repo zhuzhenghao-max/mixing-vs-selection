@@ -1,27 +1,29 @@
 # MANIFEST
 
-Release 1.0.0, 2026-11-14. This file lists what is in the release, where the
+Release 1.1.0, 2026-11-15. This file lists what is in the release, where the
 raw data come from, which files are archived separately, and how to deposit
 the release. `CHECKSUMS.sha256` covers every file in this repository.
+Release 1.1.0 adds the twelve-line Tahoe-100M robustness panel, its source
+data (Tables S17 and S18), and the two scripts that produce it.
 
 ## 1. Contents
 
 | Path | Files | Size | Contents |
 |---|---:|---:|---|
-| `scripts/` | 141 | 1.3 MB | Python and shell analysis code; run from the repository root |
+| `scripts/` | 143 | 1.1 MB | Python and shell analysis code; run from the repository root |
 | `src/` | 3 | 36 KB | Shared modules imported by some scripts |
 | `configs/` | 9 | 13 KB | Evaluation configs used during development |
 | `data/` | 7 | 1.9 MB | Gene sets for the GEARS graph, gene-name axes, Tahoe axis |
-| `outputs/` | 233 | 160 MB | Derived scores, summary tables, run logs |
-| `outputs/tables/` | 29 | 139 KB | Main and supplementary table source data (CSV and MD) |
-| `outputs/seed_runs/` | 7 | 726 KB | Three-seed GEARS summaries, lite arrays, run logs |
+| `outputs/` | 245 | 163 MB | Derived scores, summary tables, run logs |
+| `outputs/tables/` | 29 | 151 KB | Main and supplementary table source data (CSV and MD) |
+| `outputs/seed_runs/` | 7 | 540 KB | Three-seed GEARS summaries, lite arrays, run logs |
 | `figures/` | 22 | 3.1 MB | Figures 1--11, PDF and PNG |
-| `manuscript/` | 1 | 156 KB | `draft.tex`, the manuscript source |
-| root | 10 | 72 KB | `README.md`, `REPRODUCE.md`, `MANIFEST.md`, licenses, `CITATION.cff`, `.zenodo.json`, `requirements.txt`, `.gitignore`, checksums |
+| `manuscript/` | 1 | 164 KB | `draft.tex`, the manuscript source |
+| root | 10 | 97 KB | `README.md`, `REPRODUCE.md`, `MANIFEST.md`, licenses, `CITATION.cff`, `.zenodo.json`, `requirements.txt`, `.gitignore`, checksums |
 
-Total: 426 files, about 167 MB. Of these, `outputs/bench_transfer_v2.npz`
-(33 MB) and `outputs/scvi_map_cache.npz` (54 MB) are the only files above
-10 MB.
+Total: 440 files, about 169 MB. Of these, `outputs/scvi_map_cache.npz`
+(54 MB), `outputs/bench_transfer_v2.npz` (33 MB), and
+`outputs/scgpt_delta_check.npz` (14 MB) are the only files above 10 MB.
 
 ## 2. Primary result files
 
@@ -47,6 +49,11 @@ Total: 426 files, about 167 MB. Of these, `outputs/bench_transfer_v2.npz`
 | `outputs/phase2_fullmix_noexcl.csv` | `scripts/phase2_fullmix_noexcl.py` | Calibration under no-exclusion scoring; Table S10 |
 | `outputs/regime_diagnostic_holdouts.csv`, `outputs/regime_diagnostic_targets.csv` | `scripts/regime_diagnostic.py` | Coherence diagnostic; Table S12, Figure 11 |
 | `outputs/tahoe_coherence.csv` | `scripts/tahoe_coherence.py` | Drug-panel coherence; Table S13 |
+| `outputs/tahoe12_full.csv`, `outputs/tahoe12_delta.csv`, `outputs/tahoe12_sat.csv`, `outputs/tahoe12_pilot.csv`, `outputs/p7_646_full.csv` | `scripts/tahoe_panel12.py` | Twelve-line panel retrieval, leave-one-source-out deltas, saturation, and pilot; Table S17 |
+| `outputs/tahoe12_panel646.csv` | Intersection of the twelve per-line condition lists (646 conditions), saved as the panel file for `scripts/tahoe_panel12.py` | Twelve-line panel and the seven-line comparison on the same panel; Table S17 |
+| `outputs/tahoe12_coherence.csv` | `scripts/tahoe_coherence_fast.py` | Twelve-line per-condition coherence; Table S17 |
+| `outputs/tahoe12_select.csv`, `outputs/tahoe12_src.csv`, `outputs/tahoe12_deltas.csv`, `outputs/tahoe12_ci.csv` | `scripts/tahoe_external.py` (`select`), `scripts/tahoe_cal_ci.py` | Twelve-line calibration selection; Table S18 |
+| `outputs/tahoe12_exch.csv` | `scripts/tahoe_external.py` (`exchange`) | Twelve-line source-exchange rates |
 | `outputs/selectX.csv`, `outputs/srcX.csv`, `outputs/exchX.csv` | `scripts/tahoe_external.py` (`select`, `exchange`) | Drug-panel calibration, saturation, exchange; Figure 9C--E, Table 5 |
 | `outputs/regime_pool_geometry*.csv`, `outputs/mix_other_cos.csv`, `outputs/control_similarity_tierB.csv`, `outputs/pilot_rates.csv` | `scripts/regime_pool_geometry.py`, `scripts/mix_other_cos.py`, `scripts/control_similarity_check.py`, `scripts/regime_summary.py` | Regime analysis; Figure 9, Table 5 |
 | `outputs/pilot_x.npz`, `outputs/pilot_pds_nadig_noexcl.npz` | Pilot draw caches (`scripts/tahoe_drug_excl.py` and the matching Nadig pilot run) | 50-condition pilot; Figure 9F, Table 5 |
@@ -65,6 +72,8 @@ Total: 426 files, about 167 MB. Of these, `outputs/bench_transfer_v2.npz`
 | Table S14 | `scripts/gears_baseline.py`, `scripts/gears_summary.py` |
 | Table S15 | `scripts/seed_summary.py` |
 | Table S16 | `scripts/secondary_metrics.py` |
+| Table S17 | `scripts/tahoe_panel12.py`, `scripts/tahoe_coherence_fast.py` |
+| Table S18 | `scripts/tahoe_external.py` (`select`, `exchange`), `scripts/tahoe_cal_ci.py` |
 | Figures 1--6 | `scripts/make_figures.py` |
 | Figure 7 | `scripts/phase1_budget_curve.py` |
 | Figure 8 | `scripts/phase2_exchange_summary.py` |
@@ -144,8 +153,9 @@ python scripts/make_figures.py
 ## 7. Depositing the release
 
 The release is available at https://github.com/zhuzhenghao-max/mixing-vs-selection
-and archived at https://doi.org/10.5281/zenodo.24223292. The GitHub tag is
-`v1.0.0`, matching the version in `CITATION.cff` and `.zenodo.json`.
+and archived at https://doi.org/10.5281/zenodo.24223291 (concept DOI; version
+DOIs resolve to each release). The GitHub tag is `v1.1.0`, matching the
+version in `CITATION.cff` and `.zenodo.json`.
 
 The archive license is set to CC BY 4.0 in `.zenodo.json` because the deposit
 is data-heavy; the code itself is MIT-licensed (see `LICENSE`).
