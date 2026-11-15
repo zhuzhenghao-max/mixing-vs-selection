@@ -12,18 +12,18 @@ https://doi.org/10.5281/zenodo.24223291.
 Predicting how a cell line responds to a genetic or chemical perturbation
 (for example, knocking down a gene or applying a drug) is a central problem
 in computational biology. A common shortcut is to predict a new line's
-response by averaging the same perturbations measured in other lines. This project asks two questions: how far does that shortcut actually
-go, and when an evaluation reports that a method beats it, is the gain real?
+response by averaging the same perturbations measured in other lines. This
+project asks two questions: how far does that shortcut actually go, and when
+an evaluation reports that a method beats it, is the gain real?
 
 The benchmark holds out one cell line at a time. A query is a perturbation
 measured both in the held-out line and in at least one source line (another
 line in the panel). Predictions are built from the source lines only and
-scored against the
-held-out line with the perturbation discrimination score (PDS), the
-normalized rank of the true response among all candidates after removing the
-target gene's own coordinate. PDS 1.0 means the true response ranks first;
-0.5 is chance. A separate experiment asks what a small target-line label
-budget adds to the training-free mix.
+scored against the held-out line with the perturbation discrimination score
+(PDS): the normalized rank of the true response among all candidates after
+removing the target gene's own coordinate. PDS 1.0 means the true response
+ranks first; 0.5 is chance. A separate experiment asks what a small
+target-line label budget adds to the training-free mix.
 
 The design separates two things that are easy to confuse. *Mixing* is how
 source responses are combined: equal weights, learned weights, or a gate.
@@ -60,11 +60,11 @@ different studies and measurement platforms, which makes the transfer harder.
   Tahoe-100M lines (646 shared conditions), equal-mix PDS was 0.964 to 0.997
   (pooled 0.990). Adding five lines moved the original seven by -0.006 to
   +0.010. Calibration stayed below equal mixing at every budget under both
-  selection rules (k-means: -0.048 at k=20 to -0.0045 at k=200; all eight
-  panel intervals below zero), and a 50-condition pilot flagged the regime
-  in 0.13% of draws.
+  calibration rules (k-means: -0.048 to -0.0045; random: -0.046 to -0.0040;
+  all eight panel intervals below zero), and a 50-condition pilot flagged
+  the near-ceiling regime in 99.87% of draws.
 - **Coherence is a within-panel diagnostic.** Source-response coherence (how
-  well source lines agree with each other) ordered conditions within a
+  well source lines agree with each other) ordered perturbations within a
   panel, but did not rank panels. In the drug panel, equal mixing was
   already near the ceiling because the candidate pool was weak, not because
   the mix was unusually accurate; a 50-condition pilot separated the two
@@ -73,8 +73,8 @@ different studies and measurement platforms, which makes the transfer harder.
 ## What is included
 
 The repository contains the analysis code, the derived summary tables and
-per-target scores that the tables are built from, the manuscript source, the
-figure files, and the audit scripts. Raw data are not redistributed.
+the per-target scores behind them, the manuscript source, the figure files,
+and the audit scripts. Raw data are not redistributed.
 
 ```
 scripts/              analysis code (Python; run from the repository root)
