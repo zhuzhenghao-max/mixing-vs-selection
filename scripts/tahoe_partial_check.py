@@ -1,11 +1,10 @@
 """Recompute the Tahoe coherence partial correlations with the standard
 rank-residual estimator.
 
-The stored per-condition table already contains source coherence, mix-truth
-alignment, and full-pool PDS, so the estimator can be corrected without the
-raw response matrices. The stored PDS values remain affected by the
-separate-truth-score defect noted in the manuscript; these partial values are
-descriptive and inherit that caveat.
+The per-condition table already contains source coherence, mix-truth
+alignment, and full-pool PDS, so the estimator can be evaluated without the
+raw response matrices. Scores use the tie midrank and read the true score
+from the matching reference-matrix entry.
 
 Writes outputs/tahoe_partial_corrected.csv.
 """

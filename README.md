@@ -4,7 +4,7 @@ A leave-one-line-out benchmark and an audit protocol for cross-cell-line perturb
 
 Zhenghao Zhu and Di Cui, Heze University, Heze, Shandong, China
 
-Release 1.3.0 (21 November 2026). Concept DOI:
+Release 1.3.1 (21 November 2026). Concept DOI:
 https://doi.org/10.5281/zenodo.24223291.
 
 ## What this project is
@@ -54,10 +54,11 @@ different studies and measurement platforms, which makes the transfer harder.
   per-target best-of reporting raised PDS by 0.10 to 0.13 in the harmonized
   tier and 0.06 to 0.11 in the heterogeneous tier; selection accounted for
   0.03 to 0.08 of the harmonized gain and almost all of the heterogeneous gain.
-- **Learned baselines do not close the gap.** scGPT, fine-tuned on K562 and
-  tested on RPE1, scored 0.190 mean PDS below equal mixing. GEARS, trained
-  leave-one-line-out, scored 0.163 to 0.193 below it in the four Tier A
-  folds, a result reproduced with three random seeds.
+- **Learned baselines do not close the gap.** GEARS, trained
+  leave-one-line-out, scored 0.163 to 0.193 below equal mixing in the four
+  Tier A folds, a result reproduced with three random seeds. A stored scGPT
+  run scored 0.190 below equal mixing on RPE1 and is reported in
+  Supplementary Fig. S1 and Table S4.
 - **The metric is coarse and pool-dependent.** Gene-shuffled truth still
   scored 0.655 in both tiers, and truth plus noise at four times the response
   norm scored 1.000. Across seven reference-pool compositions, equal-mix PDS
@@ -79,10 +80,11 @@ different studies and measurement platforms, which makes the transfer harder.
   the near-ceiling regime in 99.87% of draws.
 - **Coherence is a within-panel diagnostic.** Source-response coherence (how
   well source lines agree with each other) ordered perturbations within a
-  panel, but did not rank panels. In the drug panel, equal mixing was
-  already near the ceiling because the candidate pool was weak, not because
-  the mix was unusually accurate; a 50-condition pilot separated the two
-  regimes.
+  panel, but did not rank panels. Pooled rank correlation with retrieval was
+  +0.34 across the genetic holdouts and +0.30 across the drug panel. In the
+  drug panel, equal mixing was already near the ceiling because the
+  candidate pool was weak, not because the mix was unusually accurate; a
+  50-condition pilot separated the two regimes.
 
 ## What is included
 
@@ -98,8 +100,9 @@ data/                 gene sets for the GEARS graph and gene-name axes
 outputs/              derived summary tables and per-target arrays
 outputs/tables/       main and supplementary table source data
 outputs/seed_runs/    three-seed GEARS summary and per-target scores
-figures/              manuscript figures (PNG and PDF)
+figures/              manuscript figures (PNG and PDF), including the graphical abstract
 manuscript/draft.tex  manuscript source (compile with pdfLaTeX)
+manuscript/key_points.md  five key points for the submission
 MANIFEST.md           file inventory, data provenance, Zenodo file list
 REPRODUCE.md          step-by-step reproduction guide
 LICENSE, LICENSE_DATA code (MIT) and derived data/figures (CC BY 4.0)
@@ -122,10 +125,10 @@ python scripts/check_tables.py
 python scripts/check_tex.py
 ```
 
-`audit_numbers.py` recomputes every headline number in the abstract from the
-stored outputs (11 checks). The other three scripts check the manuscript's
-citations, tables, and TeX structure. The Tier B arrays are included, so the
-audit runs offline.
+`audit_numbers.py` recomputes every headline number in the abstract and
+supplements from the stored outputs (14 checks). The other three scripts
+check the manuscript's citations, tables, and TeX structure. The Tier B
+arrays are included, so the audit runs offline.
 
 ## Full reproduction
 
@@ -158,19 +161,24 @@ licenses.
 - The twelve-line panel is a robustness extension, not a survey of cell
   types or tissues.
 - H1 enters Tier B as an scVI-decoded response cache, and the original model
-  and production records are missing. The scGPT comparator depends on that
-  cache and remains exploratory.
-- Stored Tahoe scores exceed the PDS upper bound in 19.1% of rows, and
-  drug-exclusion tie handling is unresolved. Those summaries are provisional.
+  and production records are unavailable. An independent DESeq2 table for
+  150 H1 targets is included as a truth check and moved the pooled equal-mix
+  score by less than 0.01. The scGPT comparison depends on the cache and is
+  reported in Supplementary Fig. S1.
+- Tahoe coherence and drug-exclusion summaries use a corrected scorer. The
+  true score is read from the matching reference-matrix entry and ties use
+  the midrank, so PDS is bounded at 1. Rebuilding the underlying per-line
+  matrices still requires the public Tahoe shards.
 
 ## Citation
 
 If you use the benchmark, please cite the manuscript and the Zenodo archive.
 The concept DOI https://doi.org/10.5281/zenodo.24223291 always resolves to the
-latest release; release 1.2.1 is archived at
-https://doi.org/10.5281/zenodo.24356413 and release 1.3.0 under the same
-concept DOI. `CITATION.cff` contains the machine-readable record, including
-the repository URL and DOI.
+latest release. Version 1.3.0 is archived at
+https://doi.org/10.5281/zenodo.24410000 and version 1.2.1 at
+https://doi.org/10.5281/zenodo.24356413; version 1.3.1 shares the concept
+DOI. `CITATION.cff` contains the machine-readable record, including the
+repository URL and DOI.
 
 ## Contact
 

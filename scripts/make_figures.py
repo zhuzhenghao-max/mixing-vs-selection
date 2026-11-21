@@ -1,7 +1,7 @@
 """Generate manuscript figures from the canonical v2 benchmark artifacts.
 
 Usage: python scripts/make_figures.py
-Writes figures/fig1..fig6 as PDF + PNG.
+Writes figures/fig1..fig5 and figS1 as PDF + PNG.
 
 House style: Arial, 7-8 pt labels, bold panel letters, no in-figure titles,
 muted colorblind-safe palettes, forest/dumbbell plots with zero lines and
@@ -378,11 +378,8 @@ def fig1_headline(ax, rng):
 
 def fig1_baselines(ax, rng):
     gears = load_gears_deltas()
-    z = np.load("outputs/bench_scgpt_baseline.npz", allow_pickle=True)
     rows = [(f"GEARS · {DISP[h]}", gears[h], TIER_COLS["A"], "o")
             for h in TIERS["A"]["lines"]]
-    st = scgpt_paired(z, "rpe1", "scgpt_r10", "equal", rng)
-    rows.append(("scGPT · RPE1", st, "#7E57C2", "D"))
     y = np.arange(len(rows))[::-1]
     for yi, (lab, stt, c, mk) in zip(y, rows):
         ax.plot([stt["lo"], stt["hi"]], [yi, yi], color=c, lw=1.2, zorder=3)
@@ -390,12 +387,11 @@ def fig1_baselines(ax, rng):
                 zorder=4)
         ax.text(stt["hi"] + 0.008, yi, f"{stt['mean']:+.2f}", va="center",
                 fontsize=5.8, color="0.3")
-    ax.axhline(0.5, color="0.75", lw=0.6, ls="--", zorder=1)
     ax.axvline(0, color="0.2", lw=0.8, zorder=2)
     ax.set_yticks(y)
     ax.set_yticklabels([r[0] for r in rows], fontsize=6.0)
     ax.set_ylim(-0.6, len(rows) - 0.4)
-    ax.set_xlim(0, 0.315)
+    ax.set_xlim(0, 0.25)
     ax.set_xlabel("equal mix − baseline\n(Δ mean PDS, 95% CI)", fontsize=6.8)
     ax.grid(axis="x", color="0.9", lw=0.5, zorder=0)
     ax.set_axisbelow(True)
@@ -851,7 +847,7 @@ def fig5_metric_determinants():
 
 
 # --------------------------------------------------------------------------
-# Figure 6: retrieval versus scGPT
+# Figure S1: retrieval versus scGPT
 
 
 def scgpt_paired(z, ctx, tag, meth, rng):
@@ -945,7 +941,7 @@ def fig6_scgpt():
     ax_s.grid(axis="x", color="0.9", lw=0.5, zorder=0)
     ax_s.set_axisbelow(True)
     plabel(ax_s, "C")
-    save(fig, "fig6_scgpt_baseline")
+    save(fig, "figS1_scgpt_baseline")
 
 
 def main():

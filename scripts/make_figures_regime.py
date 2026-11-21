@@ -5,7 +5,7 @@ saturated drug-response regime: per-query PDS, source saturation,
 calibration gain, source-side cross-validation, and the pilot diagnostic.
 
 Usage: python scripts/make_figures_regime.py [selectX.csv]
-Writes figures/fig9_regime_boundary.pdf + .png.
+Writes figures/fig8_regime_boundary.pdf + .png.
 """
 
 import csv
@@ -316,7 +316,7 @@ def main():
     panel_sscv(ax_e, pt, at, rt, STRONG, "E", (-0.001, 0.025),
                (-0.005, 0.019))
     panel_pilot(ax_f, tahoe, nadig_excl)
-    save(fig, "fig9_regime_boundary")
+    save(fig, "fig8_regime_boundary")
 
 
 if __name__ == "__main__":

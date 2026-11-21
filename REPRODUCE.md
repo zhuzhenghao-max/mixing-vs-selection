@@ -73,7 +73,7 @@ python scripts/selection_audit.py
 python scripts/selection_figure.py
 ```
 
-This writes `outputs/tables/tableS11_selection_audit.csv` and Figure 10. The
+This writes `outputs/tables/tableS11_selection_audit.csv` and Figure 9. The
 audit reuses the per-target PDS values from the main runs; no predictor is
 refit.
 
@@ -83,8 +83,8 @@ The budget scorer renormalizes each reference row after target-coordinate
 exclusion. The genetic budget, exchange-rate, and source-allocation results
 in this release were regenerated with that scorer, and the exclusion-scored
 full-pool pilot uses the corrected cache
-`outputs/pilot_pds_nadig_corrected.npz`. Historical Tahoe scores were not
-regenerated; the manuscript marks those drug summaries as provisional.
+`outputs/pilot_pds_nadig_corrected.npz`. The stored Tahoe coherence and
+drug-exclusion summaries were regenerated with the corrected scorer.
 
 ```
 python scripts/phase1_selection_pilot.py --tier A --holdout k562,rpe1 --k 20
@@ -94,8 +94,8 @@ python scripts/phase2_exchange_summary.py
 python scripts/phase2_exante_allocator.py
 ```
 
-These produce the calibration curves (Figure 7), the source-budget exchange
-rates (Figure 8), and the budget table sources. The pilot uses the same
+These produce the calibration curves (Figure 6), the source-budget exchange
+rates (Figure 7), and the budget table sources. The pilot uses the same
 selection rules at the reported budgets; pass `--help` to override the
 holdout, k, split, and repeat options.
 
@@ -285,8 +285,8 @@ and pathway files; `vccp_paired_stats.py` then writes
 in the four Tier B holdouts where H1 is a source. `regime_diagnostic.py`
 writes the corrected per-target partial-correlation inputs, and
 `tahoe_partial_check.py` recomputes the standard rank-residual partials from
-the stored Tahoe condition table. The Tahoe scores themselves remain
-historical.
+the stored Tahoe condition table. The stored condition table uses the bounded
+tie-midrank rule.
 
 ## 10. Secondary metrics
 
@@ -305,12 +305,13 @@ and `outputs/secondary_metrics_A.npz` (Table S16). It requires
 ## 11. Figures and tables
 
 ```
-python scripts/make_figures.py              # Figures 1--6
-python scripts/phase1_budget_curve.py       # Figure 7
-python scripts/phase2_exchange_summary.py   # Figure 8
-python scripts/make_figures_regime.py       # Figure 9
-python scripts/selection_figure.py          # Figure 10
-python scripts/make_figure_coherence.py     # Figure 11
+python scripts/make_figures.py              # Figures 1--5 and S1
+python scripts/phase1_budget_curve.py       # Figure 6
+python scripts/phase2_exchange_summary.py   # Figure 7
+python scripts/make_figures_regime.py       # Figure 8
+python scripts/selection_figure.py          # Figure 9
+python scripts/make_figure_coherence.py     # Figure 10
+python scripts/make_graphical_abstract.py   # graphical abstract
 python scripts/make_tables.py               # main and supplementary tables
 python scripts/make_tables_budget.py
 python scripts/make_table_regime.py
@@ -319,14 +320,14 @@ python scripts/make_table_regime.py
 ## 12. Audits
 
 ```
-python scripts/audit_numbers.py             # abstract headline numbers
+python scripts/audit_numbers.py             # abstract and supplement numbers
 python scripts/check_tex.py                 # braces and environments
 python scripts/check_refs.py                # citation and float coverage
 python scripts/check_tables.py              # tabular column counts
 python scripts/check_draft.py               # abstract length and S15/S16
 ```
 
-`audit_numbers.py` prints one line per claim and reports 11/11 passes when the
+`audit_numbers.py` prints one line per claim and reports 14/14 passes when the
 released summary data are complete. The other four scripts are structural
 checks, not statistical tests.
 

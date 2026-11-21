@@ -88,8 +88,8 @@ ax.legend(frameon=False, fontsize=8)
 
 fig.tight_layout()
 for ext in ("png", "pdf"):
-    fig.savefig(f"figures/fig7_calibration_selection.{ext}", dpi=300)
-print("\nwrote figures/fig7_calibration_selection.png/.pdf")
+    fig.savefig(f"figures/fig6_calibration_selection.{ext}", dpi=300)
+print("\nwrote figures/fig6_calibration_selection.png/.pdf")
 
 out = "outputs/phase1_budget_curve.csv"
 with open(out, "w", newline="") as f:

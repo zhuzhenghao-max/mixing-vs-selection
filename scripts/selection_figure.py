@@ -146,6 +146,6 @@ handles = [
 fig.legend(handles=handles, loc="upper center", bbox_to_anchor=(0.56, 0.995),
            ncol=4, frameon=False)
 
-fig.savefig(OUT / "fig10_selection_audit.png")
-fig.savefig(OUT / "fig10_selection_audit.pdf")
-print("wrote figures/fig10_selection_audit.png/.pdf")
+fig.savefig(OUT / "fig9_selection_audit.png")
+fig.savefig(OUT / "fig9_selection_audit.pdf")
+print("wrote figures/fig9_selection_audit.png/.pdf")

@@ -215,7 +215,7 @@ def main():
         w.writerows(all_fm)
     print("wrote outputs/phase2_fullmix_calibration.csv")
 
-    figure(all_rows, all_exch, all_fm, "figures/fig8_source_budget")
+    figure(all_rows, all_exch, all_fm, "figures/fig7_source_budget")
 
 
 if __name__ == "__main__":

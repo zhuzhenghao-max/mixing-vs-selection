@@ -1,9 +1,15 @@
 # MANIFEST
 
-Release 1.3.0, 2026-11-21. This file lists what is in the release, where the
+Release 1.3.1, 2026-11-21. This file lists what is in the release, where the
 raw data come from, which files are archived separately, and how to deposit
 the release. `CHECKSUMS.sha256` covers every file in this repository.
-Release 1.3.0 incorporates the audit corrections and four follow-up
+Release 1.3.1 is the submission revision. The Tahoe coherence and
+drug-exclusion artifacts were rescored with a bounded tie-midrank rule: the
+true score is read from the matching reference-matrix entry, so PDS is
+bounded at 1. Figure 10 and its partial correlations were regenerated, the
+scGPT comparison moved to Supplementary Figure S1 and Table S4, figures were
+renumbered, and a two-panel graphical abstract and a key-points file were
+added. Release 1.3.0 incorporated the audit corrections and four follow-up
 experiments. Metric positive and negative controls and a candidate-pool
 composition control were added (Tables S21 and S22). An independent DESeq2
 pseudobulk truth table for 150 H1 targets was scored against identical
@@ -11,27 +17,27 @@ queries and pools, with paired per-target statistics and a Hallmark pathway
 check. The genetic budget, exchange, allocation, and exclusion-scored
 small-pool artifacts were regenerated with the corrected budget scorer. The
 coherence partial correlations were recomputed with the standard
-rank-residual estimator. All figures and affected tables were regenerated.
-Release 1.2.1 updated Figure 1; 1.2.0 updated the manuscript source; 1.1.0
-added the twelve-line Tahoe-100M robustness panel (Tables S17 and S18).
+rank-residual estimator. Release 1.2.1 updated Figure 1; 1.2.0 updated the
+manuscript source; 1.1.0 added the twelve-line Tahoe-100M robustness panel
+(Tables S17 and S18).
 
 ## 1. Contents
 
 | Path | Files | Size | Contents |
 |---|---:|---:|---|
-| `scripts/` | 150 | 1.2 MB | Python and shell analysis code; run from the repository root |
+| `scripts/` | 151 | 1.2 MB | Python and shell analysis code; run from the repository root |
 | `src/` | 3 | 36 KB | Shared modules imported by some scripts |
 | `configs/` | 9 | 13 KB | Evaluation configs used during development |
 | `data/` | 8 | 18 MB | Gene sets, gene-name axes, Tahoe axis, H1 DESeq2 truth table |
 | `outputs/` | 264 | 164 MB | Derived scores, summary tables, run logs |
 | `outputs/tables/` | 29 | 151 KB | Main and supplementary table source data (CSV and MD) |
 | `outputs/seed_runs/` | 7 | 540 KB | Three-seed GEARS summaries, lite arrays, run logs |
-| `outputs/tahoe12/` | 1 | 108 KB | Twelve-line interval-sensitivity output |
-| `figures/` | 22 | 3.2 MB | Figures 1--11, PDF and PNG |
-| `manuscript/` | 1 | 156 KB | `draft.tex`, the manuscript source |
+| `outputs/tahoe12/` | 1 | 112 KB | Twelve-line interval-sensitivity output |
+| `figures/` | 24 | 3.3 MB | Figures 1--10, Figure S1, and the graphical abstract, PDF and PNG |
+| `manuscript/` | 2 | 156 KB | `draft.tex` and `key_points.md` |
 | root | 10 | 97 KB | `README.md`, `REPRODUCE.md`, `MANIFEST.md`, licenses, `CITATION.cff`, `.zenodo.json`, `requirements.txt`, `.gitignore`, checksums |
 
-Total: 467 files, about 186 MB. Of these, `outputs/scvi_map_cache.npz`
+Total: 471 files, about 186 MB. Of these, `outputs/scvi_map_cache.npz`
 (54 MB), `outputs/bench_transfer_v2.npz` (33 MB),
 `data/vccp_de_log2fc.parquet` (16 MB), and
 `outputs/scgpt_delta_check.npz` (14 MB) are the only files above 10 MB.
@@ -40,7 +46,7 @@ Total: 467 files, about 186 MB. Of these, `outputs/scvi_map_cache.npz`
 
 | File | Produced by | Used for |
 |---|---|---|
-| `outputs/bench_transfer_nadig_v2.{npz,csv}` | `scripts/bench_transfer_nadig.py` | Tier A per-target PDS; Tables 1, 2, S1, S3, S5, S6, S11; Figures 1--5, 10 |
+| `outputs/bench_transfer_nadig_v2.{npz,csv}` | `scripts/bench_transfer_nadig.py` | Tier A per-target PDS; Tables 1, 2, S1, S3, S5, S6, S11; Figures 1--5, 9 |
 | `outputs/bench_transfer_nadig_v2_pairs.csv` | `scripts/bench_transfer_analysis.py` | Paired effect sizes for Tier A; Table S1 |
 | `outputs/bench_transfer_nadig_v2_triples.csv` | `scripts/transfer_determinants_nadig.py` | Per source--holdout determinants; Table S2 |
 | `outputs/bench_transfer_v2.{npz,csv}` | `scripts/bench_transfer.py` | Tier B per-target PDS; Tables 1, 2, S1, S3, S5, S6, S11 |
@@ -49,16 +55,16 @@ Total: 467 files, about 186 MB. Of these, `outputs/scvi_map_cache.npz`
 | `outputs/bench_scope_sensitivity.csv`, `outputs/bench_scope_sensitivity.log` | `scripts/bench_scope_sensitivity.py` | Panel-wide exclusion sensitivity; Table S7 |
 | `outputs/bench_self_lfc_corr*.csv` | `scripts/bench_self_lfc_corr.py` | Self-log-fold-change correlation; Table S5b |
 | `outputs/bench_supervised_*` (CSV, NPZ, logs) | `scripts/bench_supervised*.py` | Supervised calibration; Table S8 |
-| `outputs/bench_scgpt_baseline.npz` | `scripts/bench_scgpt_baseline.py` | scGPT comparison; Table S4, Figure 6 |
+| `outputs/bench_scgpt_baseline.npz` | `scripts/bench_scgpt_baseline.py` | scGPT comparison; Table S4, Figure S1 |
 | `outputs/gears_baseline_A.csv`, `outputs/gears_summary_A.csv` | `scripts/gears_baseline.py`, `scripts/gears_summary.py` | GEARS baseline; Table S14 |
 | `outputs/seed_runs/multiseed_summary.csv` | `scripts/seed_summary.py` | Three-seed GEARS reproducibility; Table S15 |
 | `outputs/secondary_metrics_A.{csv,pairs.csv,npz}` | `scripts/secondary_metrics.py` | Pool-free metrics; Table S16 |
-| `outputs/selection_audit_kcurve.csv`, `outputs/tables/tableS11_selection_audit.csv` | `scripts/selection_audit.py` | Selection audit; Table S11, Figure 10 |
-| `outputs/phase1_*.csv` | `scripts/phase1_budget_curve.py`, `scripts/phase1_selection_pilot.py` | Calibration curves; Figure 7, Table 3 |
-| `outputs/phase2_*.csv` | `scripts/phase2_source_budget.py`, `scripts/phase2_exchange_summary.py` | Source-budget exchange; Figure 8, Tables 3, 4 |
+| `outputs/selection_audit_kcurve.csv`, `outputs/tables/tableS11_selection_audit.csv` | `scripts/selection_audit.py` | Selection audit; Table S11, Figure 9 |
+| `outputs/phase1_*.csv` | `scripts/phase1_budget_curve.py`, `scripts/phase1_selection_pilot.py` | Calibration curves; Figure 6, Table 3 |
+| `outputs/phase2_*.csv` | `scripts/phase2_source_budget.py`, `scripts/phase2_exchange_summary.py` | Source-budget exchange; Figure 7, Tables 3, 4 |
 | `outputs/phase2_exante_allocator.csv` | `scripts/phase2_exante_allocator.py` | Source-side allocation; Table S9 |
 | `outputs/phase2_fullmix_noexcl.csv` | `scripts/phase2_fullmix_noexcl.py` | Calibration under no-exclusion scoring; Table S10 |
-| `outputs/regime_diagnostic_holdouts.csv`, `outputs/regime_diagnostic_targets.csv` | `scripts/regime_diagnostic.py` | Coherence diagnostic; Table S12, Figure 11 |
+| `outputs/regime_diagnostic_holdouts.csv`, `outputs/regime_diagnostic_targets.csv` | `scripts/regime_diagnostic.py` | Coherence diagnostic; Table S12, Figure 10 |
 | `outputs/regime_diagnostic.log`, `outputs/tahoe_partial_corrected.csv` | `scripts/regime_diagnostic.py`, `scripts/tahoe_partial_check.py` | Standard rank-residual partial correlations; Table S12 |
 | `outputs/metric_controls.csv` | `scripts/metric_controls.py` | Metric positive and negative controls; Table S21 |
 | `outputs/pool_composition_control.csv`, `outputs/pool_composition_rankings.csv` | `scripts/pool_composition_control.py` | Candidate-pool composition control; Table S22 |
@@ -66,16 +72,16 @@ Total: 467 files, about 186 MB. Of these, `outputs/scvi_map_cache.npz`
 | `outputs/h1_sensitivity.csv` | `scripts/h1_sensitivity.py` | H1 source-representation sensitivity in four Tier B holdouts |
 | `outputs/pilot_small_pool.csv` | `scripts/pilot_small_pool.py` | Retrospective small Nadig reference pools; Table S19 |
 | `outputs/tahoe_calibration_ci_sensitivity.csv`, `outputs/tahoe12/tahoe12_ci_sensitivity.csv` | `scripts/tahoe_cal_ci.py --sensitivity` | Existing-fit interval sensitivity; Table S20 |
-| `outputs/pilot_pds_nadig_corrected.npz` | Corrected exclusion-scored Nadig pilot caches | Figure 9 regime panel |
-| `outputs/tahoe_coherence.csv` | `scripts/tahoe_coherence.py` | Drug-panel coherence; Table S13 |
+| `outputs/pilot_pds_nadig_corrected.npz` | Corrected exclusion-scored Nadig pilot caches | Figure 8 regime panel |
+| `outputs/tahoe_coherence.csv` | `scripts/tahoe_coherence.py` | Drug-panel coherence under the bounded scorer; Table S13 |
 | `outputs/tahoe12_full.csv`, `outputs/tahoe12_delta.csv`, `outputs/tahoe12_sat.csv`, `outputs/tahoe12_pilot.csv`, `outputs/p7_646_full.csv` | `scripts/tahoe_panel12.py` | Twelve-line panel retrieval, leave-one-source-out deltas, saturation, and pilot; Table S17 |
 | `outputs/tahoe12_panel646.csv` | Intersection of the twelve per-line condition lists (646 conditions), saved as the panel file for `scripts/tahoe_panel12.py` | Twelve-line panel and the seven-line comparison on the same panel; Table S17 |
 | `outputs/tahoe12_coherence.csv` | `scripts/tahoe_coherence_fast.py` | Twelve-line per-condition coherence; Table S17 |
 | `outputs/tahoe12_select.csv`, `outputs/tahoe12_src.csv`, `outputs/tahoe12_deltas.csv`, `outputs/tahoe12_ci.csv` | `scripts/tahoe_external.py` (`select`), `scripts/tahoe_cal_ci.py` | Twelve-line calibration selection; Table S18 |
 | `outputs/tahoe12_exch.csv` | `scripts/tahoe_external.py` (`exchange`) | Twelve-line source-exchange rates |
-| `outputs/selectX.csv`, `outputs/srcX.csv`, `outputs/exchX.csv` | `scripts/tahoe_external.py` (`select`, `exchange`) | Drug-panel calibration, saturation, exchange; Figure 9C--E, Table 5 |
-| `outputs/regime_pool_geometry*.csv`, `outputs/mix_other_cos.csv`, `outputs/control_similarity_tierB.csv`, `outputs/pilot_rates.csv` | `scripts/regime_pool_geometry.py`, `scripts/mix_other_cos.py`, `scripts/control_similarity_check.py`, `scripts/regime_summary.py` | Regime analysis; Figure 9, Table 5 |
-| `outputs/pilot_x.npz`, `outputs/pilot_pds_nadig_noexcl.npz` | Pilot draw caches (`scripts/tahoe_drug_excl.py` and the matching Nadig pilot run) | 50-condition pilot; Figure 9F, Table 5 |
+| `outputs/selectX.csv`, `outputs/srcX.csv`, `outputs/exchX.csv` | `scripts/tahoe_external.py` (`select`, `exchange`) | Drug-panel calibration, saturation, exchange; Figure 8C--E, Table 5 |
+| `outputs/regime_pool_geometry*.csv`, `outputs/mix_other_cos.csv`, `outputs/control_similarity_tierB.csv`, `outputs/pilot_rates.csv` | `scripts/regime_pool_geometry.py`, `scripts/mix_other_cos.py`, `scripts/control_similarity_check.py`, `scripts/regime_summary.py` | Regime analysis; Figure 8, Table 5 |
+| `outputs/pilot_x.npz`, `outputs/pilot_pds_nadig_noexcl.npz` | Pilot draw caches (`scripts/tahoe_drug_excl.py` and the matching Nadig pilot run) | 50-condition pilot; Figure 8F, Table 5 |
 | `outputs/*.log` | the corresponding benchmark runs | Pool sizes in Figure 1 and the variant scans in Tables S3 and S7 |
 
 ## 3. Script to manuscript map
@@ -99,12 +105,13 @@ Total: 467 files, about 186 MB. Of these, `outputs/scvi_map_cache.npz`
 | Table S22 | `scripts/pool_composition_control.py` |
 | H1 truth-pipeline confirmation | `scripts/vccp_confirm.py`, `scripts/vccp_paired_stats.py` |
 | H1 source-representation sensitivity | `scripts/h1_sensitivity.py` |
-| Figures 1--6 | `scripts/make_figures.py` |
-| Figure 7 | `scripts/phase1_budget_curve.py` |
-| Figure 8 | `scripts/phase2_exchange_summary.py` |
-| Figure 9 | `scripts/make_figures_regime.py` |
-| Figure 10 | `scripts/selection_figure.py` |
-| Figure 11 | `scripts/make_figure_coherence.py` |
+| Figures 1--5 and S1 | `scripts/make_figures.py` |
+| Figure 6 | `scripts/phase1_budget_curve.py` |
+| Figure 7 | `scripts/phase2_exchange_summary.py` |
+| Figure 8 | `scripts/make_figures_regime.py` |
+| Figure 9 | `scripts/selection_figure.py` |
+| Figure 10 | `scripts/make_figure_coherence.py` |
+| Graphical abstract | `scripts/make_graphical_abstract.py` |
 | Headline-number audit | `scripts/audit_numbers.py` |
 | Structural checks | `scripts/check_tex.py`, `scripts/check_refs.py`, `scripts/check_tables.py`, `scripts/check_draft.py` |
 
@@ -162,7 +169,7 @@ From the repository root:
 
 ```
 sha256sum -c CHECKSUMS.sha256
-python scripts/audit_numbers.py          # 11/11 checks
+python scripts/audit_numbers.py          # 14/14 checks
 python scripts/check_refs.py
 python scripts/check_tables.py
 python scripts/check_tex.py
@@ -174,17 +181,19 @@ The table and figure builders run from this release without the Zenodo files:
 ```
 python scripts/make_tables.py
 python scripts/make_figures.py
+python scripts/make_graphical_abstract.py
 ```
 
 ## 7. Depositing the release
 
 The release is available at https://github.com/zhuzhenghao-max/mixing-vs-selection
 and archived at https://doi.org/10.5281/zenodo.24223291 (concept DOI; version
-DOIs resolve to each release). The GitHub tag is `v1.3.0`. Zenodo version
-1.3.0 archives the revised manuscript, all regenerated figures, the new
-control and confirmation scripts and source data, and the H1 DESeq2 truth
-table; the six large prediction and row-cache files are unchanged from
-version 1.1.0.
+DOIs resolve to each release). The GitHub tag is `v1.3.1`. The Zenodo
+deposit for version 1.3.1 contains the submission revision, the corrected
+Tahoe coherence and drug-exclusion summaries, the renumbered figures, the
+graphical abstract, and the key-points file; the six large prediction and
+row-cache files are unchanged from version 1.1.0. Version 1.3.0 is archived
+at https://doi.org/10.5281/zenodo.24410000.
 
 The archive license is set to CC BY 4.0 in `.zenodo.json` because the deposit
 is data-heavy; the code itself is MIT-licensed (see `LICENSE`).

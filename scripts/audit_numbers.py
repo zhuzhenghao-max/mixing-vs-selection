@@ -1,4 +1,5 @@
-"""Check every headline number in the abstract against canonical outputs.
+"""Check every headline number in the abstract and supplements against
+canonical outputs.
 
 Each entry prints the claim, the recomputed value, and a pass flag. The
 script reads only files that were used to build the manuscript tables, so a
@@ -106,7 +107,7 @@ def main():
     print(f"      Tier B honest gains {np.round(hb, 4).tolist()}; "
           f"positive count {int((hb > 0.002).sum())} of {len(hb)}")
 
-    # scGPT.
+    # scGPT (supplement; no longer an abstract headline).
     sc = read("outputs/tables/tableS4_scgpt_baseline.csv")
     row = [r for r in sc if r["Context"] == "RPE1" and
            r["scGPT run"] == "scgpt_r10" and r["Method"] == "equal"][0]
@@ -136,8 +137,16 @@ def main():
             for v in by.values()]
     print(f"      drug per-line rho {np.round(rhos, 3).tolist()}; "
           f"mean {np.mean(rhos):+.4f}, Fisher {np.tanh(np.arctanh(rhos).mean()):+.4f}")
-    check("drug-panel pooled coherence (mean rho)", 0.27,
+    check("drug-panel pooled coherence (mean rho)", 0.30,
           np.mean(rhos), tol=0.01)
+    check_range("drug-panel within-line coherence rho (2 dp)", 0.23, 0.34,
+                round(min(rhos), 2), round(max(rhos), 2), tol=0.001)
+    pc = read("outputs/tahoe_partial_corrected.csv")
+    check("drug-panel coherence | alignment (Fisher)", -0.35,
+          np.tanh(np.arctanh(col(pc, "rho_adj_alignment")).mean()), tol=0.005)
+    check("drug-panel alignment | coherence (Fisher)", 0.54,
+          np.tanh(np.arctanh(col(pc, "rho_alignment_adj_coherence")).mean()),
+          tol=0.005)
 
     # Exchange rate.
     ex = [r for r in read("outputs/tables/table4_source_budget.csv")

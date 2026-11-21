@@ -1,4 +1,4 @@
-"""Source-response coherence diagnostic figure (Figure 11).
+"""Source-response coherence diagnostic figure (Figure 10).
 
 (A) Within-holdout Spearman between per-target source coherence and equal-mix
 PDS, raw and controlling response strength.  (B) Holdout-mean coherence versus
@@ -9,7 +9,7 @@ held-out truth, binned within tier.  (D) Negative control: cross-line
 control-profile similarity versus PDS.
 
 Usage: python scripts/make_figure_coherence.py
-Writes figures/fig11_coherence_diagnostic.pdf + .png.
+Writes figures/fig10_coherence_diagnostic.pdf + .png.
 """
 
 from pathlib import Path
@@ -221,9 +221,9 @@ def main():
     ax.set_ylabel("Mean equal-mix PDS")
     plabel(ax, "D")
 
-    fig.savefig(OUT / "fig11_coherence_diagnostic.pdf")
-    fig.savefig(OUT / "fig11_coherence_diagnostic.png")
-    print("wrote", OUT / "fig11_coherence_diagnostic.png")
+    fig.savefig(OUT / "fig10_coherence_diagnostic.pdf")
+    fig.savefig(OUT / "fig10_coherence_diagnostic.png")
+    print("wrote", OUT / "fig10_coherence_diagnostic.png")
 
 
 if __name__ == "__main__":
