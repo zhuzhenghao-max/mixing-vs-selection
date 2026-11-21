@@ -244,8 +244,8 @@ def fig1_schematic(ax, rng):
                            ec="#E69F00", lw=0.6))
     ax.add_patch(Rectangle((4.25, 0.99), 2.6, 0.11, fc="#E69F00",
                            ec="none"))
-    ax.text(9.75, 1.05, "true response", fontsize=5.9, ha="right",
-            color="#A66400")
+    ax.text(7.0, 1.05, "true response", fontsize=5.9, ha="left",
+            va="center", color="#A66400")
     ax.text(4.25, 0.62, "score = 1 − rank0 / n", fontsize=6.4)
     ax.text(4.25, 0.44, "after removing the target gene's coordinate",
             fontsize=5.8, color="0.4")
@@ -336,15 +336,83 @@ def overlap_heatmap(ax, tier, cbar=False):
         cb.outline.set_visible(False)
 
 
+def load_gears_deltas(path="outputs/gears_summary_A.csv"):
+    out = {}
+    with open(path, encoding="utf-8") as fh:
+        for r in csv.DictReader(fh):
+            out[r["holdout"]] = dict(mean=float(r["d_mean"]),
+                                     lo=float(r["ci_lo"]),
+                                     hi=float(r["ci_hi"]))
+    return out
+
+
+def fig1_headline(ax, rng):
+    stats = []
+    for tier in ("A", "B"):
+        D = load_npz(TIERS[tier]["npz"])
+        for h in TIERS[tier]["lines"]:
+            st = paired_delta(D, h, "equal", "mean", rng)
+            stats.append((tier, h, st))
+    x = np.arange(len(stats))
+    for xi, (tier, h, st) in zip(x, stats):
+        c = TIER_COLS[tier]
+        ax.plot([xi, xi], [st["lo"], st["hi"]], color=c, lw=1.2, zorder=3)
+        ax.plot(xi, st["mean"], "o" if tier == "A" else "s", color=c,
+                ms=4.4, mec="white", mew=0.5, zorder=4)
+    ax.axvline(3.5, color="0.75", lw=0.6, ls="--", zorder=1)
+    ax.axhline(0, color="0.2", lw=0.8, zorder=2)
+    ax.set_xticks(x)
+    ax.set_xticklabels([DISP[h] for _, h, _ in stats], fontsize=6.4)
+    ax.set_xlim(-0.6, len(stats) - 0.4)
+    ax.set_ylim(0, max(st["hi"] for _, _, st in stats) + 0.05)
+    for xc, tier in ((1.5, "A"), (6.0, "B")):
+        ax.text(xc, 1.015, f"Tier {tier}",
+                transform=ax.get_xaxis_transform(), ha="center", va="bottom",
+                fontsize=6.6, color=TIER_COLS[tier])
+    ax.set_ylabel("equal − mean\n(mean PDS, 95% CI)")
+    ax.text(0.99, 0.97, "all p < 1e-12", transform=ax.transAxes,
+            ha="right", va="top", fontsize=5.9, color="0.35")
+    ax.grid(axis="y", color="0.9", lw=0.5, zorder=0)
+    ax.set_axisbelow(True)
+
+
+def fig1_baselines(ax, rng):
+    gears = load_gears_deltas()
+    z = np.load("outputs/bench_scgpt_baseline.npz", allow_pickle=True)
+    rows = [(f"GEARS · {DISP[h]}", gears[h], TIER_COLS["A"], "o")
+            for h in TIERS["A"]["lines"]]
+    st = scgpt_paired(z, "rpe1", "scgpt_r10", "equal", rng)
+    rows.append(("scGPT · RPE1", st, "#7E57C2", "D"))
+    y = np.arange(len(rows))[::-1]
+    for yi, (lab, stt, c, mk) in zip(y, rows):
+        ax.plot([stt["lo"], stt["hi"]], [yi, yi], color=c, lw=1.2, zorder=3)
+        ax.plot(stt["mean"], yi, mk, color=c, ms=3.8, mec="white", mew=0.5,
+                zorder=4)
+        ax.text(stt["hi"] + 0.008, yi, f"{stt['mean']:+.2f}", va="center",
+                fontsize=5.8, color="0.3")
+    ax.axhline(0.5, color="0.75", lw=0.6, ls="--", zorder=1)
+    ax.axvline(0, color="0.2", lw=0.8, zorder=2)
+    ax.set_yticks(y)
+    ax.set_yticklabels([r[0] for r in rows], fontsize=6.0)
+    ax.set_ylim(-0.6, len(rows) - 0.4)
+    ax.set_xlim(0, 0.315)
+    ax.set_xlabel("equal mix − baseline\n(Δ mean PDS, 95% CI)", fontsize=6.8)
+    ax.grid(axis="x", color="0.9", lw=0.5, zorder=0)
+    ax.set_axisbelow(True)
+
+
 def fig1_overview():
     rng = np.random.default_rng(7)
-    fig = plt.figure(figsize=(7.2, 6.4))
-    gs = fig.add_gridspec(2, 3, height_ratios=[1.05, 1.0],
-                          hspace=0.42, wspace=0.42)
+    fig = plt.figure(figsize=(7.2, 8.4))
+    gs = fig.add_gridspec(3, 3, height_ratios=[1.15, 1.0, 1.05],
+                          hspace=0.5, wspace=0.42,
+                          left=0.105, right=0.985, top=0.94, bottom=0.075)
     ax_s = fig.add_subplot(gs[0, :])
     ax_c = fig.add_subplot(gs[1, 0])
     ax_a = fig.add_subplot(gs[1, 1])
     ax_b = fig.add_subplot(gs[1, 2])
+    ax_e = fig.add_subplot(gs[2, :2])
+    ax_f = fig.add_subplot(gs[2, 2])
     fig1_schematic(ax_s, rng)
     plabel(ax_s, "A", x=0.0, y=1.0)
     fig1_composition(ax_c)
@@ -353,6 +421,10 @@ def fig1_overview():
     plabel(ax_a, "C")
     overlap_heatmap(ax_b, "B", cbar=True)
     plabel(ax_b, "D")
+    fig1_headline(ax_e, rng)
+    plabel(ax_e, "E")
+    fig1_baselines(ax_f, rng)
+    plabel(ax_f, "F")
     save(fig, "fig1_benchmark_overview")
 
 

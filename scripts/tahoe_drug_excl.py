@@ -38,7 +38,7 @@ def pds_excl_drug(P, Y, drugs):
         pool = np.append(pool, i)
         s = Yn[pool] @ Pn[i]
         sv = s[-1]
-        rank = int((s > sv).sum() + 0.5 * ((s == sv).sum() - 1))
+        rank = (s > sv).sum() + 0.5 * ((s == sv).sum() - 1)
         out[i] = 1.0 - rank / len(pool)
         n1 += rank == 0
     return out, n1

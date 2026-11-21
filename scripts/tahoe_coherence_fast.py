@@ -45,7 +45,7 @@ def pds_rows(S, drug_keep):
         k[i] = True
         s = S[k, i]
         sv = st[i]
-        rank = int((s > sv).sum() + 0.5 * ((s == sv).sum() - 1))
+        rank = (s > sv).sum() + 0.5 * ((s == sv).sum() - 1)
         exc[i] = 1.0 - rank / len(s)
     return full, exc
 

@@ -88,20 +88,25 @@ def zero_self(X, Y, q, gidx, pos):
     return X, Y
 
 
-def cv_predict(X, Y, n_folds=5, n_comp=256, seed=0, intercept=True):
+def cv_predict(X, Y, n_folds=5, n_comp=256, seed=0, intercept=True,
+               shuffle=False):
     n = X.shape[0]
     folds = np.array_split(np.random.default_rng(seed).permutation(n), n_folds)
     P = np.zeros_like(Y, dtype=np.float32)
     for fi, val in enumerate(folds):
         tr = np.setdiff1d(np.arange(n), val, assume_unique=False)
         tr = tr[np.linalg.norm(Y[tr], axis=1) > 1e-6]
+        Ytr = Y[tr]
+        if shuffle:
+            Ytr = Ytr[np.random.default_rng(seed + 101 * fi)
+                      .permutation(len(tr))]
         k = min(n_comp, len(tr) - 1, X.shape[1])
         pca = PCA(n_components=k, svd_solver="randomized", random_state=seed)
         Ztr = pca.fit_transform(X[tr])
         Zv = pca.transform(X[val])
         model = RidgeCV(alphas=np.logspace(-2, 4, 13),
                         fit_intercept=intercept)
-        model.fit(Ztr, Y[tr])
+        model.fit(Ztr, Ytr)
         P[val] = model.predict(Zv).astype(np.float32)
         print(f"  fold {fi}: train {len(tr)} val {len(val)} "
               f"comp {k} alpha {model.alpha_:.3g}", flush=True)
@@ -166,13 +171,10 @@ def run_tier(tier, mode, n_folds, n_comp, seed, only=None, intercept=True,
         Y = build_targets(ref, q, pos)
         if selfzero:
             X, Y = zero_self(X, Y, q, gidx, pos)
-        if shuffle:
-            perm = np.random.default_rng(seed + 991).permutation(len(q))
-            Y = Y[perm]
         print(f"  features {X.shape}, targets {Y.shape}", flush=True)
 
         P = cv_predict(X, Y, n_folds=n_folds, n_comp=n_comp, seed=seed,
-                       intercept=intercept)
+                       intercept=intercept, shuffle=shuffle)
         del X, Y
 
         R = Retrieval(ref["rows"], ref["names"], pos, gidx=gidx)

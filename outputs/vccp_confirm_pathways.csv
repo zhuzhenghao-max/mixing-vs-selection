@@ -1,0 +1,51 @@
+pathway,corr_mix,corr_cache
+Cholesterol Homeostasis,0.255907,0.470279
+Myc Targets V2,0.208713,0.550101
+Myc Targets V1,0.206925,0.532488
+G2-M Checkpoint,0.152686,-0.006177
+mTORC1 Signaling,0.135233,0.403116
+E2F Targets,0.124931,0.248266
+Unfolded Protein Response,0.086997,0.409282
+Oxidative Phosphorylation,0.055118,0.244342
+Fatty Acid Metabolism,0.054625,-0.057967
+Wnt-beta Catenin Signaling,0.051542,-0.302461
+Androgen Response,0.041873,-0.012771
+Estrogen Response Late,0.037362,0.056050
+Coagulation,0.031054,0.298158
+DNA Repair,0.027708,0.223693
+Mitotic Spindle,0.020164,-0.191570
+Pperoxisome,0.010105,-0.191126
+Glycolysis,0.008299,-0.227693
+Hypoxia,-0.000901,0.188489
+KRAS Signaling Dn,-0.011167,-0.004659
+Myogenesis,-0.011650,0.144424
+Protein Secretion,-0.011685,0.107235
+Epithelial Mesenchymal Transition,-0.012042,0.104623
+Apoptosis,-0.013005,0.096063
+Pancreas Beta Cells,-0.018680,-0.139667
+Adipogenesis,-0.018755,-0.143707
+Apical Junction,-0.023613,-0.090139
+PI3K/AKT/mTOR  Signaling,-0.024248,-0.040695
+Estrogen Response Early,-0.024955,0.042270
+Angiogenesis,-0.028857,0.229057
+Notch Signaling,-0.030804,-0.079911
+Spermatogenesis,-0.039978,-0.082217
+UV Response Dn,-0.042133,-0.032478
+Apical Surface,-0.051386,0.032226
+heme Metabolism,-0.053889,-0.200013
+Reactive Oxygen Species Pathway,-0.056180,0.205901
+Hedgehog Signaling,-0.056584,-0.099003
+Bile Acid Metabolism,-0.064737,-0.156223
+UV Response Up,-0.073112,-0.172166
+IL-2/STAT5 Signaling,-0.080969,0.000608
+p53 Pathway,-0.093752,0.244301
+KRAS Signaling Up,-0.112662,0.009424
+Allograft Rejection,-0.113455,-0.079053
+IL-6/JAK/STAT3 Signaling,-0.114788,0.014322
+Complement,-0.123678,0.013681
+TNF-alpha Signaling via NF-kB,-0.127954,0.218299
+TGF-beta Signaling,-0.146776,-0.013339
+Xenobiotic Metabolism,-0.177137,-0.244295
+Inflammatory Response,-0.179250,0.081138
+Interferon Gamma Response,-0.239723,0.076311
+Interferon Alpha Response,-0.267486,0.145527

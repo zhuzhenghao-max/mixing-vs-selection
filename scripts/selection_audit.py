@@ -1,15 +1,4 @@
-"""Selection audit for the cross-line mixing benchmark.
-
-Quantifies how per-target candidate selection and conditional subsets inflate
-mean PDS: oracle per-target max vs best fixed rule, a permutation null, and a
-split-half protocol that chooses one rule on half the targets and scores it on
-the other half.  Also decomposes the gate gain into composition and
-within-subset parts, and audits post-hoc budget selection on Tahoe-100M.
-
-Outputs
-  outputs/tables/tableS11_selection_audit.csv/.md
-  outputs/selection_audit_kcurve.csv
-"""
+"""Audit oracle heterogeneity, global rule-selection optimism, and gate composition."""
 
 import itertools
 from pathlib import Path
@@ -58,7 +47,7 @@ def permute_rows(rng, X):
         return Y
 
 
-def null_inflation(X, perms, rng):
+def null_heterogeneity_gap(X, perms, rng):
     vals = np.empty(perms)
     for i in range(perms):
         P = permute_rows(rng, X)
@@ -66,21 +55,23 @@ def null_inflation(X, perms, rng):
     return vals
 
 
-def split_honest(X, reps, rng):
+def split_honest(X, reps, rng, base=None):
     n = X.shape[0]
     vals = np.empty(reps)
     gains = np.empty(reps)
+    if base is None:
+        base = X[:, 0]
     for i in range(reps):
         idx = rng.permutation(n)
         h = n // 2
         A, B = idx[:h], idx[h:]
         m = int(np.argmax(X[A].mean(0)))
         vals[i] = X[B, m].mean()
-        gains[i] = vals[i] - X[B, 0].mean()
+        gains[i] = vals[i] - base[B].mean()
     return float(vals.mean()), float(gains.mean())
 
 
-def bootstrap_inflation(X, reps, rng):
+def bootstrap_heterogeneity_gap(X, reps, rng):
     n = X.shape[0]
     vals = np.empty(reps)
     for i in range(reps):
@@ -89,25 +80,32 @@ def bootstrap_inflation(X, reps, rng):
     return float(np.quantile(vals, 0.025)), float(np.quantile(vals, 0.975))
 
 
-def audit(S, reps=200, perms=200, boots=1000, seed=0):
+def audit(S, reps=200, perms=200, boots=1000, seed=0, choice=None):
     rng = np.random.default_rng(seed)
     X = S.to_numpy()
-    naive = float(X.max(1).mean())
-    fixed = X.mean(0)
+    if choice is None:
+        C = X
+        names = list(S.columns)
+    else:
+        idx = np.asarray(choice)
+        C = X[:, idx]
+        names = [S.columns[i] for i in idx]
+    naive = float(C.max(1).mean())
+    fixed = C.mean(0)
     best_fixed = float(fixed.max())
-    best_method = str(S.columns[int(fixed.argmax())])
-    inflation = naive - best_fixed
-    null = null_inflation(X, perms, rng)
-    honest_mean, honest_gain = split_honest(X, reps, rng)
-    ci_lo, ci_hi = bootstrap_inflation(X, boots, rng)
+    best_method = str(names[int(fixed.argmax())])
+    heterogeneity_gap = naive - best_fixed
+    null = null_heterogeneity_gap(C, perms, rng)
+    honest_mean, honest_gain = split_honest(C, reps, rng, base=X[:, 0])
+    ci_lo, ci_hi = bootstrap_heterogeneity_gap(C, boots, rng)
     return dict(
-        k=S.shape[1], n=S.shape[0],
+        k=C.shape[1], n=S.shape[0],
         equal_mean=float(X[:, 0].mean()),
         naive=naive, best_fixed=best_fixed, best_method=best_method,
-        inflation=inflation, inf_ci_lo=ci_lo, inf_ci_hi=ci_hi,
+        heterogeneity_gap=heterogeneity_gap, gap_ci_lo=ci_lo, gap_ci_hi=ci_hi,
         null_mean=float(null.mean()),
         null_q95=float(np.quantile(null, 0.95)),
-        excess=inflation - float(null.mean()),
+        excess=heterogeneity_gap - float(null.mean()),
         honest_mean=honest_mean, honest_gain=honest_gain,
         optimism=best_fixed - honest_mean,
         oracle_gap=naive - honest_mean,
@@ -126,7 +124,8 @@ def gate_audit(df, holdout):
     return dict(
         k=np.nan, n=len(common), equal_mean=eq_all,
         naive=gated_gate, best_fixed=np.nan, best_method="gated_equal",
-        inflation=gated_gate - eq_all, inf_ci_lo=np.nan, inf_ci_hi=np.nan,
+        heterogeneity_gap=np.nan, apparent_gate_gain=gated_gate - eq_all,
+        gap_ci_lo=np.nan, gap_ci_hi=np.nan,
         null_mean=np.nan, null_q95=np.nan, excess=np.nan,
         honest_mean=np.nan, honest_gain=np.nan, optimism=np.nan,
         n_all=len(eq), n_gate=len(common),
@@ -150,8 +149,8 @@ def tahoe_audit(path):
         naive = float(X.max(1).mean())
         fixed = X.mean(0)
         best_fixed = float(fixed.max())
-        inflation = naive - best_fixed
-        null = null_inflation(X, 200, rng)
+        heterogeneity_gap = naive - best_fixed
+        null = null_heterogeneity_gap(X, 200, rng)
         # no equal column here: baseline delta is 0
         n = X.shape[0]
         vals = np.empty(200)
@@ -165,8 +164,8 @@ def tahoe_audit(path):
             holdout=H, split=split, n=n, k=X.shape[1],
             naive=naive, best_fixed=best_fixed,
             best_method=str(S.columns[int(fixed.argmax())]),
-            inflation=inflation, null_mean=float(null.mean()),
-            excess=inflation - float(null.mean()),
+            heterogeneity_gap=heterogeneity_gap, null_mean=float(null.mean()),
+            excess=heterogeneity_gap - float(null.mean()),
             honest_mean=float(vals.mean()),
         ))
     t = pd.DataFrame(rows)
@@ -175,7 +174,7 @@ def tahoe_audit(path):
     agg = t.groupby("holdout").agg(
         n=("n", "mean"), k=("k", "max"),
         naive=("naive", "mean"), best_fixed=("best_fixed", "mean"),
-        inflation=("inflation", "mean"), null_mean=("null_mean", "mean"),
+        heterogeneity_gap=("heterogeneity_gap", "mean"), null_mean=("null_mean", "mean"),
         excess=("excess", "mean"), honest_mean=("honest_mean", "mean"),
     ).reset_index()
     agg["tier"] = "Tahoe"
@@ -205,20 +204,21 @@ def main():
             if tier == "A":
                 singles = sorted(frame[frame.holdout == H].method.unique())
                 singles = [m for m in singles if m.startswith("single_")]
-                Ss = score_matrix(frame, H, singles)
+                Ss = score_matrix(frame, H, ["equal"] + singles)
                 if Ss.shape[0] >= 50:
-                    r = audit(Ss)
+                    r = audit(Ss, choice=range(1, Ss.shape[1]))
                     r.update(tier=tier, holdout=H, kind="singles",
                              pool="source_lines")
                     rows.append(r)
 
     t = pd.DataFrame(rows)
     cols = ["tier", "holdout", "kind", "pool", "k", "n", "equal_mean",
-            "naive", "best_fixed", "best_method", "inflation",
-            "inf_ci_lo", "inf_ci_hi", "null_mean", "null_q95", "excess",
+            "naive", "best_fixed", "best_method", "heterogeneity_gap",
+            "gap_ci_lo", "gap_ci_hi", "null_mean", "null_q95", "excess",
             "honest_mean", "honest_gain", "optimism", "oracle_gap",
             "naive_vs_equal",
-            "n_all", "n_gate", "equal_gate", "composition", "within"]
+            "n_all", "n_gate", "equal_gate", "composition", "within",
+            "apparent_gate_gain"]
     for c in cols:
         if c not in t.columns:
             t[c] = np.nan
@@ -236,8 +236,8 @@ def main():
         th["optimism"] = th["best_fixed"] - th["honest_mean"]
         th["oracle_gap"] = th["naive"] - th["honest_mean"]
         th["naive_vs_equal"] = th["naive"]
-        th["inf_ci_lo"] = np.nan
-        th["inf_ci_hi"] = np.nan
+        th["gap_ci_lo"] = np.nan
+        th["gap_ci_hi"] = np.nan
         th["null_q95"] = np.nan
         th["best_method"] = th["method"]
         th["n_all"] = np.nan
@@ -251,16 +251,16 @@ def main():
     t.to_csv(TAB / "tableS11_selection_audit.csv", index=False, float_format="%.6f")
 
     show = t.copy()
-    for c in ["equal_mean", "naive", "best_fixed", "inflation", "inf_ci_lo",
-              "inf_ci_hi", "null_mean", "null_q95", "excess", "honest_mean",
+    for c in ["equal_mean", "naive", "best_fixed", "heterogeneity_gap", "gap_ci_lo",
+              "gap_ci_hi", "null_mean", "null_q95", "excess", "honest_mean",
               "honest_gain", "optimism", "oracle_gap", "naive_vs_equal",
-              "equal_gate", "composition", "within"]:
+              "equal_gate", "composition", "within", "apparent_gate_gain"]:
         show[c] = show[c].map(lambda v: "" if pd.isna(v) else f"{v:+.4f}")
     show["k"] = show["k"].map(lambda v: "" if pd.isna(v) else f"{int(v)}")
     show["n"] = show["n"].map(lambda v: "" if pd.isna(v) else f"{int(v)}")
     show.to_csv(TAB / "tableS11_selection_audit.md", index=False, sep="|")
 
-    # k-curve: pool size vs oracle inflation and honest split gain
+    # k-curve: pool size vs oracle heterogeneity_gap and honest split gain
     krows = []
     for tier, frame, pool in (("A", dfa, KCURVE_A), ("B", dfb, SIM_B)):
         for H in sorted(frame.holdout.unique()):
@@ -271,7 +271,7 @@ def main():
                     cols = ["equal"] + list(combo)
                     X = S[cols].to_numpy()
                     rng = np.random.default_rng(0)
-                    null = null_inflation(X, 50, rng)
+                    null = null_heterogeneity_gap(X, 50, rng)
                     vals = np.empty(50)
                     n = X.shape[0]
                     for i in range(50):
@@ -282,7 +282,7 @@ def main():
                         vals[i] = X[B, m].mean() - X[B, 0].mean()
                     krows.append(dict(
                         tier=tier, holdout=H, k=kk + 1,
-                        inflation=float(X.max(1).mean() - X.mean(0).max()),
+                        heterogeneity_gap=float(X.max(1).mean() - X.mean(0).max()),
                         null_mean=float(null.mean()),
                         honest_gain=float(vals.mean()),
                         naive_vs_equal=float(X.max(1).mean() - X[:, 0].mean()),
@@ -295,7 +295,7 @@ def main():
     print(show.to_string(index=False))
     print("\nkcurve means")
     print(kc.groupby(["tier", "k"]).agg(
-        inflation=("inflation", "mean"),
+        heterogeneity_gap=("heterogeneity_gap", "mean"),
         null_mean=("null_mean", "mean"),
         honest_gain=("honest_gain", "mean"),
         naive_vs_equal=("naive_vs_equal", "mean"),

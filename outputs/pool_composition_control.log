@@ -1,0 +1,53 @@
+  k562     1383 rows (nadig)
+  rpe1     1499 rows (nadig)
+  hepg2    1340 rows (nadig)
+  jurkat   1537 rows (nadig)
+balanced panel: 638 queries
+
+=== k562: sources ['rpe1', 'hepg2', 'jurkat'] ===
+  m=50: random 0.812  hard 0.378  easy 0.999  coherent 0.615  incoherent 0.902  strong 0.636  quiet 0.878
+  m=100: random 0.810  hard 0.468  easy 0.994  coherent 0.661  incoherent 0.895  strong 0.658  quiet 0.881
+
+=== rpe1: sources ['k562', 'hepg2', 'jurkat'] ===
+  m=50: random 0.835  hard 0.562  easy 0.992  coherent 0.770  incoherent 0.897  strong 0.756  quiet 0.884
+  m=100: random 0.834  hard 0.635  easy 0.980  coherent 0.781  incoherent 0.884  strong 0.765  quiet 0.881
+
+=== hepg2: sources ['k562', 'rpe1', 'jurkat'] ===
+  m=50: random 0.796  hard 0.408  easy 0.993  coherent 0.722  incoherent 0.876  strong 0.687  quiet 0.892
+  m=100: random 0.794  hard 0.489  easy 0.985  coherent 0.715  incoherent 0.880  strong 0.686  quiet 0.885
+
+=== jurkat: sources ['k562', 'rpe1', 'hepg2'] ===
+  m=50: random 0.813  hard 0.401  easy 0.999  coherent 0.647  incoherent 0.910  strong 0.642  quiet 0.906
+  m=100: random 0.812  hard 0.485  easy 0.991  coherent 0.668  incoherent 0.908  strong 0.686  quiet 0.900
+
+wrote outputs/pool_composition_control.csv
+wrote outputs/pool_composition_rankings.csv
+
+Equal mix, mean PDS by composition (across lines):
+  pool size 638
+    full        0.8107 (min 0.7924, max 0.8323)
+  pool size 50
+    random      0.8142 (min 0.7964, max 0.8355)
+    hard        0.4375 (min 0.3782, max 0.5624)
+    easy        0.9958 (min 0.9924, max 0.9992)
+    coherent    0.6886 (min 0.6150, max 0.7701)
+    incoherent  0.8965 (min 0.8761, max 0.9102)
+    strong      0.6801 (min 0.6355, max 0.7563)
+    quiet       0.8901 (min 0.8780, max 0.9057)
+  pool size 100
+    random      0.8123 (min 0.7942, max 0.8337)
+    hard        0.5191 (min 0.4679, max 0.6347)
+    easy        0.9875 (min 0.9795, max 0.9941)
+    coherent    0.7063 (min 0.6612, max 0.7811)
+    incoherent  0.8919 (min 0.8805, max 0.9083)
+    strong      0.6987 (min 0.6583, max 0.7648)
+    quiet       0.8868 (min 0.8806, max 0.9004)
+
+Method ranks at m=50 (1 = best):
+  random      equal:2.5  equal_center:1.0  single:2.5  mean:4.0
+  hard        equal:3.0  equal_center:1.0  single:2.0  mean:4.0
+  easy        equal:1.0  equal_center:3.5  single:2.0  mean:3.5
+  coherent    equal:2.5  equal_center:1.0  single:2.5  mean:4.0
+  incoherent  equal:1.0  equal_center:3.0  single:2.0  mean:4.0
+  strong      equal:2.5  equal_center:1.0  single:2.5  mean:4.0
+  quiet       equal:1.0  equal_center:2.8  single:2.2  mean:4.0

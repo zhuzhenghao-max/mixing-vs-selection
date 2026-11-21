@@ -1,4 +1,4 @@
-tier,holdout,k,inflation,null_mean,honest_gain,naive_vs_equal,best_fixed_vs_equal
+tier,holdout,k,heterogeneity_gap,null_mean,honest_gain,naive_vs_equal,best_fixed_vs_equal
 A,hepg2,2,0.002530,0.007123,0.000000,0.002530,0.000000
 A,hepg2,2,0.015564,0.018095,0.007589,0.023044,0.007480
 A,hepg2,3,0.017401,0.024329,0.007231,0.024881,0.007480

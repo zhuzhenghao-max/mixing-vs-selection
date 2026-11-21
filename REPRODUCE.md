@@ -32,7 +32,8 @@ Raw data are not included. Download them from the original sources listed in
 `scripts/perturbatlas_dl_panel.py`, and `scripts/parallel_download.py`
 automate the public downloads where direct access is available. H1 responses
 come from the 2025 Virtual Cell Challenge training split; no challenge test
-data are used.
+data are used. The derived H1 DESeq2 truth table for the 150 training
+targets is included as `data/vccp_de_log2fc.parquet`.
 
 ## 3. Build response tables
 
@@ -77,6 +78,13 @@ audit reuses the per-target PDS values from the main runs; no predictor is
 refit.
 
 ## 6. Calibration and source budgets
+
+The budget scorer renormalizes each reference row after target-coordinate
+exclusion. The genetic budget, exchange-rate, and source-allocation results
+in this release were regenerated with that scorer, and the exclusion-scored
+full-pool pilot uses the corrected cache
+`outputs/pilot_pds_nadig_corrected.npz`. Historical Tahoe scores were not
+regenerated; the manuscript marks those drug summaries as provisional.
 
 ```
 python scripts/phase1_selection_pilot.py --tier A --holdout k562,rpe1 --k 20
@@ -217,7 +225,70 @@ The released results are in `outputs/tahoe12_full.csv`,
 `outputs/tahoe12_deltas.csv`, `outputs/tahoe12_ci.csv`, and
 `outputs/tahoe12_exch.csv`.
 
-## 9. Secondary metrics
+### Existing-fit interval sensitivity and small reference pools
+
+The new interval analysis needs only the released condition-by-split CSVs.
+It does not download Tahoe shards or fit a model. It averages unique condition
+scores and reports a Bonferroni envelope over the three existing splits, with
+fixed equal line weights and shared condition resampling. This envelope does
+not estimate uncertainty from new splitting, training, or cell lines.
+
+The precomputed files are `outputs/tahoe_calibration_ci_sensitivity.csv` and
+`outputs/tahoe12/tahoe12_ci_sensitivity.csv`. Sensitivity mode refuses to
+overwrite a file. Use fresh paths when rerunning, for example:
+
+```
+python scripts/tahoe_cal_ci.py outputs/deltasX.csv outputs/tahoe_calibration_ci_sensitivity_rerun.csv --sensitivity
+python scripts/tahoe_cal_ci.py outputs/tahoe12_deltas.csv outputs/tahoe12/tahoe12_ci_sensitivity_rerun.csv --sensitivity
+```
+
+The retrospective genetic-only small-pool check selects 50 or 100 distinct
+Nadig targets as both queries and the complete reference pool. It subsets
+pairwise similarities on both axes and reranks; it does not resample old PDS
+values. After building `outputs/nadig_rows.npz`, run:
+
+```
+python scripts/pilot_small_pool.py --reps 5000 --seed 0
+```
+
+This writes `outputs/pilot_small_pool.csv` (Table S19). It also needs the
+included axis, mask, and `outputs/pilot_pds_nadig_noexcl.npz`. Subset quantiles
+are not confidence intervals, and the post-hoc 0.92 cutoff is not a validated
+stopping rule. Extending this check to drugs requires rebuilding the per-line
+Tahoe response matrices from the public shards using the workflow above.
+The absence of those raw shards from a local snapshot is not a dependency on
+the original compute instance.
+
+## 9. Metric controls, pool composition, and H1 truth confirmation
+
+All four analyses run from released arrays and need no raw shards:
+
+```
+python scripts/metric_controls.py
+python scripts/pool_composition_control.py
+python scripts/vccp_confirm.py
+python scripts/vccp_paired_stats.py
+python scripts/h1_sensitivity.py
+python scripts/regime_diagnostic.py
+python scripts/tahoe_partial_check.py
+```
+
+`metric_controls.py` samples 300 queries per holdout and scores truth, mix,
+mean, mismatched, gene-shuffled, sign-flipped, and graded-noise predictions
+(Table S21). `pool_composition_control.py` resamples 50- and 100-row
+candidate pools from seven compositions on the balanced 638-query Nadig
+panel (Table S22). `vccp_confirm.py` reads the included
+`data/vccp_de_log2fc.parquet` truth table, scores the same queries and pools
+against the decoded cache and the DESeq2 truth, and writes the per-target
+and pathway files; `vccp_paired_stats.py` then writes
+`outputs/vccp_paired_stats.csv`. `h1_sensitivity.py` recomputes the equal mix
+in the four Tier B holdouts where H1 is a source. `regime_diagnostic.py`
+writes the corrected per-target partial-correlation inputs, and
+`tahoe_partial_check.py` recomputes the standard rank-residual partials from
+the stored Tahoe condition table. The Tahoe scores themselves remain
+historical.
+
+## 10. Secondary metrics
 
 ```
 python scripts/secondary_metrics.py
@@ -231,7 +302,7 @@ and `outputs/secondary_metrics_A.npz` (Table S16). It requires
 `outputs/nadig_rows.npz`, `outputs/eval_pos_mask.npz`, and
 `outputs/gears_baseline_A.npz`.
 
-## 10. Figures and tables
+## 11. Figures and tables
 
 ```
 python scripts/make_figures.py              # Figures 1--6
@@ -245,7 +316,7 @@ python scripts/make_tables_budget.py
 python scripts/make_table_regime.py
 ```
 
-## 11. Audits
+## 12. Audits
 
 ```
 python scripts/audit_numbers.py             # abstract headline numbers
@@ -259,7 +330,7 @@ python scripts/check_draft.py               # abstract length and S15/S16
 released summary data are complete. The other four scripts are structural
 checks, not statistical tests.
 
-## 12. Compute notes
+## 13. Compute notes
 
 - Tier A/B benchmark runs, variant scans, calibration budgets, and all audits
   are CPU-only.
@@ -272,7 +343,7 @@ checks, not statistical tests.
   released `outputs/seed_runs/` contains the merged summaries and lite per-
   target arrays; the full arrays are in the Zenodo archive.
 
-## 13. Where the large arrays go
+## 14. Where the large arrays go
 
 The GitHub repository contains every summary table and the arrays needed to
 rerun `audit_numbers.py` and the secondary-metric headline checks except for

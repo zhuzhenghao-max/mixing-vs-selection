@@ -65,13 +65,16 @@ def plabel(ax, letter, x=-0.01, y=1.02):
 def load_pilot():
     z = np.load("outputs/pilot_x.npz")
     n = np.load("outputs/pilot_pds_nadig_noexcl.npz")
+    c = np.load("outputs/pilot_pds_nadig_corrected.npz")
     tahoe = {}
     for f in z.files:
         name, kind = f.rsplit(" ", 1)
         if kind == "full":
             tahoe[name] = z[f]
+    # No-exclusion scores have no per-reference division and are unchanged;
+    # the exclusion scores predate the normalization fix, so use the rerun.
     noexcl = {L: n[L + "_noexcl"] for L in NADIG}
-    excl = {L: n[L + "_excl"] for L in NADIG}
+    excl = {L: c[L + "_excl"] for L in NADIG}
     return tahoe, noexcl, excl
 
 
@@ -265,7 +268,7 @@ def panel_pilot(ax, tahoe, nadig, k=50, reps=50000, seed=0):
         patch.set_edgecolor(WEAK if i < len(NADIG) else STRONG)
         patch.set_linewidth(0.7)
     ax.axhline(0.92, color="0.25", lw=0.8, ls="--", zorder=1)
-    ax.text(0.99, 1.015, "dashed: 0.92 regime threshold",
+    ax.text(0.99, 1.015, "dashed: post-hoc 0.92 threshold",
             transform=ax.transAxes, ha="right", va="bottom",
             fontsize=5.6, color="0.35")
     ax.axvline(5, color="0.8", lw=0.6, zorder=0)
@@ -275,7 +278,7 @@ def panel_pilot(ax, tahoe, nadig, k=50, reps=50000, seed=0):
     lo = min(np.percentile(s, 1) for s in stats) - 0.04
     ax.set_ylim(lo, 1.02)
     ax.set_xlim(0.4, 12.7)
-    ax.set_ylabel("pilot mean PDS (k = 50)")
+    ax.set_ylabel("full-pool sampled mean PDS (k = 50)")
     ax.grid(axis="y", color="0.93", lw=0.4, zorder=0)
     ax.set_axisbelow(True)
     plabel(ax, "F")

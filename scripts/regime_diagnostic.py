@@ -19,7 +19,7 @@ import sys
 
 import numpy as np
 import pandas as pd
-from scipy.stats import spearmanr
+from scipy.stats import pearsonr, rankdata, spearmanr
 
 sys.path.insert(0, "scripts")
 from bench_common import load_axis, load_lines, load_nadig_lines, unit_rows
@@ -98,22 +98,21 @@ def run_tier(tier, lines, holds, pds):
 
 
 def partial_spearman(x, y, z):
-    rx = np.argsort(np.argsort(x)).astype(float)
-    ry = np.argsort(np.argsort(y)).astype(float)
-    rz = np.argsort(np.argsort(z)).astype(float)
+    rx = rankdata(x)
+    ry = rankdata(y)
+    rz = rankdata(z)
     ex = rx - np.polyval(np.polyfit(rz, rx, 1), rz)
     ey = ry - np.polyval(np.polyfit(rz, ry, 1), rz)
-    return spearmanr(ex, ey).statistic
+    return pearsonr(ex, ey).statistic
 
 
 def partial_spearman2(x, y, z1, z2):
-    def rk(v):
-        return np.argsort(np.argsort(v)).astype(float)
-    Z = np.column_stack([np.ones_like(rk(z1)), rk(z1), rk(z2)])
-    rx, ry = rk(x), rk(y)
+    rz1, rz2 = rankdata(z1), rankdata(z2)
+    Z = np.column_stack([np.ones_like(rz1), rz1, rz2])
+    rx, ry = rankdata(x), rankdata(y)
     ex = rx - Z @ np.linalg.lstsq(Z, rx, rcond=None)[0]
     ey = ry - Z @ np.linalg.lstsq(Z, ry, rcond=None)[0]
-    return spearmanr(ex, ey).statistic
+    return pearsonr(ex, ey).statistic
 
 
 def main():

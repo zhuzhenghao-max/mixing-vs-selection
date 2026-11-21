@@ -48,7 +48,7 @@ def pds_pool(pred, Y, keep):
         k = keep[i].copy()
         k[i] = True
         s = S[k, i]
-        sv = Yn[i] @ Pn[i]
+        sv = S[i, i]
         rank = np.sum(s > sv) + 0.5 * (np.sum(s == sv) - 1)
         out[i] = 1.0 - rank / len(s)
     return out

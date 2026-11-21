@@ -1,10 +1,10 @@
 # Separating mixing from selection
 
-A leave-one-line-out benchmark for cross-cell-line perturbation prediction.
+A leave-one-line-out benchmark and an audit protocol for cross-cell-line perturbation evaluation.
 
-Zhenghao Zhu, Heze University, Heze, Shandong, China
+Zhenghao Zhu and Di Cui, Heze University, Heze, Shandong, China
 
-Release 1.1.0 (15 November 2026). Concept DOI:
+Release 1.3.0 (21 November 2026). Concept DOI:
 https://doi.org/10.5281/zenodo.24223291.
 
 ## What this project is
@@ -51,11 +51,25 @@ different studies and measurement platforms, which makes the transfer harder.
 - **A gate can look better without mixing better.** Gating by self-knockdown
   raised PDS, but the gain came from which targets it selected. On shared
   targets the gate-versus-equal difference was at most 0.014, while
-  per-target best-of reporting inflated PDS by 0.03 to 0.12.
+  per-target best-of reporting raised PDS by 0.10 to 0.13 in the harmonized
+  tier and 0.06 to 0.11 in the heterogeneous tier; selection accounted for
+  0.03 to 0.08 of the harmonized gain and almost all of the heterogeneous gain.
 - **Learned baselines do not close the gap.** scGPT, fine-tuned on K562 and
   tested on RPE1, scored 0.190 mean PDS below equal mixing. GEARS, trained
   leave-one-line-out, scored 0.163 to 0.193 below it in the four Tier A
   folds, a result reproduced with three random seeds.
+- **The metric is coarse and pool-dependent.** Gene-shuffled truth still
+  scored 0.655 in both tiers, and truth plus noise at four times the response
+  norm scored 1.000. Across seven reference-pool compositions, equal-mix PDS
+  ranged from 0.438 to 0.996 on a balanced 638-query panel, and method ranks
+  flipped with composition. A PDS level is a property of the method and the
+  pool together.
+- **An independent H1 truth table supports the tier level.** Replacing the
+  decoded H1 cache with a DESeq2 pseudobulk table for the 150 official
+  training targets moved the pooled equal-mix score by 0.007 or less. Paired
+  per-target agreement was weak (Spearman +0.18), and a Hallmark profile
+  analysis kept a positive signal over mismatched targets (+0.080, 95% CI
+  +0.004 to +0.157).
 - **The drug-panel ceiling survives panel expansion.** On twelve
   Tahoe-100M lines (646 shared conditions), equal-mix PDS was 0.964 to 0.997
   (pooled 0.990). Adding five lines moved the original seven by -0.006 to
@@ -143,14 +157,20 @@ licenses.
   target-gene exclusion.
 - The twelve-line panel is a robustness extension, not a survey of cell
   types or tissues.
+- H1 enters Tier B as an scVI-decoded response cache, and the original model
+  and production records are missing. The scGPT comparator depends on that
+  cache and remains exploratory.
+- Stored Tahoe scores exceed the PDS upper bound in 19.1% of rows, and
+  drug-exclusion tie handling is unresolved. Those summaries are provisional.
 
 ## Citation
 
 If you use the benchmark, please cite the manuscript and the Zenodo archive.
 The concept DOI https://doi.org/10.5281/zenodo.24223291 always resolves to the
-latest release; release 1.1.0 is archived at
-https://doi.org/10.5281/zenodo.24247539. `CITATION.cff` contains the
-machine-readable record, including the repository URL and DOI.
+latest release; release 1.2.1 is archived at
+https://doi.org/10.5281/zenodo.24356413 and release 1.3.0 under the same
+concept DOI. `CITATION.cff` contains the machine-readable record, including
+the repository URL and DOI.
 
 ## Contact
 

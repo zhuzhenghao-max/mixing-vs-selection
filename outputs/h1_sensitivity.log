@@ -1,0 +1,27 @@
+  h1       285 rows
+  k562     9866 rows
+  rpe1     2393 rows
+  hct116   8987 rows
+  hek293t  4297 rows
+
+=== holdout k562 | baseline queries 5820 ===
+  full285   rows 285 queries  5820 PDS 0.6765 (base 0.6765) delta +0.0000 [+0.0000,+0.0000] rho +1.000
+  cache150  rows 150 queries  5778 PDS 0.6773 (base 0.6773) delta +0.0001 [-0.0005,+0.0006] rho +0.997
+  deseq150  rows 150 queries  5778 PDS 0.6773 (base 0.6773) delta +0.0000 [-0.0015,+0.0015] rho +0.985
+
+=== holdout rpe1 | baseline queries 2390 ===
+  full285   rows 285 queries  2390 PDS 0.7426 (base 0.7426) delta +0.0000 [+0.0000,+0.0000] rho +1.000
+  cache150  rows 150 queries  2390 PDS 0.7429 (base 0.7426) delta +0.0003 [-0.0004,+0.0012] rho +0.997
+  deseq150  rows 150 queries  2390 PDS 0.7435 (base 0.7426) delta +0.0009 [-0.0006,+0.0024] rho +0.992
+
+=== holdout hct116 | baseline queries 6671 ===
+  full285   rows 285 queries  6671 PDS 0.6349 (base 0.6349) delta +0.0000 [+0.0000,+0.0000] rho +1.000
+  cache150  rows 150 queries  6669 PDS 0.6351 (base 0.6348) delta +0.0003 [-0.0003,+0.0009] rho +0.997
+  deseq150  rows 150 queries  6669 PDS 0.6353 (base 0.6348) delta +0.0005 [-0.0005,+0.0014] rho +0.992
+
+=== holdout hek293t | baseline queries 3523 ===
+  full285   rows 285 queries  3523 PDS 0.5895 (base 0.5895) delta +0.0000 [+0.0000,+0.0000] rho +1.000
+  cache150  rows 150 queries  3523 PDS 0.5896 (base 0.5895) delta +0.0001 [-0.0002,+0.0006] rho +0.999
+  deseq150  rows 150 queries  3523 PDS 0.5897 (base 0.5895) delta +0.0002 [-0.0003,+0.0009] rho +0.998
+
+wrote outputs/h1_sensitivity.csv

@@ -1,0 +1,69 @@
+  h1       285 rows
+  k562     9866 rows
+  rpe1     2393 rows
+  hct116   8987 rows
+  hek293t  4297 rows
+targets 150, with >=1 source 141, with >=2 91
+
+=== scope cache150 | truth cache | pool 150 ===
+  equal         PDS 0.6532 [0.6051,0.7018] cos +0.0364
+  equal_center  PDS 0.6184 [0.5698,0.6686] cos +0.0208
+  single        PDS 0.6581 [0.6052,0.7083] cos +0.0326
+  mean          PDS 0.5156 [0.4685,0.5622] cos +0.3110
+  truth         PDS 1.0000 [1.0000,1.0000] cos +1.0000
+  mismatch      PDS 0.4990 [0.4551,0.5432] cos +0.0959
+
+=== scope vccp150_raw | truth vccp_raw | pool 150 ===
+  equal         PDS 0.6548 [0.6017,0.7080] cos +0.0477
+  equal_center  PDS 0.6186 [0.5700,0.6653] cos +0.0264
+  single        PDS 0.6608 [0.6102,0.7124] cos +0.0355
+  mean          PDS 0.5132 [0.4675,0.5607] cos +0.2087
+  truth         PDS 1.0000 [1.0000,1.0000] cos +1.0000
+  mismatch      PDS 0.4776 [0.4343,0.5231] cos +0.0115
+
+=== scope vccp150_clip5 | truth vccp_clip5 | pool 150 ===
+  equal         PDS 0.6364 [0.5843,0.6887] cos +0.0473
+  equal_center  PDS 0.6007 [0.5526,0.6472] cos +0.0191
+  single        PDS 0.6506 [0.6009,0.7026] cos +0.0365
+  mean          PDS 0.5119 [0.4669,0.5593] cos +0.1838
+  truth         PDS 1.0000 [1.0000,1.0000] cos +1.0000
+  mismatch      PDS 0.5459 [0.4977,0.5930] cos +0.0479
+
+=== scope vccp150_clip10 | truth vccp_clip10 | pool 150 ===
+  equal         PDS 0.6465 [0.5941,0.6989] cos +0.0500
+  equal_center  PDS 0.6106 [0.5615,0.6572] cos +0.0237
+  single        PDS 0.6592 [0.6087,0.7119] cos +0.0379
+  mean          PDS 0.5124 [0.4673,0.5598] cos +0.1915
+  truth         PDS 1.0000 [1.0000,1.0000] cos +1.0000
+  mismatch      PDS 0.4931 [0.4463,0.5385] cos +0.0190
+
+=== scope cache285 | truth cache | pool 285 ===
+  equal         PDS 0.6506 [0.6028,0.6996] cos +0.0364
+  equal_center  PDS 0.6161 [0.5669,0.6660] cos +0.0208
+  single        PDS 0.6556 [0.6024,0.7058] cos +0.0326
+  mean          PDS 0.5402 [0.4922,0.5882] cos +0.3125
+  truth         PDS 1.0000 [1.0000,1.0000] cos +1.0000
+  mismatch      PDS 0.5070 [0.4648,0.5506] cos +0.1105
+
+=== scope cache285 | truth vccp_clip10 | pool 285 ===
+  equal         PDS 0.6506 [0.6028,0.6996] cos +0.0500
+  equal_center  PDS 0.6161 [0.5669,0.6660] cos +0.0237
+  single        PDS 0.6556 [0.6024,0.7058] cos +0.0379
+  mean          PDS 0.5402 [0.4922,0.5882] cos +0.0725
+  truth         PDS 0.8848 [0.8462,0.9190] cos +1.0000
+  mismatch      PDS 0.4817 [0.4380,0.5256] cos +0.0121
+
+=== scope cache285 | truth vccp_raw | pool 285 ===
+  equal         PDS 0.6506 [0.6028,0.6996] cos +0.0477
+  equal_center  PDS 0.6161 [0.5669,0.6660] cos +0.0264
+  single        PDS 0.6556 [0.6024,0.7058] cos +0.0355
+  mean          PDS 0.5402 [0.4922,0.5882] cos +0.0612
+  truth         PDS 0.8856 [0.8469,0.9202] cos +1.0000
+  mismatch      PDS 0.4907 [0.4441,0.5378] cos +0.0299
+
+Hallmark sets 50
+pathway profile corr (n=141): mix +0.1266, mismatch +0.0469, cache-vccp +0.2792
+
+cache vs DESeq2 PDS: means 0.6532 / 0.6465, Spearman +0.181
+benchmark H1 subset: 0.6524, corr with cache150 +0.996
+wrote outputs/vccp_confirm_pds.csv, _targets.csv, _pathways.csv

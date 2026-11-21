@@ -81,7 +81,7 @@ class FastRetrieval:
         for k, li in enumerate(cols):
             if li is not None:
                 S[:, k] /= np.sqrt(np.maximum(
-                    1.0 - np.sum(self.Rn[:, li] ** 2), 1e-12))
+                    1.0 - self.Rn[:, li] ** 2, 1e-12))
         out = np.full(len(qnames), np.nan, dtype=np.float64)
         for k, t in enumerate(qnames):
             ri = self.ridx.get(t)

@@ -95,11 +95,13 @@ def main():
         for s in ("kmeans", "random"):
             nk[(s, int(r["k"]))].append(float(r[s]))
     nc = {k: np.mean(v) for k, v in nk.items()}
-    tk = {k: v for k, v in tc.items() if k[0] == "kmeans"}
+    tk = {k: v for k, v in tc.items()
+          if k[0] == "kmeans" and np.isfinite(v)}
     out["Tahoe"]["cal_k50"] = tc[("kmeans", 50)]
     out["Tahoe"]["cal_best"] = max(tk.values())
     out["Tahoe"]["cal_best_at"] = max(tk, key=tk.get)
-    nkm = {k: v for k, v in nc.items() if k[0] == "kmeans"}
+    nkm = {k: v for k, v in nc.items()
+           if k[0] == "kmeans" and np.isfinite(v)}
     out["Nadig"]["cal_k50"] = nc[("kmeans", 50)]
     out["Nadig"]["cal_best"] = max(nkm.values())
     out["Nadig"]["cal_best_at"] = max(nkm, key=nkm.get)

@@ -1,28 +1,39 @@
 # MANIFEST
 
-Release 1.1.0, 2026-11-15. This file lists what is in the release, where the
+Release 1.3.0, 2026-11-21. This file lists what is in the release, where the
 raw data come from, which files are archived separately, and how to deposit
 the release. `CHECKSUMS.sha256` covers every file in this repository.
-Release 1.1.0 adds the twelve-line Tahoe-100M robustness panel, its source
-data (Tables S17 and S18), and the two scripts that produce it.
+Release 1.3.0 incorporates the audit corrections and four follow-up
+experiments. Metric positive and negative controls and a candidate-pool
+composition control were added (Tables S21 and S22). An independent DESeq2
+pseudobulk truth table for 150 H1 targets was scored against identical
+queries and pools, with paired per-target statistics and a Hallmark pathway
+check. The genetic budget, exchange, allocation, and exclusion-scored
+small-pool artifacts were regenerated with the corrected budget scorer. The
+coherence partial correlations were recomputed with the standard
+rank-residual estimator. All figures and affected tables were regenerated.
+Release 1.2.1 updated Figure 1; 1.2.0 updated the manuscript source; 1.1.0
+added the twelve-line Tahoe-100M robustness panel (Tables S17 and S18).
 
 ## 1. Contents
 
 | Path | Files | Size | Contents |
 |---|---:|---:|---|
-| `scripts/` | 143 | 1.1 MB | Python and shell analysis code; run from the repository root |
+| `scripts/` | 150 | 1.2 MB | Python and shell analysis code; run from the repository root |
 | `src/` | 3 | 36 KB | Shared modules imported by some scripts |
 | `configs/` | 9 | 13 KB | Evaluation configs used during development |
-| `data/` | 7 | 1.9 MB | Gene sets for the GEARS graph, gene-name axes, Tahoe axis |
-| `outputs/` | 245 | 163 MB | Derived scores, summary tables, run logs |
+| `data/` | 8 | 18 MB | Gene sets, gene-name axes, Tahoe axis, H1 DESeq2 truth table |
+| `outputs/` | 264 | 164 MB | Derived scores, summary tables, run logs |
 | `outputs/tables/` | 29 | 151 KB | Main and supplementary table source data (CSV and MD) |
 | `outputs/seed_runs/` | 7 | 540 KB | Three-seed GEARS summaries, lite arrays, run logs |
-| `figures/` | 22 | 3.1 MB | Figures 1--11, PDF and PNG |
-| `manuscript/` | 1 | 164 KB | `draft.tex`, the manuscript source |
+| `outputs/tahoe12/` | 1 | 108 KB | Twelve-line interval-sensitivity output |
+| `figures/` | 22 | 3.2 MB | Figures 1--11, PDF and PNG |
+| `manuscript/` | 1 | 156 KB | `draft.tex`, the manuscript source |
 | root | 10 | 97 KB | `README.md`, `REPRODUCE.md`, `MANIFEST.md`, licenses, `CITATION.cff`, `.zenodo.json`, `requirements.txt`, `.gitignore`, checksums |
 
-Total: 440 files, about 169 MB. Of these, `outputs/scvi_map_cache.npz`
-(54 MB), `outputs/bench_transfer_v2.npz` (33 MB), and
+Total: 467 files, about 186 MB. Of these, `outputs/scvi_map_cache.npz`
+(54 MB), `outputs/bench_transfer_v2.npz` (33 MB),
+`data/vccp_de_log2fc.parquet` (16 MB), and
 `outputs/scgpt_delta_check.npz` (14 MB) are the only files above 10 MB.
 
 ## 2. Primary result files
@@ -48,6 +59,14 @@ Total: 440 files, about 169 MB. Of these, `outputs/scvi_map_cache.npz`
 | `outputs/phase2_exante_allocator.csv` | `scripts/phase2_exante_allocator.py` | Source-side allocation; Table S9 |
 | `outputs/phase2_fullmix_noexcl.csv` | `scripts/phase2_fullmix_noexcl.py` | Calibration under no-exclusion scoring; Table S10 |
 | `outputs/regime_diagnostic_holdouts.csv`, `outputs/regime_diagnostic_targets.csv` | `scripts/regime_diagnostic.py` | Coherence diagnostic; Table S12, Figure 11 |
+| `outputs/regime_diagnostic.log`, `outputs/tahoe_partial_corrected.csv` | `scripts/regime_diagnostic.py`, `scripts/tahoe_partial_check.py` | Standard rank-residual partial correlations; Table S12 |
+| `outputs/metric_controls.csv` | `scripts/metric_controls.py` | Metric positive and negative controls; Table S21 |
+| `outputs/pool_composition_control.csv`, `outputs/pool_composition_rankings.csv` | `scripts/pool_composition_control.py` | Candidate-pool composition control; Table S22 |
+| `outputs/vccp_confirm_pds.csv`, `outputs/vccp_confirm_pathways.csv`, `outputs/vccp_confirm_targets.csv`, `outputs/vccp_paired_stats.csv` | `scripts/vccp_confirm.py`, `scripts/vccp_paired_stats.py` | H1 DESeq2 truth-pipeline confirmation |
+| `outputs/h1_sensitivity.csv` | `scripts/h1_sensitivity.py` | H1 source-representation sensitivity in four Tier B holdouts |
+| `outputs/pilot_small_pool.csv` | `scripts/pilot_small_pool.py` | Retrospective small Nadig reference pools; Table S19 |
+| `outputs/tahoe_calibration_ci_sensitivity.csv`, `outputs/tahoe12/tahoe12_ci_sensitivity.csv` | `scripts/tahoe_cal_ci.py --sensitivity` | Existing-fit interval sensitivity; Table S20 |
+| `outputs/pilot_pds_nadig_corrected.npz` | Corrected exclusion-scored Nadig pilot caches | Figure 9 regime panel |
 | `outputs/tahoe_coherence.csv` | `scripts/tahoe_coherence.py` | Drug-panel coherence; Table S13 |
 | `outputs/tahoe12_full.csv`, `outputs/tahoe12_delta.csv`, `outputs/tahoe12_sat.csv`, `outputs/tahoe12_pilot.csv`, `outputs/p7_646_full.csv` | `scripts/tahoe_panel12.py` | Twelve-line panel retrieval, leave-one-source-out deltas, saturation, and pilot; Table S17 |
 | `outputs/tahoe12_panel646.csv` | Intersection of the twelve per-line condition lists (646 conditions), saved as the panel file for `scripts/tahoe_panel12.py` | Twelve-line panel and the seven-line comparison on the same panel; Table S17 |
@@ -74,6 +93,12 @@ Total: 440 files, about 169 MB. Of these, `outputs/scvi_map_cache.npz`
 | Table S16 | `scripts/secondary_metrics.py` |
 | Table S17 | `scripts/tahoe_panel12.py`, `scripts/tahoe_coherence_fast.py` |
 | Table S18 | `scripts/tahoe_external.py` (`select`, `exchange`), `scripts/tahoe_cal_ci.py` |
+| Table S19 | `scripts/pilot_small_pool.py` |
+| Table S20 | `scripts/tahoe_cal_ci.py --sensitivity` |
+| Table S21 | `scripts/metric_controls.py` |
+| Table S22 | `scripts/pool_composition_control.py` |
+| H1 truth-pipeline confirmation | `scripts/vccp_confirm.py`, `scripts/vccp_paired_stats.py` |
+| H1 source-representation sensitivity | `scripts/h1_sensitivity.py` |
 | Figures 1--6 | `scripts/make_figures.py` |
 | Figure 7 | `scripts/phase1_budget_curve.py` |
 | Figure 8 | `scripts/phase2_exchange_summary.py` |
@@ -96,6 +121,7 @@ manuscript bibliography.
 | Replogle et al. RPE1 Perturb-seq | Tier B source | `scripts/rpe1_download.sh` fetches `replogle_2022_rpe1.h5ad` (about 1.2 GB) from the same host | Replogle et al., *Cell* 2022 [1] |
 | X-Atlas/Orion (HCT116, HEK293T) | Tier B sources | `data/external/orion_lfc_true.npy`, `orion_pert_ids.npy`, `orion_ctx_ids.npy`, `orion_meta.json` from the X-Atlas/Orion release | Huang et al., bioRxiv 2025, doi:10.1101/2025.06.11.659105 [6] |
 | Virtual Cell Challenge H1 responses | Tier B holdout H1 | 2025 challenge training split, embedded on the Tier B axis in `outputs/bench_transfer_v2.npz`; no challenge test data are used | Roohani et al., *Cell* 2025, doi:10.1016/j.cell.2025.06.008 [10] |
+| H1 DESeq2 pseudobulk log$_2$ fold changes | Independent truth check for 150 official training targets | Derived from the same challenge training split; included as `data/vccp_de_log2fc.parquet` | Roohani et al., *Cell* 2025 [10] |
 | Tahoe-100M pseudobulk differential expression | Drug panel | `scripts/tahoe_build_line.py` downloads the public shards (`train-00000-of-01026.parquet`) from the Tahoe-100M ModelScope/Hugging Face mirrors | Zhang et al., bioRxiv 2025, doi:10.1101/2025.02.20.639398 [12] |
 | Gene sets (MSigDB Hallmark 2020, KEGG 2021 Human, Reactome 2022, ENCODE/ChEA consensus TFs) | Perturbation graph for GEARS, as GO stand-ins | `data/gs_*.txt` | Gene Ontology Consortium 2021 [22]; GEARS [11] |
 
@@ -154,8 +180,11 @@ python scripts/make_figures.py
 
 The release is available at https://github.com/zhuzhenghao-max/mixing-vs-selection
 and archived at https://doi.org/10.5281/zenodo.24223291 (concept DOI; version
-DOIs resolve to each release). The GitHub tag is `v1.1.0`, matching the
-version in `CITATION.cff` and `.zenodo.json`.
+DOIs resolve to each release). The GitHub tag is `v1.3.0`. Zenodo version
+1.3.0 archives the revised manuscript, all regenerated figures, the new
+control and confirmation scripts and source data, and the H1 DESeq2 truth
+table; the six large prediction and row-cache files are unchanged from
+version 1.1.0.
 
 The archive license is set to CC BY 4.0 in `.zenodo.json` because the deposit
 is data-heavy; the code itself is MIT-licensed (see `LICENSE`).

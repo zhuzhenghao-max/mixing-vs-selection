@@ -71,7 +71,7 @@ axes[0].legend(frameon=False, fontsize=7)
 
 ax = axes[2]
 for h, mk in (("k562", "o"), ("rpe1", "s")):
-    gain = curve(h, "kmeans") - curve(h, "random")
+    gain = curve(h, "kmeans", "vs_random")
     lo = curve(h, "kmeans", "vs_random_lo")
     hi = curve(h, "kmeans", "vs_random_hi")
     ax.errorbar(ks, gain, yerr=[np.maximum(gain - lo, 0),

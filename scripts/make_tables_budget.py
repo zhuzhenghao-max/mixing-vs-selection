@@ -41,17 +41,6 @@ def table3():
                          hi=f"{float(r['hi']):+.4f}",
                          p=f"{float(r['p']):.2g}",
                          win=f"{float(r['win']):.2f}"))
-    for r in read("outputs/phase1_selection_pilot_B_k20_all5lean.csv"):
-        if r["strategy"] != "kmeans":
-            continue
-        rows.append(dict(block="selection", tier=r["tier"],
-                         holdout=r["holdout"], k=int(float(r["k"])),
-                         contrast="kmeans-random",
-                         delta=f"{float(r['vs_random']):+.4f}",
-                         lo=f"{float(r['vs_random_lo']):+.4f}",
-                         hi=f"{float(r['vs_random_hi']):+.4f}",
-                         p=f"{float(r['vs_random_p']):.2g}",
-                         win=f"{float(r['win_vs_random']):.2f}"))
     for r in read("outputs/phase2_fullmix_calibration.csv"):
         k = int(float(r["k"]))
         if k not in (50, 100):

@@ -1,0 +1,93 @@
+  h1       285 rows
+  k562     9866 rows
+  rpe1     2393 rows
+  hct116   8987 rows
+  hek293t  4297 rows
+  k562     1383 rows (nadig)
+  rpe1     1499 rows (nadig)
+  hepg2    1340 rows (nadig)
+  jurkat   1537 rows (nadig)
+tier holdout    n  n_src_mean  pair_cos  cpair_cos  min_cos  log_norm  abs_self      pds  pds_noexcl  rho_pair_cos  rho_cpair_cos  rho_min_cos  prho_pair_cos  prho_cpair_cos  prho2_pair_cos  prho2_cpair_cos  rho_mix_truth_cos  rho_cmix_truth_cos
+   A   hepg2 1104    2.577899  0.247324   0.231780 0.208612  0.757130  0.492978 0.792734    0.819967      0.502298       0.468774     0.453295       0.351401        0.397266        0.524651         0.477483           0.728244            0.564096
+   A  jurkat 1224    2.521242  0.210582   0.211048 0.168960  0.742120  0.463569 0.830478    0.860007      0.460488       0.488459     0.477744       0.372462        0.481711        0.472263         0.485336           0.732585            0.629478
+   A    k562 1150    2.554783  0.252263   0.214771 0.208001  0.794951  0.480528 0.801432    0.834245      0.483112       0.477165     0.482990       0.310186        0.424041        0.489516         0.500333           0.818179            0.742259
+   A    rpe1 1204    2.529900  0.210234   0.208158 0.181145  0.714624  0.506666 0.830235    0.868594      0.400624       0.465958     0.390988       0.282581        0.401171        0.458450         0.480474           0.620870            0.505191
+   B      h1  180    2.305556  0.107594   0.098033 0.094094  1.597542 10.144896 0.712573         NaN      0.090441       0.006463     0.049157       0.091935        0.036684        0.207697         0.075466           0.862889            0.462484
+   B  hct116 1396    2.113897  0.051080   0.042726 0.047634  1.598557  5.232111 0.750509         NaN      0.273058       0.195611     0.252984       0.210354        0.191252        0.223297         0.149128           0.516789            0.376872
+   B hek293t  622    2.191318  0.040516   0.041402 0.035432  1.511267  5.748351 0.640509         NaN      0.288587       0.187719     0.234791       0.261515        0.192240        0.203476         0.119395           0.610417            0.318836
+   B    k562 1483    2.107215  0.088167   0.070318 0.083003  1.661081 10.955314 0.732093         NaN      0.231842       0.124187     0.213457       0.176098        0.090860        0.161124         0.042815           0.637610            0.403233
+   B    rpe1  933    2.158628  0.073316   0.069848 0.066787  1.570037 10.215577 0.737849         NaN      0.229323       0.244967     0.229489       0.216458        0.237923        0.164263         0.173251           0.614377            0.538587
+
+pooled within-holdout (mean of Fisher z):
+  pair_cos       mean rho +0.335 (9 holdouts)
+  min_cos        mean rho +0.316 (9 holdouts)
+  resultant      mean rho +0.243 (9 holdouts)
+  cpair_cos      mean rho +0.305 (9 holdouts)
+  cmin_cos       mean rho +0.263 (9 holdouts)
+  cresultant     mean rho +0.203 (9 holdouts)
+  log_norm       mean rho +0.286 (9 holdouts)
+  abs_self       mean rho -0.105 (1 holdouts)
+  mix_truth_cos  mean rho +0.699 (9 holdouts)
+  cmix_truth_cos mean rho +0.517 (9 holdouts)
+
+within-tier pooled Spearman (targets pooled, tiers apart):
+  tier A pair_cos       rho +0.433 n=4682
+  tier A cpair_cos      rho +0.457 n=4682
+  tier A min_cos        rho +0.429 n=4682
+  tier A cmin_cos       rho +0.414 n=4682
+  tier A resultant      rho +0.373 n=4682
+  tier A cresultant     rho +0.361 n=4682
+  tier A mix_truth_cos  rho +0.716 n=4682
+  tier B pair_cos       rho +0.255 n=4614
+  tier B cpair_cos      rho +0.174 n=4614
+  tier B min_cos        rho +0.235 n=4614
+  tier B cmin_cos       rho +0.157 n=4614
+  tier B resultant      rho +0.174 n=4614
+  tier B cresultant     rho +0.109 n=4614
+  tier B mix_truth_cos  rho +0.581 n=4614
+
+across holdouts, Spearman of means (9 holdouts):
+  pair_cos       rho +0.700
+  min_cos        rho +0.667
+  resultant      rho +0.800
+  cpair_cos      rho +0.683
+  cmin_cos       rho +0.683
+  cresultant     rho +0.833
+  log_norm       rho -0.717
+  abs_self       rho -0.800
+  mix_truth_cos  rho +0.750
+  cmix_truth_cos rho +0.667
+  n_src_mean     rho +0.567
+  log10(pool)    rho -0.250
+
+mechanism (within-holdout mean of Fisher z):
+  corr(pair_cos, mix_truth_cos ) mean rho +0.643
+  corr(cpair_cos, cmix_truth_cos) mean rho +0.515
+  corr(pair_cos, log_norm      ) mean rho +0.475
+  pair_cos~pds | mix_truth_cos  mean rho -0.168
+  pair_cos~pds | log_norm       mean rho +0.254
+  pair_cos~pds | n_src          mean rho +0.334
+  pair_cos~pds | norm+n_src   mean rho +0.255
+  mix_truth_cos~pds | pair_cos mean rho +0.662
+
+across-holdout means with p-values (n=9):
+  pair_cos       rho +0.700 p 0.0358
+  cpair_cos      rho +0.683 p 0.0424
+  resultant      rho +0.800 p 0.0096
+  cresultant     rho +0.833 p 0.0053
+  mix_truth_cos  rho +0.750 p 0.0199
+  log_norm       rho -0.717 p 0.0298
+  n_src_mean     rho +0.567 p 0.1116
+
+Nadig balanced 638-query panel, no-exclusion policy:
+  hepg2    n=638 pair_cos 0.226 pds_noexcl 0.8200 rho_noexcl +0.490  rho_excl +0.549
+  jurkat   n=638 pair_cos 0.227 pds_noexcl 0.8600 rho_noexcl +0.404  rho_excl +0.487
+  k562     n=638 pair_cos 0.247 pds_noexcl 0.8342 rho_noexcl +0.364  rho_excl +0.460
+  rpe1     n=638 pair_cos 0.214 pds_noexcl 0.8686 rho_noexcl +0.305  rho_excl +0.393
+  pooled rho_noexcl +0.393
+
+Tier means:
+      pair_cos  cpair_cos   min_cos  resultant  mix_truth_cos       pds  pds_noexcl
+tier                                                                               
+A     0.229394   0.216108  0.191033   0.733309       0.298689  0.814381    0.845703
+B     0.068277   0.059058  0.063043   0.713932       0.093715  0.725721         NaN

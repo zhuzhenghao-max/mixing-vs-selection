@@ -20,12 +20,13 @@ NADIG_LINES = ["k562", "rpe1", "hepg2", "jurkat"]
 def load_pilot():
     z = np.load("outputs/pilot_x.npz")
     n = np.load("outputs/pilot_pds_nadig_noexcl.npz")
+    c = np.load("outputs/pilot_pds_nadig_corrected.npz")
     tahoe, excl = {}, {}
     for f in z.files:
         name, kind = f.rsplit(" ", 1)
         (tahoe if kind == "full" else excl)[name] = z[f]
     nadig = {L: n[L + "_noexcl"] for L in NADIG_LINES}
-    nadig_excl = {L: n[L + "_excl"] for L in NADIG_LINES}
+    nadig_excl = {L: c[L + "_excl"] for L in NADIG_LINES}
     return tahoe, excl, nadig, nadig_excl
 
 

@@ -1,0 +1,13 @@
+   holdout   n  coherence  alignment  rho_raw  rho_adj_alignment  rho_alignment_raw  rho_alignment_adj_coherence
+      A498 648   0.134762   0.286827 0.248202          -0.208578           0.357183                     0.332796
+      A549 648   0.141248   0.253292 0.307325          -0.259663           0.455400                     0.428645
+   HEC-1-A 648   0.142492   0.247879 0.211637          -0.350855           0.478676                     0.540673
+   HS-578T 648   0.141647   0.251073 0.297634          -0.333770           0.498042                     0.516595
+       J82 648   0.142319   0.248369 0.254660          -0.438804           0.605275                     0.672966
+MIA_PaCa-2 648   0.138156   0.269199 0.303831          -0.302577           0.450619                     0.449878
+  SK-MEL-2 648   0.143567   0.242286 0.321923          -0.291601           0.481274                     0.464411
+pooled coherence|alignment -0.314
+pooled alignment|coherence +0.493
+coherence mean range 0.135-0.144
+stored PDS above 1: 19.1%
+wrote outputs/tahoe_partial_corrected.csv

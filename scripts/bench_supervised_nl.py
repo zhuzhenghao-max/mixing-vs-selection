@@ -43,11 +43,16 @@ def median_gamma(Z, seed, cap=300):
     return 1.0 / (2.0 * max(md, 1e-9))
 
 
-def cv_rff(X, Y, folds, n_comp, n_rff, gamma_mult, whiten, seed):
+def cv_rff(X, Y, folds, n_comp, n_rff, gamma_mult, whiten, seed,
+           shuffle=False):
     P = np.zeros_like(Y, dtype=np.float32)
     for fi, val in enumerate(folds):
         tr = np.setdiff1d(np.arange(len(X)), val, assume_unique=False)
         tr = tr[np.linalg.norm(Y[tr], axis=1) > 1e-6]
+        Ytr = Y[tr]
+        if shuffle:
+            Ytr = Ytr[np.random.default_rng(seed + 101 * fi)
+                      .permutation(len(tr))]
         k = min(n_comp, len(tr) - 1, X.shape[1])
         pca = PCA(n_components=k, svd_solver="randomized", random_state=seed,
                   whiten=whiten)
@@ -60,7 +65,7 @@ def cv_rff(X, Y, folds, n_comp, n_rff, gamma_mult, whiten, seed):
         Fv = rff.transform(Zv)
         t0 = time.time()
         model = RidgeCV(alphas=np.logspace(-2, 4, 7))
-        model.fit(Ftr, Y[tr] - X[tr])
+        model.fit(Ftr, Ytr - X[tr])
         P[val] = (X[val] + model.predict(Fv)).astype(np.float32)
         print(f"  fold {fi}: comp {k} rff {n_rff} gamma {gamma:.3g} "
               f"alpha {model.alpha_:.3g} fit {time.time() - t0:.1f}s",
@@ -87,13 +92,18 @@ class ResidualMLP(nn.Module):
 
 
 def cv_mlp(X, Y, folds, n_comp, whiten, hidden, dropout, weight_decay,
-           lr, batch, max_epochs, patience, seed):
-    torch.set_num_threads(max(1, os.cpu_count() - 1))
+           lr, batch, max_epochs, patience, seed, shuffle=False):
+    torch.set_num_threads(int(os.environ.get(
+        "TORCH_THREADS", max(1, os.cpu_count() - 1))))
     P = np.zeros_like(Y, dtype=np.float32)
     d_out = Y.shape[1]
     for fi, val in enumerate(folds):
         tr = np.setdiff1d(np.arange(len(X)), val, assume_unique=False)
         tr = tr[np.linalg.norm(Y[tr], axis=1) > 1e-6]
+        Ytr = Y[tr]
+        if shuffle:
+            Ytr = Ytr[np.random.default_rng(seed + 101 * fi)
+                      .permutation(len(tr))]
         k = min(n_comp, len(tr) - 1, X.shape[1])
         pca = PCA(n_components=k, svd_solver="randomized", random_state=seed,
                   whiten=whiten)
@@ -106,9 +116,9 @@ def cv_mlp(X, Y, folds, n_comp, whiten, hidden, dropout, weight_decay,
         inner = perm[:n_in]
         fit = perm[n_in:]
         Xfit = torch.from_numpy(Ztr[fit])
-        Tfit = torch.from_numpy((Y[tr] - X[tr])[fit])
+        Tfit = torch.from_numpy((Ytr - X[tr])[fit])
         Xinn = torch.from_numpy(Ztr[inner])
-        Tinn = torch.from_numpy((Y[tr] - X[tr])[inner])
+        Tinn = torch.from_numpy((Ytr - X[tr])[inner])
         Xval = torch.from_numpy(Zv)
 
         torch.manual_seed(seed + fi)
@@ -187,17 +197,16 @@ def run_tier(tier, model, n_folds, n_comp, seed, only, selfzero, shuffle,
         Y = build_targets(ref, q, pos)
         if selfzero:
             X, Y = zero_self(X, Y, q, gidx, pos)
-        if shuffle:
-            perm = np.random.default_rng(seed + 991).permutation(len(q))
-            Y = Y[perm]
         print(f"  features {X.shape}, targets {Y.shape}", flush=True)
 
         folds = folds_of(len(q), n_folds, seed)
         if model == "rff":
-            P = cv_rff(X, Y, folds, n_comp, n_rff, gamma_mult, whiten, seed)
+            P = cv_rff(X, Y, folds, n_comp, n_rff, gamma_mult, whiten, seed,
+                       shuffle=shuffle)
         else:
             P = cv_mlp(X, Y, folds, n_comp, whiten, hidden, dropout,
-                       weight_decay, lr, batch, max_epochs, patience, seed)
+                       weight_decay, lr, batch, max_epochs, patience, seed,
+                       shuffle=shuffle)
         del X, Y
 
         R = Retrieval(ref["rows"], ref["names"], pos, gidx=gidx)
