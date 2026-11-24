@@ -1,6 +1,6 @@
 {
   "title": "Separating mixing from selection: a leave-one-line-out benchmark and an audit protocol for cross-cell-line perturbation evaluation",
-  "description": "<p>Analysis code and derived per-target scores for a leave-one-line-out benchmark of cross-cell-line perturbation prediction. Tier A holds out each of four harmonized cell lines (K562, RPE1, HepG2, Jurkat; 5,486 queries); Tier B holds out each of five heterogeneous lines (H1, K562, RPE1, HCT116, HEK293T; 18,678 queries). The drug panel covers seven to twelve Tahoe-100M lines on 648 or 646 shared conditions, including the twelve-line robustness analyses. This version rescored the Tahoe coherence and drug-exclusion artifacts with a bounded tie-midrank rule, regenerated the coherence figure and its partial correlations, moved the scGPT comparison to Supplementary Figure S1, renumbered figures, and added a graphical abstract and key points. Version 1.3.0 added metric positive and negative controls, a candidate-pool composition control, and an independent DESeq2 truth-table confirmation for 150 H1 targets, and it regenerated the genetic budget, exchange, and allocation artifacts with the corrected scorer. The archive contains the analysis scripts, summary tables, manuscript source, figures, and the per-target arrays needed to rerun the headline audit. The largest prediction arrays and raw row caches are deposited as separate files. The analysis code is MIT-licensed; derived data and figures are CC BY 4.0. Raw third-party datasets are not redistributed and remain under their original licenses.</p>",
+  "description": "<p>Analysis code and derived per-target scores for a leave-one-line-out benchmark of cross-cell-line perturbation prediction. Tier A holds out each of four harmonized cell lines (K562, RPE1, HepG2, Jurkat; 5,486 queries); Tier B holds out each of five heterogeneous lines (H1, K562, RPE1, HCT116, HEK293T; 18,678 queries). The drug panel covers seven to twelve Tahoe-100M lines on 648 or 646 shared conditions, including the twelve-line robustness analyses. Version 1.3.2 is a language revision of the manuscript text; no number, citation, figure, or table changed. Version 1.3.1 rescored the Tahoe coherence and drug-exclusion artifacts with a bounded tie-midrank rule, regenerated the coherence figure and its partial correlations, moved the scGPT comparison to Supplementary Figure S1, renumbered figures, and added a graphical abstract and key points. Version 1.3.0 added metric positive and negative controls, a candidate-pool composition control, and an independent DESeq2 truth-table confirmation for 150 H1 targets, and it regenerated the genetic budget, exchange, and allocation artifacts with the corrected scorer. The archive contains the analysis scripts, summary tables, manuscript source, figures, and the per-target arrays needed to rerun the headline audit. The largest prediction arrays and raw row caches are deposited as separate files. The analysis code is MIT-licensed; derived data and figures are CC BY 4.0. Raw third-party datasets are not redistributed and remain under their original licenses.</p>",
   "creators": [
     {
       "name": "Zhu, Zhenghao",
@@ -15,8 +15,8 @@
   "license": "cc-by-4.0",
   "access_right": "open",
   "language": "eng",
-  "version": "1.3.1",
-  "publication_date": "2026-11-21",
+  "version": "1.3.2",
+  "publication_date": "2026-11-24",
   "keywords": [
     "perturbation prediction",
     "single-cell",
