@@ -1,13 +1,20 @@
 # MANIFEST
 
-Release 1.3.2, 2026-11-24. This file lists what is in the release, where the
+Release 1.3.3, 2026-11-27. This file lists what is in the release, where the
 raw data come from, which files are archived separately, and how to deposit
 the release. `CHECKSUMS.sha256` covers every file in this repository.
-Release 1.3.2 is a language revision of the 1.3.1 submission text. The
-manuscript was rewritten for readability without changing any number,
-citation, figure, or table. The self-audit paragraph, Supplementary Note 2,
-and `AUDIT_CHECKLIST.md` first appear in this version. Release 1.3.1 is the
-submission revision. The Tahoe coherence and
+Release 1.3.3 is the Briefings in Bioinformatics submission revision. The
+main text was condensed to 6,855 narrative words with a 248-word abstract
+and rewritten in a neutral register without changing any result, citation,
+figure, or table. The supplementary figure, tables, and notes moved to a
+separate `manuscript/draft_supplementary.tex`; the five key points are part
+of the manuscript; and the funding statement names the National Natural
+Science Foundation of China (Grant No. 12305381). Figures and analysis
+outputs are unchanged from 1.3.2. Release 1.3.2 is a language revision of
+the 1.3.1 submission text. The manuscript was rewritten for readability
+without changing any number, citation, figure, or table. The self-audit
+paragraph, Supplementary Note 2, and `AUDIT_CHECKLIST.md` first appear in
+this version. Release 1.3.1 is the submission revision. The Tahoe coherence and
 drug-exclusion artifacts were rescored with a bounded tie-midrank rule: the
 true score is read from the matching reference-matrix entry, so PDS is
 bounded at 1. Figure 10 and its partial correlations were regenerated, the
@@ -38,10 +45,10 @@ manuscript source; 1.1.0 added the twelve-line Tahoe-100M robustness panel
 | `outputs/seed_runs/` | 7 | 540 KB | Three-seed GEARS summaries, lite arrays, run logs |
 | `outputs/tahoe12/` | 1 | 112 KB | Twelve-line interval-sensitivity output |
 | `figures/` | 24 | 3.3 MB | Figures 1--10, Figure S1, and the graphical abstract, PDF and PNG |
-| `manuscript/` | 2 | 156 KB | `draft.tex` and `key_points.md` |
+| `manuscript/` | 3 | 112 KB | `draft.tex`, `draft_supplementary.tex`, and `key_points.md` |
 | root | 11 | 99 KB | `README.md`, `REPRODUCE.md`, `MANIFEST.md`, `AUDIT_CHECKLIST.md`, licenses, `CITATION.cff`, `.zenodo.json`, `requirements.txt`, `.gitignore`, checksums |
 
-Total: 472 files, about 186 MB. Of these, `outputs/scvi_map_cache.npz`
+Total: 473 files, about 186 MB. Of these, `outputs/scvi_map_cache.npz`
 (54 MB), `outputs/bench_transfer_v2.npz` (33 MB),
 `data/vccp_de_log2fc.parquet` (16 MB), and
 `outputs/scgpt_delta_check.npz` (14 MB) are the only files above 10 MB.
@@ -193,12 +200,12 @@ python scripts/make_graphical_abstract.py
 
 The release is available at https://github.com/zhuzhenghao-max/mixing-vs-selection
 and archived at https://doi.org/10.5281/zenodo.24223291 (concept DOI; version
-DOIs resolve to each release). The GitHub tag is `v1.3.2`. The Zenodo
-deposit for version 1.3.2 contains the language-revised manuscript, the
-submission revision, the corrected Tahoe coherence and drug-exclusion
-summaries, the renumbered figures, the graphical abstract, and the
-key-points file; the six large prediction and row-cache files are unchanged
-from version 1.1.0. Version 1.3.0 is archived at
+DOIs resolve to each release). The GitHub tag is `v1.3.3`. The Zenodo
+deposit for version 1.3.3 contains the Briefings in Bioinformatics submission
+text, the separate supplementary source, the figures, the graphical abstract,
+and the key-points file; the six large prediction and row-cache files are
+unchanged from version 1.1.0. Version 1.3.3 is archived at
+https://doi.org/10.5281/zenodo.24591526 and version 1.3.0 at
 https://doi.org/10.5281/zenodo.24410000.
 
 The archive license is set to CC BY 4.0 in `.zenodo.json` because the deposit
