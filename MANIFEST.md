@@ -1,16 +1,19 @@
 # MANIFEST
 
-Release 1.3.3, 2026-11-27. This file lists what is in the release, where the
+Release 1.3.4, 2026-11-28. This file lists what is in the release, where the
 raw data come from, which files are archived separately, and how to deposit
 the release. `CHECKSUMS.sha256` covers every file in this repository.
-Release 1.3.3 is the Briefings in Bioinformatics submission revision. The
-main text was condensed to 6,855 narrative words with a 248-word abstract
-and rewritten in a neutral register without changing any result, citation,
-figure, or table. The supplementary figure, tables, and notes moved to a
-separate `manuscript/draft_supplementary.tex`; the five key points are part
-of the manuscript; and the funding statement names the National Natural
-Science Foundation of China (Grant No. 12305381). Figures and analysis
-outputs are unchanged from 1.3.2. Release 1.3.2 is a language revision of
+Release 1.3.4 is the version submitted to Briefings in Bioinformatics. The
+main text is 6,996 narrative words with a 247-word abstract, the
+Acknowledgments include an AI/LLM disclosure, and the title page and cover
+letter carry the corresponding-author telephone. No number, citation,
+figure, table, or result changed relative to 1.3.3. Release 1.3.3 condensed
+the main text to 6,855 narrative words with a 248-word abstract and moved
+the supplementary figure, tables, and notes to a separate
+`manuscript/draft_supplementary.tex`; the five key points are part of the
+manuscript; and the funding statement names the National Natural Science
+Foundation of China (Grant No. 12305381). Figures and analysis outputs are
+unchanged from 1.3.2. Release 1.3.2 is a language revision of
 the 1.3.1 submission text. The manuscript was rewritten for readability
 without changing any number, citation, figure, or table. The self-audit
 paragraph, Supplementary Note 2, and `AUDIT_CHECKLIST.md` first appear in
@@ -200,12 +203,13 @@ python scripts/make_graphical_abstract.py
 
 The release is available at https://github.com/zhuzhenghao-max/mixing-vs-selection
 and archived at https://doi.org/10.5281/zenodo.24223291 (concept DOI; version
-DOIs resolve to each release). The GitHub tag is `v1.3.3`. The Zenodo
-deposit for version 1.3.3 contains the Briefings in Bioinformatics submission
-text, the separate supplementary source, the figures, the graphical abstract,
-and the key-points file; the six large prediction and row-cache files are
-unchanged from version 1.1.0. Version 1.3.3 is archived at
-https://doi.org/10.5281/zenodo.24591526 and version 1.3.0 at
+DOIs resolve to each release). The GitHub tag is `v1.3.4`. The Zenodo
+deposit for version 1.3.4 contains the submitted Briefings in Bioinformatics
+manuscript, the separate supplementary source, the figures, the graphical
+abstract, and the key-points file; the six large prediction and row-cache
+files are unchanged from version 1.1.0. Version 1.3.4 is archived at
+https://doi.org/10.5281/zenodo.24618947, version 1.3.3 at
+https://doi.org/10.5281/zenodo.24591526, and version 1.3.0 at
 https://doi.org/10.5281/zenodo.24410000.
 
 The archive license is set to CC BY 4.0 in `.zenodo.json` because the deposit

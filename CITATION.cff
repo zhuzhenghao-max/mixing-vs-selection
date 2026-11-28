@@ -20,8 +20,8 @@ authors:
   - family-names: Cui
     given-names: Di
     affiliation: Heze University, Heze, Shandong, China
-version: 1.3.3
-date-released: 2026-11-27
+version: 1.3.4
+date-released: 2026-11-28
 license: MIT
 keywords:
   - perturbation prediction

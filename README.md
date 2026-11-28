@@ -4,7 +4,7 @@ A leave-one-line-out benchmark and an audit protocol for cross-cell-line perturb
 
 Zhenghao Zhu and Di Cui, Heze University, Heze, Shandong, China
 
-Release 1.3.3 (27 November 2026). Concept DOI:
+Release 1.3.4 (28 November 2026). Concept DOI:
 https://doi.org/10.5281/zenodo.24223291.
 
 ## What this project is
@@ -176,7 +176,8 @@ licenses.
 
 If you use the benchmark, please cite the manuscript and the Zenodo archive.
 The concept DOI https://doi.org/10.5281/zenodo.24223291 always resolves to the
-latest release. Version 1.3.3 is archived at
+latest release. Version 1.3.4 is archived at
+https://doi.org/10.5281/zenodo.24618947, version 1.3.3 at
 https://doi.org/10.5281/zenodo.24591526, version 1.3.0 at
 https://doi.org/10.5281/zenodo.24410000, and version 1.2.1 at
 https://doi.org/10.5281/zenodo.24356413. `CITATION.cff` contains the
